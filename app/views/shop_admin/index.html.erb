@@ -1,0 +1,65 @@
+<h1>チェックパス 登録情報</h1>
+<h3>登録Facebookアカウント情報（編集不可）</h3>
+<table class="shop-info" summary="登録Facebookアカウント情報">
+  <tbody>
+    <tr>
+      <th>登録Facebookアカウント名</th>
+      <td><%= @shop.fbName %></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>登録管理者情報 <span><%= link_to "編集", edit_manager_shop_admin_path %></span></h3>
+<table class="shop-info" summary="登録情報">
+  <tbody>
+    <tr>
+      <th>管理者名</th>
+      <td><%= @shop.manager_name %></td>
+    </th>
+    <tr>
+      <th>管理者連絡先メールアドレス</th>
+      <td><%= @shop.manager_mail %></td>
+    </tr>
+    <tr>
+      <th>管理者電話番号</th>
+      <td><%= @shop.manager_tel %></td>
+    </tr>
+  </tbody>
+</table>
+<br/>
+<% if @shop.checkin_items.nil? || @shop.checkin_items.count == 0 %>
+  <%= link_to 'チェックインアイテムを作成する。', new_item_shop_admin_path %>
+<% else %>
+<table class="item-info" summary="アイテム情報">
+  <tbody>
+    <tr>
+      <th></th>
+      <th>アイテム名</th>
+      <th>QRコード</th>
+      <th>利用状況</th>
+      <th>利用期限</th>
+      <th>チェックイン履歴</th>
+      <th>操作</th>
+      <th></th>
+    </tr>
+
+    <% @shop.checkin_items.each_with_index do |checkin_item,cnt| %>
+    <tr>
+      <td><%=cnt+1%></td>
+      <td><%= checkin_item.item_name %></td>
+      <td><span id="qr<%=cnt%>"</span></td>
+      <td><%= checkin_item.status_message %></td>
+      <td><%= checkin_item.limit_date %></td>
+      <td><%= link_to "#{checkin_item.checkin_logs.count}件", index_checkinlog_shop_admin_path %></td>
+      <td><%= paypal_checkout(checkin_item) %></td>
+      <td><%= link_to "編集", edit_item_shop_admin_path(checkin_item.access_key) %></td>
+      <script>
+        $('#qr<%=cnt%>').qrcode({width: 96,height: 96,text: "<%= @checkin_url + checkin_item.access_key %>"});
+      </script>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+<br/>
+<br/>

@@ -1,0 +1,6 @@
+<div>チェックインログ</div>
+<% unless @shop.checkin_logs.nil? %>
+  <% @shop.checkin_logs.each do |checkin_log| %>
+    <div>利用者名：<%= checkin_log.fbCheckinUserName %>     チェックイン日時：<%= checkin_log.checkin_date %></div>
+  <% end %>
+<% end %>

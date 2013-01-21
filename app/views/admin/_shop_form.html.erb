@@ -1,0 +1,76 @@
+<%= form_for(@shop, :url => {:action => "update_shop"}) do |f| %>
+  <% if @shop.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@shop.errors.count, "error") %> 個の誤りがあります。</h2>
+
+      <ul>
+      <% @shop.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <b>登録者のFacebookID:</b>
+    <%= f.text_field :fbUserId, :value=>@shop.fbUserId, :readonly=>'true' %>
+  </div>
+  <div class="field">
+    <b>利用ショップのFaceBookID：</b>
+    <%= f.text_field :fbShopId , :value=>@shop.fbShopId, :readonly=>'true' %>
+  </div>
+  <div class="field">
+    <b>利用ショップのFaceBook名：</b>
+    <%= f.text_field :fbName , :value=>@shop.fbName %>
+  </div>
+  <div class="field">
+    <b>利用状況：</b>
+    <%= f.select :status, @shop.status_arry_admin, :selected => @shop.status %>
+  </div>
+  <div class="field">
+    <b>利用開始日：</b>
+    <% if @shop.start_date.nil? %>
+      <%= f.date_select :start_date, :include_blank=>true %>
+    <% else %>
+      <%= f.date_select :start_date, :default=>@shop.start_date, :include_blank=>true %>
+    <% end %>
+  </div>
+  <div class="field">
+    <b>支払いを完了した日：</b>
+    <% if @shop.payment_date.nil? %>
+      <%= f.date_select :payment_date, :include_blank=>true %>
+    <% else %>
+      <%= f.date_select :payment_date, :default=>@shop.payment_date, :include_blank=>true %>
+    <% end %>
+  </div>
+  <div class="field">
+    <b>利用期限：</b>
+    <% if @shop.limit_date.nil? %>
+      <%= f.date_select :limit_date, :include_blank=>true %>
+    <% else %>
+      <%= f.date_select :limit_date, :default=>@shop.limit_date, :include_blank=>true %>
+    <% end %>
+  </div>
+  <div class="field">
+    <b>ショップ名：</b>
+    <%= f.text_field :shop_name, :value=>@shop.shop_name, :readonly=>'true' %>
+  </div>
+  <div class="field">
+    <b>管理者名：</b>
+    <%= f.text_field :manager_name , :value=>@shop.manager_name %>
+  </div>
+  <div class="field">
+    <b>連絡先メールアドレス：</b>
+    <%= f.text_field :manager_mail , :value=>@shop.manager_mail %>
+  </div>
+  <div class="field">
+    <b>連絡先電話番号：</b>
+    <%= f.text_field :manager_tel , :value=>@shop.manager_tel %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "更新"%>
+  </div>
+<% end %>
+<div id="result"></div>
+

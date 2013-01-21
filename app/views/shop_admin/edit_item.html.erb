@@ -1,0 +1,32 @@
+<h1>チェックインプレイスの編集</h1>
+<br/>
+登録するチェックインプレイスをFacebookから検索する。
+<%= form_tag(url_for(:action => 'search'), :remote => true, :id => "result_form") do %>
+登録名称で検索する： 名称を入力してください。</br>
+<%= text_field_tag :name,'', :size=>"60" %><%= submit_tag '名称で検索'%><br/><br/>
+<% end %>
+<%= form_tag(url_for(:action => 'search_by_fbid'), :remote => true, :id => "result_form") do %>
+Facebook IDで検索する： FacebookアカウントのID（１２桁数字）を入力して検索してください。</br>
+<%= text_field_tag :id,'', :size=>"60" %><%= submit_tag 'IDで検索'%><br/><br/>
+<% end %>
+<%= form_tag(url_for(:action => 'search_by_fbid'), :remote => true, :id => "result_form") do %>
+Facebook アカウントで検索する： Facebookアカウントの文字列を入力して検索してください。</br>
+<%= text_field_tag :id,'', :size=>"60" %><%= submit_tag 'IDで検索'%><br/><br/>
+<% end %>
+
+
+<%= form_for(@checkin_item, :url => { :action => "update_item", :access_key =>@checkin_item.access_key }) do |f| %>
+
+  <div id="result"></div>
+
+  <div class="field">
+
+  <%= render 'item_form', :f=>f %>
+
+  <div class="actions">
+    <%= f.submit "更新"%>
+  </div>
+<% end %>
+
+
+<%= link_to 'Back', shop_admin_path %>

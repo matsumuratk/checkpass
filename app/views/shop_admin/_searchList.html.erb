@@ -1,0 +1,52 @@
+<% @checkin_url="http://fbapp.evangelize.jp/checkins/place/" %>
+<script type="text/javascript">
+function set_checkin_item(fbName,fbCategory,fbCountry,fbState,fbCity,fbStreet,title,fbCheckinId,fbLink) {
+  $("#fbName").attr("value",fbName);
+  $("#fbCategory").attr("value",fbCategory);
+  $("#fbCountry").attr("value",fbCountry);
+  $("#fbState").attr("value",fbState);
+  $("#fbCity").attr("value",fbCity);
+  $("#fbStreet").attr("value",fbStreet);
+  $("#title").attr("value",title);
+  $("#fbCheckinId").attr("value",fbCheckinId);
+  $("#fbLink").attr("value",fbLink);  
+  return false;
+}
+</script>
+<div>
+  <table border="1" height="100">
+    <tr>
+      <th class="name">Name</th>
+      <th class="category">Category</th>
+      <th class="country">Country</th>
+      <th class="state">State</th>
+      <th class="city">City</th>
+      <th class="street">Street</th>
+      <th class="checkinQr">Checkin QR</th>
+      <th class="link">link</th>
+      <th class="save"></th>
+    </tr>
+
+    <% @places.each_with_index do |place, cnt| %>
+    <tr>
+      <td class="name"><%=h place.name %></td>
+      <td class="category"><%=h place.category %></td>
+      <td class="country"><%=h place.country %></td>
+      <td class="state"><%=h place.state %></td>
+      <td class="city"><%=h place.city %></td>
+      <td class="street"><%=h place.street %></td>
+      <td class="id"><div id="qr<%=cnt %>"></div><%= place.id %></td>
+      <td class="link"><%= link_to "#{place.link}","#{place.link}", :target=>'_blank' %></td>
+      <td class="save">
+      <%= form_tag 'create', :onsubmit=>"set_checkin_item('#{place.name}','#{place.category}','#{place.country}','#{place.state}','#{place.city}','#{place.street}','#{place.name}','#{place.id}','#{place.link}');return false;" do |f| %>
+        <%= submit_tag '選択' %>
+      <% end %>
+      </td>
+      <script>
+        jQuery('#qr<%=cnt%>').qrcode({width: 32,height: 32,text: "<%=@checkin_url%><%= place.id %>"});
+      </script>
+    </tr>
+    <% end %>
+
+  </table>
+</div>

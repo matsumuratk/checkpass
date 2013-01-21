@@ -1,0 +1,30 @@
+
+<div id="page_top">
+<% case @checkin_item.top_image_select
+  when 1 %>
+<%= image_tag(@checkin_item.top_image, :style =>"width:100%; max-width:680px;")  %>
+<% when 2 %>
+<%= @checkin_item.top_message %>
+<% end %>
+</div>
+ <p><%=h @user_name %>さん、こんにちは</p><br/>
+ <h1><%=h @checkin_item.title %><br/>にチェックインします。</h1>
+
+<div id="page_middle">
+<% case @checkin_item.middle_image_select
+  when 1 %>
+<%= image_tag(@checkin_item.middle_image, :style =>"width:100%; max-width:680px;") if @checkin_item.middle_image? %>
+<% when 2 %>
+<%= @checkin_item.middle_message %>
+<% end %>
+</div>
+
+
+<div id='bottom'>
+<%= form_tag :action => "docheckin" do %>
+<%= hidden_field :checkin, :access_key, :value=>@checkin_item.access_key %>
+<div><%= @checkin_item.comment_title %></div>
+	<p><%= text_field :checkin, :message %></p><br/>
+	<p><%= submit_tag "チェックイン" %></p>
+<% end %>
+</div>

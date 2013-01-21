@@ -1,0 +1,5 @@
+<% unless @error.nil? %>
+$('#result').html("<%= escape_javascript(@error)%>");
+<% else %>
+$('#result').html("<%= escape_javascript(render :partial => 'searchList' )%>");
+<% end %>

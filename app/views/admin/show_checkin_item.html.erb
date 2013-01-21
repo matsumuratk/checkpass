@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<div>選択したFacebookプレイス情報</div>
+
+<div>Name:<%= @checkin_item.fbName %></div>
+<div>Category:<%= @checkin_item.fbCategory %></div>
+<div>Country:<%= @checkin_item.fbCountry %></div>
+<div>State:<%= @checkin_item.fbState %>
+<div>City:<%= @checkin_item.fbCity %></div>
+<div>Street:<%= @checkin_item.fbStreet %></div>
+<div>CheckinId:<%= @checkin_item.fbCheckinId %></div>
+<div>Link:<%= @checkin_item.fbCheckinId %></div>
+<br/>
+<br/>
+<div>チェックインクーポン情報</div>
+<div>アイテム名: <%= @checkin_item.title %></div>
+<div>店舗画像:
+<%= image_tag @checkin_item.top_image_url if @checkin_item.top_image_select == 1 && @checkin_item.top_image? %>
+<%= @checkin_item.top_image_text if @checkin_item.top_image_select == 2 %>
+</div>
+
+<div>チェックインメッセージ画像:
+<%= image_tag @checkin_item.middle_image_url if @checkin_item.middle_image_select == 1 && @checkin_item.middle_image? %>
+<%= @checkin_item.middle_image_text if @checkin_item.middle_image_select == 2 %>
+</div>
+
+<div>クーポン画像：
+<%= image_tag @checkin_item.coupon_image_url if @checkin_item.coupon_image_select == 1 && @checkin_item.coupon_image? %>
+<%= @checkin_item.coupon_image_text if @checkin_item.coupon_image_select == 2 %>
+</div>
+
+<div>完了メッセージ:<%= @checkin_item.comment_message %></div>
+<br/>
+<div>ウォール書き込み Message：<%= @checkin_item.wall_message %></div>
+<div>ウォール書き込み Name：<%= @checkin_item.wall_name %></div>
+<div>ウォール書き込み Link：<%= @checkin_item.wall_link %></div>
+<div>ウォール書き込み Caption：<%= @checkin_item.wall_caption %></div>
+<div>ウォール書き込み Description：<%= @checkin_item.wall_description %></div>
+<div>ウォール書き込み 画像（省略の場合は、クーポン画像)：<%= @checkin_item.wall_picture %></div>

@@ -1,0 +1,29 @@
+<h1>Listing checkin_logs</h1>
+
+<table>
+  <tr>
+    <th>チェックイン日時</th>
+    <th>タイトル</th>
+    <th>アイテム管理者</th>
+    <th>チェックインユーザーID</th>
+    <th>チェックインユーザー名</th>
+  </tr>
+
+<% @checkin_logs.each do |checkin_log| %>
+  <tr>
+    <td><%= checkin_log.checkin_date %></td>
+    <td><%= checkin_log.title %></td>
+    <td><%= checkin_log.shop.fbName %></td>
+    <td><%= checkin_log.fbCheckinUserId %></td>
+    <td><%= checkin_log.fbCheckinUserName %></td>
+  </tr>
+<% end %>
+</table>
+
+
+<br />
+<%= link_to 'トップ', admin_path %>
+<br/>
+<%= link_to 'Back', request.referer %>
+
+

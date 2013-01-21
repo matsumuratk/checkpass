@@ -1,0 +1,2 @@
+module CheckinItemsHelper
+end

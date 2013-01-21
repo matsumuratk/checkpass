@@ -1,0 +1,71 @@
+
+  <div class="field">
+    <br/>
+    <div>支払い情報</div>
+    <div class="field">
+      <b>利用状況：</b>
+      <%= f.select :status, @checkin_item.status_arry_admin, :selected => @checkin_item.status %>
+    </div>
+    <div class="field">
+      <b>利用開始日：</b>
+      <% if @checkin_item.start_date.nil? %>
+        <%= f.date_select :start_date, :include_blank=>true %>
+      <% else %>
+        <%= f.date_select :start_date, :default=>@checkin_item.start_date, :include_blank=>true %>
+      <% end %>
+    </div>
+    <div class="field">
+      <b>支払いを完了した日：</b>
+      <% if @checkin_item.payment_date.nil? %>
+      <%= f.date_select :payment_date, :include_blank=>true %>
+    <% else %>
+      <%= f.date_select :payment_date, :default=>@checkin_item.payment_date, :include_blank=>true %>
+    <% end %>
+  </div>
+  <div class="field">
+    <b>利用期限：</b>
+    <% if @checkin_item.limit_date.nil? %>
+      <%= f.date_select :limit_date, :include_blank=>true %>
+    <% else %>
+      <%= f.date_select :limit_date, :default=>@checkin_item.limit_date, :include_blank=>true %>
+    <% end %>
+  </div>
+
+    <br/>
+    <div>選択したFacebookプレイス情報</div>
+    <div>Name<%= f.text_field :fbName, :id=>'fbName', :size=>60, :readonly=>'true' %></div>
+    <div>Category<%= f.text_field :fbCategory, :id=>'fbCategory', :size=>60, :readonly=>'true' %></div>
+    <div>Country<%= f.text_field :fbCountry, :id=>'fbCountry', :size=>60, :readonly=>'true' %></div>
+    <div>State<%= f.text_field :fbState, :id=>'fbState', :size=>60, :readonly=>'true' %>
+    <div>City<%= f.text_field :fbCity, :id=>'fbCity', :size=>60, :readonly=>'true' %></div>
+    <div>Street<%= f.text_field :fbStreet, :id=>'fbStreet', :size=>60, :readonly=>'true' %></div>
+    <div>Title<%= f.text_field :title, :id=>'title', :size=>60, :readonly=>'true' %></div>
+    <div>CheckinId<%= f.text_field :fbCheckinId, :id=>'fbCheckinId', :size=>60, :readonly=>'true' %></div>
+    <div>Link<%= f.text_field :fbCheckinId, :id=>'fbLink', :size=>60, :readonly=>'true' %></div>
+    <br/>
+    <br/>
+    <div>チェックインクーポン情報</div>
+    <div>アイテム名 <%= f.text_field :title %></div>
+    <div>画像１：店舗画像<%= f.file_field :top_image %></div>
+    <div>画像１：店舗メッセージ<%= f.text_field :top_image_text %></div>
+    <div><%= f.select :top_image_select,{"画像を使う"=>"1","テキストを使う"=>"2"} %>
+    <br/>
+    <div>画像２：チェックインメッセージ画像<%= f.file_field :middle_image %></div>
+    <div>画像２：チェックインメッセージテキスト<%= f.text_field :middle_image_text %></div>
+    <div><%= f.select :middle_image_select,{"画像を使う"=>"1","テキストを使う"=>"2"} %>
+    <div>チェックインコメントタイトル：<%= f.text_field  :comment_title %></div>
+    <br/>
+    <div>クーポン画像：<%= f.file_field :coupon_image %></div>
+    <div>クーポンテキスト：<%= f.text_field :coupon_image_text %></div>
+    <div><%= f.select :coupon_image_select,{"画像を使う"=>"1","テキストを使う"=>"2"} %>
+    <br/>
+    <div>完了メッセージ<%= f.text_field  :comment_message %></div>
+    <br/>
+    <div>ウォール書き込み Message：<%= f.text_field  :wall_message %>
+    <div>ウォール書き込み Name：<%= f.text_field  :wall_name %>
+    <div>ウォール書き込み Link：<%= f.text_field  :wall_link %>
+    <div>ウォール書き込み Caption：<%= f.text_field  :wall_caption %>
+    <div>ウォール書き込み Description：<%= f.text_field  :wall_description %>
+    <div>ウォール書き込み 画像（省略の場合は、クーポン画像)：<%= f.file_field  :wall_picture %>
+  </div>
+

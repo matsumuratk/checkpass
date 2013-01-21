@@ -1,0 +1,15 @@
+<p><%= h @checkin_item.title %>にチェックインしました。</p>
+
+<div id="coupon">
+<% case @checkin_item.coupon_image_select
+  when 1 %>
+<%= image_tag(@checkin_item.coupon_image, :style =>"width:100%; max-width:680px;") if @checkin_item.coupon_image? %>
+<% when 2 %>
+<%= @checkin_item.coupon_image_text %>
+<% end %>
+
+<br/>
+<%= h @checkin_item.comment_message %><br/>
+
+
+

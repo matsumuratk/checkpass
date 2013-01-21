@@ -1,0 +1,44 @@
+# config/facebook.yml
+development:
+  user_app_id: "379598505465594"
+  user_secret_key: "7f3c3bdc5a24fa889aa7d97d3e67e531"
+  user_permissions: "publish_stream,read_friendlists,user_checkins,publish_checkins"
+  shopadmin_app_id: "579673838716364"
+  shopadmin_secret_key: "34a54e137ed8ab478fbdedec6a73364e"
+  shopadmin_permissions: ""
+  admin_app_id: "579673838716364"
+  admin_secret_key: "34a54e137ed8ab478fbdedec6a73364e"
+  admin_permissions: ""
+  base_url: "http://localhost:3000"
+  callback_url: "http://localhost:3000/commons/callback"
+  checkin_url: "http://locaohost:3000/checkin/place/"
+
+test:
+  user_app_id: "496472717041047"
+  user_secret_key: "b909fd5dc308049116fba50daaaba9d0"
+  user_permissions: "publish_stream,read_friendlists,user_checkins,publish_checkins"
+  shopadmin_app_id: "531609646863364"
+  shopadmin_secret_key: "28c32d3d7d996e4657c2dc7bd7103cfb"
+  shopadmin_permissions: ""
+  admin_app_id: "531609646863364"
+  admin_secret_key: "28c32d3d7d996e4657c2dc7bd7103cfb"
+  admin_permissions: ""
+  base_url: "http://checkpass.evangelize.jp"
+  callback_url: "http://checkpass.evangelize.jp/commons/callback"
+  checkin_url: "http://checkpass.evangelize.jp/checkin/place/"
+
+production:
+  user_app_id: "496472717041047"
+  user_secret_key: "b909fd5dc308049116fba50daaaba9d0"
+  user_permissions: "publish_stream,read_friendlists,user_checkins,publish_checkins"
+  shopadmin_app_id: "531609646863364"
+  shopadmin_secret_key: "28c32d3d7d996e4657c2dc7bd7103cfb"
+  shopadmin_permissions: ""
+  admin_app_id: "531609646863364"
+  admin_secret_key: "28c32d3d7d996e4657c2dc7bd7103cfb"
+  admin_permissions: ""
+  base_url: "http://checkpass.evangelize.jp"
+  callback_url: "http://checkpass.evangelize.jp/commons/callback"
+  checkin_url: "http://checkpass.evangelize.jp/checkin/place/"
+
+

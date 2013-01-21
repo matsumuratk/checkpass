@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  access_key: MyString
+  title: MyString
+  fbShopid: MyString
+  fbCheckinid: MyString
+  fbName: MyString
+  fbCategory: MyString
+  fbCountry: MyString
+  fbState: MyString
+  fbCity: MyString
+  fbStreet: MyString
+  top_image: 
+  middle_image: 
+  coupon_image: 
+  comment_title: MyString
+  coupon_message: MyString
+
+two:
+  access_key: MyString
+  title: MyString
+  fbShopid: MyString
+  fbCheckinid: MyString
+  fbName: MyString
+  fbCategory: MyString
+  fbCountry: MyString
+  fbState: MyString
+  fbCity: MyString
+  fbStreet: MyString
+  top_image: 
+  middle_image: 
+  coupon_image: 
+  comment_title: MyString
+  coupon_message: MyString

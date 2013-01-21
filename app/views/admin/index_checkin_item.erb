@@ -1,0 +1,39 @@
+<h1>Listing checkin_items</h1>
+
+<table>
+  <tr>
+    <th>登録者のFaceBook名</th>
+    <th>タイトル</th>
+    <th>アイテムのFacebook名</th>
+    <th>FacebookチェックインID</th>
+    <th>QRコード</th>
+    <th>利用状況</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @checkin_items.each_with_index do |checkin_item, cnt| %>
+  <tr>
+    <td><%= checkin_item.shop.fbName %></td>
+    <td><%= checkin_item.title %></td>
+    <td><%= checkin_item.fbName %></td>
+    <td><%= checkin_item.fbCheckinId %></td>
+    <td><div id="qr<%=cnt%>"></div><%= "#{Facebook::CHECKIN_URL}#{checkin_item.access_key}" %></td>
+<script>
+jQuery('#qr<%=cnt%>').qrcode({width: 48,height: 48,text: "<%="#{Facebook::CHECKIN_URL}#{checkin_item.access_key}"%>"});
+</script>
+    <td><%= checkin_item.status_message_admin %></td>
+    <td><%= link_to 'Show', show_checkin_item_admin_path(checkin_item.access_key) %></td>
+    <td><%= link_to 'Edit', edit_checkin_item_admin_path(checkin_item.access_key) %></td>
+  </tr>
+<% end %>
+</table>
+
+
+<br />
+<%= link_to 'チェックインアイテム作成', new_checkin_item_admin_path %><br/>
+<%= link_to 'トップ', admin_path %>
+<br/>
+<%= link_to 'Back', request.referer %>
+
+

@@ -1,0 +1,24 @@
+<%= form_for(@shop, :url => {:action => "update_manager"}) do |f| %>
+  <% if @shop.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@shop.errors.count, "error") %> 個の誤りがあります。</h2>
+
+      <ul>
+      <% @shop.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <div>管理者名： <%= f.text_field :manager_name %></div><br />
+    <div>連絡先メールアドレス： <%= f.text_field :manager_mail %></div><br/>
+    <div>連絡先電話番号： <%= f.text_field :manager_tel %></div><br/>
+  </div>
+  <div class="actions">
+    <%= f.submit "更新"%>
+  </div>
+<% end %>
+<div id="result"></div>
+

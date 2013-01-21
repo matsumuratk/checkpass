@@ -1,0 +1,27 @@
+<h1>Editing item</h1>
+チェックインプレイスを編集する。
+<br/>
+<%= form_tag(url_for(:controller => 'shop_admin', :action => 'search'), :remote => true, :id => "result_form") do %>
+  名称で検索<%= text_field_tag :name,'', :size=>"60" %><%= submit_tag %><br/><br/>
+<% end %>
+<br/><br/>
+<%= form_tag(url_for(:controller => 'shop_admin', :action => 'search_by_fbid'), :remote => true, :id => "result_form") do %>
+  IDで検索<%= text_field_tag :id,'', :size=>"60" %><%= submit_tag %><br/><br/>
+<% end %>
+
+
+<%= form_for(@checkin_item, :url => { :action => "update_checkin_item", :access_key =>@checkin_item.access_key }) do |f| %>
+
+  <div id="result"></div>
+
+  <div class="field">
+
+  <%= render 'item_form', :f=>f %>
+
+  <div class="actions">
+    <%= f.submit "更新"%>
+  </div>
+<% end %>
+
+
+<%= link_to 'Back', admin_path %>

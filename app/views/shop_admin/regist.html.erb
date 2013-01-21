@@ -1,0 +1,28 @@
+<h1>利用登録</h1>
+<p>Find me in app/views/shops_controller/regist.html.erb</p>
+<br/>
+<%= form_tag(url_for(:action => 'doregist'), :id => "regist_form") do %>
+  <% if @shop.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@shop.errors.count, "error") %> prohibited this shop from being saved:</h2>
+
+      <ul>
+      <% @shop.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+表示ショップ名<%= text_field :shop, :shop_name, :size=>"60" %><br/><br/>
+管理者名（※必須）<%= text_field :shop, :manager_name, :size=>"60" %><br/><br/>
+管理者メールアドレス（※必須）<%= text_field :shop, :manager_mail, :size=>"60" %><br/><br/>
+管理者電話番号（※必須）<%= text_field :shop, :manager_tel, :size=>"60" %><br/><br/>
+<br/>
+<br/>
+利用規約<br/>
+あれこれあれこれ<br/>
+<br/>
+<%= submit_tag "利用開始" %>
+
+<% end %>

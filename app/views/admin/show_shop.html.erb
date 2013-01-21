@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>登録者のFacebookID:</b>
+  <%= @shop.fbUserId %>
+</p>
+<p>
+  <b>利用ショップのFaceBookID：</b>
+  <%= @shop.fbShopId %>
+</p>
+<p>
+  <b>利用ショップのFaceBook名：</b>
+  <%= @shop.fbName %>
+</p>
+  <b>ショップ名：</b>
+  <%= @shop.shop_name %>
+</p>
+<p>
+  <b>管理者名：</b>
+  <%= @shop.manager_name %>
+</p>
+<p>
+  <b>連絡先メールアドレス：</b>
+  <%= @shop.manager_mail %>
+</p>
+<p>
+  <b>連絡先電話番号：</b>
+  <%= @shop.manager_tel %>
+</p>
+
+<%= link_to 'Edit', edit_shop_admin_path(@shop.fbUserId) %> |
+<%= link_to 'Back', admin_path %>
