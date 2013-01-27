@@ -97,7 +97,6 @@ class ShopAdminController < ShopAdminApplicationController
   #チェックインアイテム新規作成
   def create_item
     @checkin_item = @myShop.checkin_items.build(params[:checkin_item])
-    @checkin_item.create_datetime = Time.now.to_s(:db)
 
   respond_to do |format|
     if @checkin_item.save
@@ -213,6 +212,14 @@ Rails.logger.debug("search_by_fbid:@places=#{@places}")
       format.js { render :layout => false }
     end
 
+  end
+
+  #プレビュー画面 place
+  def preview_place
+    @checkin_item = CheckinItem.find_by_access_key("xVidW1")
+    respond_to do |format|
+      format.html {render :layout=>'checkin'}
+    end
   end
 
 end

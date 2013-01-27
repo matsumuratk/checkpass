@@ -27,6 +27,7 @@ class ApplicationController < ActionController::Base
     else
       begin
         @graph = Koala::Facebook::GraphAPI.new(session[:access_token])
+# Rails.logger.debug "check_logined:graph=#{@graph.dump}"
         session[:fbprofile] = @graph.get_object("me",{:locale=>"ja_JP"})
         @fbProfile = session[:fbprofile]
         @myFbUserId = session[:fbprofile]['id']        

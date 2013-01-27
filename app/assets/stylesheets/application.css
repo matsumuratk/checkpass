@@ -11,3 +11,8 @@
  *= require_self
  *= require_directory .
  */
+
+.main {
+	margin-left: 5px;
+}
+

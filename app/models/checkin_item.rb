@@ -66,6 +66,11 @@ class CheckinItem < ActiveRecord::Base
   INVALID = 8
   LEAVE = 9
 
+  #コールバック
+  before_create do |record|
+    record.create_datetime = Time.now.to_s(:db)
+  end
+
   #ステータスメッセージ
   def status_message
     case self.status
