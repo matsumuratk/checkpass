@@ -77,6 +77,10 @@ header p {
 
 /*---------- コンテンツ ----------*/
 
+textarea {
+	width: 90%
+}
+
 article {
   width: 100%;
   margin: 0 0 8px 0;
@@ -330,3 +334,5 @@ p.text {
   width: 150px;
   padding: 10px 0;
 }
+
+

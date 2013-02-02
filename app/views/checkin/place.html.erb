@@ -28,11 +28,21 @@
 <%= hidden_field :checkin, :access_key, :value=>@checkin_item.access_key %>
 <div><p class="tCenter tBottom"><%= @checkin_item.comment_title %></p></div>
 <br/>
-<div class="taCenter"><%= text_area :checkin, :message, :size=>"50x3" %></div>
+<div><p class="tCenter tBottom">チェックインメッセージ</p></div>
+<div class="taCenter">
+<ul style="margin: 0 auto;"><li>
+<%= text_area :checkin, :message, :size=>"50x3" %></div>
+</li></ul>
 <br/>
-</br>
+<br/>
+
+<!--
 <a href="#" onclick="document.checkin.submit();"><p class="iCenter btn">チェックイン</p></a>
+-->
+<p class="tCenter"><%= image_submit_tag("/img/checkin.png")%></p>
 <% end %>
 </div>
 <br/>
 <br/>
+
+

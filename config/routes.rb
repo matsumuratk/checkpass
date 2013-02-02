@@ -47,6 +47,9 @@ Checkpass::Application.routes.draw do
   match "shop_admin/paypal_cancel", :to => 'shop_admin#paypal_cancel'
   match 'shop_admin/search', :to => 'shop_admin#search'
   match 'shop_admin/search_by_fbid', :to => 'shop_admin#search_by_fbid'
+  match 'shop_admin/preview_place/:access_key', :to => 'shop_admin#preview_place', :as => 'preview_place_shop_admin'
+  match 'shop_admin/preview_docheckin/:access_key', :to => 'shop_admin#preview_docheckin', :as => 'preview_docheckin_shop_admin'
+
 
 
   #管理者機能

@@ -218,8 +218,17 @@ Rails.logger.debug("search_by_fbid:@places=#{@places}")
   def preview_place
     @checkin_item = CheckinItem.find_by_access_key("xVidW1")
     respond_to do |format|
-      format.html {render :layout=>'checkin'}
+      format.html {render :template=>'checkin/place', :layout=>'checkin'}
     end
   end
+
+  #プレビュー画面 docheckin
+  def preview_docheckin
+    @checkin_item = CheckinItem.find_by_access_key("xVidW1")
+    respond_to do |format|
+      format.html {render :template=>'checkin/docheckin', :layout=>'checkin'}
+    end
+  end
+
 
 end
