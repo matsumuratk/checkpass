@@ -1,14 +1,7 @@
-<div>支払い
 <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
 <input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="<%= access_key %>">
+<input type="hidden" name="hosted_button_id" value="<%= checkin_item.access_key %>">
 <input type="hidden" name="on0" value="aaa">
 <input type="image" src="https://www.sandbox.paypal.com/ja_JP/JP/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal - オンラインでより安全・簡単にお支払い">
 <img alt="" border="0" src="https://www.sandbox.paypal.com/ja_JP/i/scr/pixel.gif" width="1" height="1">
 </form>
-</div>
-<br/>
-<div>解約
-<A HREF="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=DUHM4A8JY74HY">
-<IMG SRC="https://www.sandbox.paypal.com/ja_JP/JP/i/btn/btn_unsubscribe_SM.gif" BORDER="0">
-</A>

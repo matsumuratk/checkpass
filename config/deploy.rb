@@ -1,6 +1,8 @@
 require "bundler/capistrano"
 require 'capistrano/ext/multistage'
 
+ssh_options[:keys] = %w('/c/Users/taku/.ssh/id_dsa')
+
 set :application, "Checkpass"
 set :repository,  "ssh://git@fbapp.evangelize.jp:1022/home/git/repositories/checkpass.git"
 
