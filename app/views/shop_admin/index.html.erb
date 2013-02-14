@@ -47,7 +47,7 @@
     <tr>
       <td><%=cnt+1%></td>
       <td><%= checkin_item.item_name %></td>
-      <td><span id="qr<%=cnt%>"</span></td>
+      <td><p id="qr<%=cnt%>"</p><br/><%= @checkin_url + checkin_item.access_key%></td>
       <td><%= checkin_item.status_message %></td>
       <td><%= checkin_item.limit_date %></td>
       <td><%= link_to "#{checkin_item.checkin_logs.count}件", index_checkinlog_shop_admin_path %></td>
