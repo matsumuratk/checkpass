@@ -41,7 +41,7 @@ Checkpass::Application.routes.draw do
   match "shop_admin/create_item", :to => 'shop_admin#create_item', :as => 'create_item_shop_admin'
   match "shop_admin/edit_item/:access_key", :to => 'shop_admin#edit_item', :as => 'edit_item_shop_admin'
   match "shop_admin/update_item/:access_key", :to => 'shop_admin#update_item', :as => 'update_item_shop_admin'
-  match "shop_admin/delete/:access_key", :to => 'shop_admin#destroy_item', :as => 'destroy_item_shop_admin'
+  match "shop_admin/destroy/:access_key", :to => 'shop_admin#destroy_item', :as => 'destroy_item_shop_admin'
   match "shop_admin/paypal_checkout", :to => 'shop_admin#paypal_checkout'
   match "shop_admin/paypal_notify", :to => 'shop_admin#paypal_notify'
   match "shop_admin/paypal_cancel", :to => 'shop_admin#paypal_cancel'

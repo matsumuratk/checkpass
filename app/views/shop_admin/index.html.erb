@@ -27,9 +27,9 @@
   </tbody>
 </table>
 <br/>
-<% if @shop.checkin_items.nil? || @shop.checkin_items.count == 0 %>
+<% #if @shop.checkin_items.nil? || @shop.checkin_items.count == 0 %>
   <%= link_to 'チェックインアイテムを作成する。', new_item_shop_admin_path %>
-<% else %>
+<% #else %>
 <table class="item-info" summary="アイテム情報">
   <tbody>
     <tr>
@@ -52,7 +52,10 @@
       <td><%= checkin_item.limit_date %></td>
       <td><%= link_to "#{checkin_item.checkin_logs.count}件", index_checkinlog_shop_admin_path %></td>
       <td><%= paypal_checkout(checkin_item) %></td>
-      <td><%= link_to "編集", edit_item_shop_admin_path(checkin_item.access_key) %></td>
+      <td><%= link_to "編集", edit_item_shop_admin_path(checkin_item.access_key) %>
+          <br/>
+          <%= link_to "削除", destroy_item_shop_admin_path(checkin_item.access_key) %>
+      </td>
       <script>
         $('#qr<%=cnt%>').qrcode({width: 96,height: 96,text: "<%= @checkin_url + checkin_item.access_key %>"});
       </script>
@@ -60,6 +63,6 @@
     <% end %>
   </tbody>
 </table>
-<% end %>
+<% #end %>
 <br/>
 <br/>

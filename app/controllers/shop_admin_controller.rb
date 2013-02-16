@@ -150,7 +150,7 @@ class ShopAdminController < ShopAdminApplicationController
 
   end
 
-
+  #paypalコールバック処理
   def paypal_notify
     Rails.logger.info(params)
     @paras = params
@@ -159,6 +159,7 @@ class ShopAdminController < ShopAdminApplicationController
     end
   end
 
+  #paypal購読完了処理
   def paypal_checkout
     Rails.logger.info(params)
     @paras = params
@@ -167,6 +168,7 @@ class ShopAdminController < ShopAdminApplicationController
     end
   end
 
+  #paypal解約完了処理
   def paypal_cancel
     Rails.logger.info(params)
     @paras = params
@@ -230,5 +232,9 @@ Rails.logger.debug("search_by_fbid:@places=#{@places}")
     end
   end
 
+  #プレビュー画面　Facebook投稿
+  def preview_facebook  
 
+  end
+  
 end
