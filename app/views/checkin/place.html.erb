@@ -5,7 +5,7 @@
   when 1 %>
 <%= image_tag(@checkin_item.top_image, :style =>"width:100%; max-width:680px;")  %>
 <% when 2 %>
-<%= @checkin_item.top_message %>
+<%= @checkin_item.top_image_text %>
 <% end %>
 </p>
 </div>
@@ -17,7 +17,7 @@
   when 1 %>
 <%= image_tag(@checkin_item.middle_image, :style =>"width:100%; max-width:680px;") if @checkin_item.middle_image? %>
 <% when 2 %>
-<%= @checkin_item.middle_message %>
+<%= @checkin_item.middle_image_text %>
 <% end %>
 </p>
 </div>
