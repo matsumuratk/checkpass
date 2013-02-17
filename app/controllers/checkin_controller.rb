@@ -34,7 +34,7 @@ class CheckinController < CheckinApplicationController
         case @checkin_item.status
         when CheckinItem::REGIST, CheckinItem::INVALID, CheckinItem::LEAVE
         #利用不可。キャンペーン終了を提示
-        Rails.logger.debug("place:checkin_item.statusエラー :status = #{checkin_item.status}")
+        Rails.logger.debug("place:checkin_item.statusエラー :status = #{@checkin_item.status}")
           format.html {render :action => :place_end_campaign}
 
         when CheckinItem::PRE_AVAILABLE, CheckinItem::AVAILABLE, CheckinItem::LAST1MONTH

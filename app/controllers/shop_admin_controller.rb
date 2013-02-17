@@ -1,7 +1,6 @@
 # coding: utf-8
 
 class ShopAdminController < ShopAdminApplicationController
-#class ShopAdminController < ApplicationController
 
   ## 店舗機能
   #初期画面
@@ -177,6 +176,45 @@ class ShopAdminController < ShopAdminApplicationController
     end
   end
 
+  #debug用　paypal購読完了処理
+  def ajax_paypal_checkout_debug
+    #productionモードでは無効にする
+    return false if Rails.env == "production"
+
+    #statusをAVAILABLEに更新
+    checkin_item = @myShop.checkin_items.find_by_access_key(params[:access_key])
+    checkin_item.status = CheckinItem::AVAILABLE
+    checkin_item.start_date = Date.now
+    checkin_item.payment_date = Date.now
+    checkin_item.limit_date = Date.now << 12
+
+    #支払いログの追加
+    #payed_log = PayedLog.new(fbShop
+  
+    notice = checkin_item.save? "checkout done" | "checkout NG"
+    respond_to |format|
+      format.html { redirect_to :action=>'index', :notice=>notice }
+      format.json
+    end
+  end
+  
+  #debug用　paypal解約処理
+  def paypal_cancel_debug
+    #productionモードでは無効にする
+    return false if Rails.env == "production"
+
+    checkin_item = @myShop.checkin_items.find_by_access_key(params[:access_key])
+    checkin_item.status = CheckinItem::INVALID
+    checkin_item.start_date = Date.now
+    checkin_item.payment_date = nil
+    checkin_item.limit_date = nil
+
+    notice = checkin_item.save? "checkout done" | "checkout NG"
+    respond_to |format|
+      format.html { redirect_to :action=>'index', :notice=>notice }
+      format.json
+    end
+  end
 
   #AJAX search
   #placeの検索
