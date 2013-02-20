@@ -1,20 +1,28 @@
+<div data-role="page" data-theme="a">
+<div data-role="content" data-theme="a">
+ <span class="tCenter"><h1><%= @checkin_item.title %></h1></span>
+ <p class="tCenter">にチェックインしました。</p>
 
-<h2 class="tCenter"><%= h @checkin_item.title %>にチェックインしました。</h2>
+ <div id="coupon">
+  <% case @checkin_item.coupon_image_select
+     when 1 %>
+  <%= image_tag(@checkin_item.coupon_image, :style =>"width:100%; max-width:680px;") if @checkin_item.coupon_image? %>
+  <% when 2 %>
+  <div id="coupon_message">
+   <h2><%= @checkin_item.coupon_image_text.html_safe %></h2>
+  </div>
+  <% end %>
+ </div>
+ <br/>
+ <div id="comennt_message">
+  <%= @checkin_item.comment_message.html_safe %>
+ </div>
+ <br/>
 
-<div id="coupon">
-<p class="tCenter">
-<% case @checkin_item.coupon_image_select
-  when 1 %>
-<%= image_tag(@checkin_item.coupon_image, :style =>"width:100%; max-width:680px;") if @checkin_item.coupon_image? %>
-<% when 2 %>
-<%= @checkin_item.coupon_image_text %>
-<% end %>
-</p>
-<br/>
-<h2 class="tCenter"><%= h @checkin_item.comment_message %></h2>
-<br/>
-<p class="tCenter">お店のFacebookページにも”いいね”してください</p>
-<br/>
-<a href="http://www.facebook.com/<%=@checkin_item.fbUserId%>"><p class="iCenter btn">Facebookページへ</p></a>
-<br/>
+ <p>お店のFacebookページにも”いいね”してください</p>
+ <a href="http://www.facebook.com/<%=@checkin_item.fbUserId%>" data-role="button" data-theme="a" data-icon="star">Facebookページへ</a>
 
+</div>
+<div data-role="footer">
+</div>
+</div>

@@ -5,11 +5,14 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Checkpass</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= stylesheet_link_tag    "Bootstrap.css" %>
-  <%= stylesheet_link_tag    "http://code.jquery.com/mobile/1.2.0/jquery.mobile.structure-1.2.0.min.css" %>
-  <%= stylesheet_link_tag    "jqm-icon-pack-1.1.1-fa.css" %>
-  <%= javascript_include_tag "http://code.jquery.com/jquery-1.8.2.min.js" %>
+   <%= javascript_include_tag "http://code.jquery.com/jquery-1.8.2.min.js" %>
   <%= javascript_include_tag "http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js" %>
+<!-- controller = <%= params[:controller] %> -->
+<!-- params = <%= params %> -->
+  <%= stylesheet_link_tag    params[:controller], :media => "all" %>
+  <%= stylesheet_link_tag    "http://code.jquery.com/mobile/1.2.0/jquery.mobile.structure-1.2.0.min.css" %>
+ <%= javascript_include_tag params[:controller] %>
+
   <%= csrf_meta_tags %>
 </head>
 <body>

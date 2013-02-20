@@ -26,7 +26,11 @@ Checkpass::Application.routes.draw do
   #ユーザー機能
   match 'checkin/place/:access_key', :to => 'checkin#place'
   match 'checkin/docheckin', :to => 'checkin#docheckin'
-
+  match 'checkin/preview_place/:access_key', :to => 'checkin#preview_place'
+  match 'checkin/preview_docheckin/:access_key', :to => 'checkin#preview_docheckin'
+  match 'checkin/preview_docheckin/:access_key', :to => 'checkin#preview_docheckin'
+  match 'checkin/preview_facebook/:access_key', :to => 'checkin#preview_facebook'  
+  
   #店舗管理機能
   match "shop_admin/", :to => 'shop_admin#index', :as => 'shop_admin', :defaults => {:render=>'index'}
   match "shop_admin/noregist", :to => 'shop_admin#noregist', :as => 'noregist_shop_admin'
@@ -49,9 +53,6 @@ Checkpass::Application.routes.draw do
 
   match 'shop_admin/search', :to => 'shop_admin#search'
   match 'shop_admin/search_by_fbid', :to => 'shop_admin#search_by_fbid'
-
-  match 'shop_admin/preview_place/:access_key', :to => 'shop_admin#preview_place', :as => 'preview_place_shop_admin'
-  match 'shop_admin/preview_docheckin/:access_key', :to => 'shop_admin#preview_docheckin', :as => 'preview_docheckin_shop_admin'
 
   match 'shop_admin/paypal_checkout_debug', :to => 'shop_admin#paypal_checkout_debug', :as => 'paypal_checkout_debug_shop_admin'
   match 'shop_admin/paypal_cancel_debug/:access_key', :to => 'shop_admin#paypal_cancel_debug', :as => 'paypal_cancel_debug_shop_admin'

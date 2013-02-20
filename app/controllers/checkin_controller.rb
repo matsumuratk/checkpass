@@ -94,6 +94,29 @@ class CheckinController < CheckinApplicationController
     end
   end
 
+  #プレビュー画面 place
+  def preview_place
+    @checkin_item = CheckinItem.find_by_access_key(params[:access_key])
+    respond_to do |format|
+      format.html {render :template=>'checkin/place',:locals => {:preview => true}}
+    end
+  end
+
+  #プレビュー画面 docheckin
+  def preview_docheckin
+    @checkin_item = CheckinItem.find_by_access_key(params[:access_key])
+    respond_to do |format|
+      format.html {render :template=>'checkin/docheckin',:locals => {:preview => true}}
+    end
+  end
+
+  #プレビュー画面　Facebook投稿
+  def preview_facebook  
+
+  end
+
+
+
 end
 
 class NoGraphPlaceException < Exception; end  #GraphPlaceなし

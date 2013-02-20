@@ -1,48 +1,34 @@
 <div data-role="page" data-theme="a">
+  <div data-role="content" data-theme="a">
+    <span class="tCenter"><h1><%= @checkin_item.title %></h1></span>
+    <% case @checkin_item.top_image_select
+      when 1 %>
+    <%= image_tag(@checkin_item.top_image, :style =>"width:100%; max-width:680px;")  %>
+    <% when 2 %>
+    <span class="tCenter"><%= @checkin_item.top_image_text.html_safe %></span>
+    <% end %>
+ 
 
-<p class="tCenter">
-<% case @checkin_item.top_image_select
-  when 1 %>
-<%= image_tag(@checkin_item.top_image, :style =>"width:100%; max-width:680px;")  %>
-<% when 2 %>
-<%= @checkin_item.top_image_text %>
-<% end %>
-</p>
+    <% case @checkin_item.middle_image_select
+      when 1 %>
+    <%= image_tag(@checkin_item.middle_image, :style =>"width:100%; max-width:680px;") if @checkin_item.middle_image? %>
+    <% when 2 %>
+    <span class="tCenter"><%= @checkin_item.middle_image_text.html_safe %></span>
+    <% end %>
+<br/>
+<br/>
+    <%= form_tag({:action=>:docheckin}, {:name=>:checkin, :class=>:checkin_form}) do %>
+      <%= hidden_field :checkin, :access_key, :value=>@checkin_item.access_key %>
+      <span class="tCenter"><%= @checkin_item.comment_title %></span>
+			
+  		<div data-role="fieldcontain">
+        <%= text_area :checkin, :message, :size=>"40x8", :id =>"textarea"%>
+      </div>
+
+      <a href="#" <%unless defined?(preview)%>onClick="$('.checkin_form').submit();"<%end%> data-role="button" data-theme="b" data-icon="cog" >チェックイン</a>
+    <% end %>
+  </div>
+  <div data-role="footer">
+  </div>
 </div>
- <h2><%=h @checkin_item.title %> <br/>にチェックインします</h2>
-
-<div id="page_middle">
-<p class="tCenter">
-<% case @checkin_item.middle_image_select
-  when 1 %>
-<%= image_tag(@checkin_item.middle_image, :style =>"width:100%; max-width:680px;") if @checkin_item.middle_image? %>
-<% when 2 %>
-<%= @checkin_item.middle_image_text %>
-<% end %>
-</p>
-</div>
-<br/>
-
-<div id='bottom'>
-<%= form_tag :action => "docheckin", :name=>:checkin do %>
-<%= hidden_field :checkin, :access_key, :value=>@checkin_item.access_key %>
-<div><p class="tCenter tBottom"><%= @checkin_item.comment_title %></p></div>
-<br/>
-<div><p class="tCenter tBottom">チェックインメッセージ</p></div>
-<div class="taCenter">
-<ul style="margin: 0 auto;"><li>
-<%= text_area :checkin, :message, :size=>"50x3" %></div>
-</li></ul>
-<br/>
-<br/>
-
-<!--
-<a href="#" onclick="document.checkin.submit();"><p class="iCenter btn">チェックイン</p></a>
--->
-<p class="tCenter"><%= image_submit_tag("/img/checkin.png")%></p>
-<% end %>
-</div>
-<br/>
-<br/>
-
 
