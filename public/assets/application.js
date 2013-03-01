@@ -24952,11 +24952,18 @@ d+"px").css("background-color",a.isDark(e,i)?h.foreground:h.background).appendTo
 
 
 }).call(this);
-(function() {
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
+$ ->
+  $("#title").change(function(){
+    alert("change!");
+    txt=$(this).text();
+    $('preview_place').contents().find('#title').val(txt);
+  }
 
-
-}).call(this);
+;
 (function() {
 
 

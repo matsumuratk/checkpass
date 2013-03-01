@@ -1,21 +1,21 @@
 <div data-role="page" data-theme="a">
 <div data-role="content" data-theme="a">
- <span class="tCenter"><h1><%= @checkin_item.title %></h1></span>
+ <span class="tCenter"><h1><span id="title"><%= @checkin_item.title %></span></h1></span>
  <p class="tCenter">にチェックインしました。</p>
 
  <div id="coupon">
   <% case @checkin_item.coupon_image_select
      when 1 %>
-  <%= image_tag(@checkin_item.coupon_image, :style =>"width:100%; max-width:680px;") if @checkin_item.coupon_image? %>
+  <%= image_tag(@checkin_item.coupon_image, :style =>"width:100%; max-width:680px;", :id=>"coupon_image") if @checkin_item.coupon_image? %>
   <% when 2 %>
   <div id="coupon_message">
-   <h2><%= @checkin_item.coupon_image_text.html_safe %></h2>
+   <h2><span id="coupon_image_text"><%= @checkin_item.coupon_image_text.html_safe %></span></h2>
   </div>
   <% end %>
  </div>
  <br/>
- <div id="comennt_message">
-  <%= @checkin_item.comment_message.html_safe %>
+ <div>
+  <span id="comment_message"><%= @checkin_item.comment_message.html_safe %></span>
  </div>
  <br/>
 

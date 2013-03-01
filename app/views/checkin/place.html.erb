@@ -1,28 +1,32 @@
 <div data-role="page" data-theme="a">
   <div data-role="content" data-theme="a">
-    <span class="tCenter"><h1><%= @checkin_item.title %></h1></span>
+    <span class="tCenter"><h1><span id="title"><%= @checkin_item.title %></span></h1></span>
+    <div id="top_image">
     <% case @checkin_item.top_image_select
       when 1 %>
-    <%= image_tag(@checkin_item.top_image, :style =>"width:100%; max-width:680px;")  %>
+    <%= image_tag(@checkin_item.top_image, :style =>"width:100%; max-width:680px;",:id=>"top_image") %>
     <% when 2 %>
-    <span class="tCenter"><%= @checkin_item.top_image_text.html_safe %></span>
+    <span class="tCenter" id="top_image_text"><%= @checkin_item.top_image_text.html_safe %></span>
     <% end %>
- 
+    </div> 
 
+    <div id="middle_image">
     <% case @checkin_item.middle_image_select
       when 1 %>
-    <%= image_tag(@checkin_item.middle_image, :style =>"width:100%; max-width:680px;") if @checkin_item.middle_image? %>
+    <%= image_tag(@checkin_item.middle_image, :style =>"width:100%; max-width:680px;", :id=>"middle_image") if @checkin_item.middle_image? %>
     <% when 2 %>
-    <span class="tCenter"><%= @checkin_item.middle_image_text.html_safe %></span>
+    <span class="tCenter" id="middle_image_text"><%= @checkin_item.middle_image_text.html_safe %></span>
     <% end %>
+    </div>
 <br/>
 <br/>
     <%= form_tag({:action=>:docheckin}, {:name=>:checkin, :class=>:checkin_form}) do %>
       <%= hidden_field :checkin, :access_key, :value=>@checkin_item.access_key %>
-      <span class="tCenter"><%= @checkin_item.comment_title %></span>
-			
+      <div">
+      <span class="tCenter" id="comment_title"><%= @checkin_item.comment_title %></span>
+      </div>			
   		<div data-role="fieldcontain">
-        <%= text_area :checkin, :message, :size=>"40x8", :id =>"textarea"%>
+        <%= text_area :checkin, :message, :size=>"40x8"%>
       </div>
 
       <a href="#" <%unless defined?(preview)%>onClick="$('.checkin_form').submit();"<%end%> data-role="button" data-theme="b" data-icon="cog" >チェックイン</a>

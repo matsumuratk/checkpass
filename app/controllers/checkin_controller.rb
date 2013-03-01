@@ -11,7 +11,7 @@ class CheckinController < CheckinApplicationController
     Rails.logger.debug("place :access_key = #{params[:access_key]}")
 
     @checkin_item = CheckinItem.find_by_access_key(params[:access_key])
-    
+
     respond_to do |format|
       #キーが無ければ、キャンペーンなし。
       if @checkin_item.nil?
@@ -96,7 +96,11 @@ class CheckinController < CheckinApplicationController
 
   #プレビュー画面 place
   def preview_place
-    @checkin_item = CheckinItem.find_by_access_key(params[:access_key])
+    unless params[:access_key].nil?
+      @checkin_item = CheckinItem.find_by_access_key(params[:access_key])
+    else
+      @checkin_item = CheckinItem.new
+    end
     respond_to do |format|
       format.html {render :template=>'checkin/place',:locals => {:preview => true}}
     end
@@ -112,7 +116,9 @@ class CheckinController < CheckinApplicationController
 
   #プレビュー画面　Facebook投稿
   def preview_facebook  
-
+    respond_to do |format|
+      format.html 
+    end
   end
 
 

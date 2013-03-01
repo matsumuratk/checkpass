@@ -1,43 +1,143 @@
+<%= form_for(@checkin_item, :url => { :action => method, :access_key =>@checkin_item.access_key }) do |f| %>
 
-  <div class="field">
-    <br/>
-    <div>登録情報</div>
-    <div>アイテム名称（管理用） <%= f.text_field :item_name %></div>
-
-    <br/>
-    <div>選択したFacebookプレイス情報</div>
-    <div>Name<%= f.text_field :fbName, :id=>'fbName', :size=>60, :readonly=>'true' %></div>
-    <div>Category<%= f.text_field :fbCategory, :id=>'fbCategory', :size=>60, :readonly=>'true' %></div>
-    <div>Country<%= f.text_field :fbCountry, :id=>'fbCountry', :size=>60, :readonly=>'true' %></div>
-    <div>State<%= f.text_field :fbState, :id=>'fbState', :size=>60, :readonly=>'true' %>
-    <div>City<%= f.text_field :fbCity, :id=>'fbCity', :size=>60, :readonly=>'true' %></div>
-    <div>Street<%= f.text_field :fbStreet, :id=>'fbStreet', :size=>60, :readonly=>'true' %></div>
-    <div>Title<%= f.text_field :title, :id=>'title', :size=>60, :readonly=>'true' %></div>
-    <div>CheckinId<%= f.text_field :fbCheckinId, :id=>'fbCheckinId', :size=>60, :readonly=>'true' %></div>
-    <br/>
-    <br/>
-    <div>チェックインクーポン情報</div>
-    <div>表示タイトル <%= f.text_field :title %></div>
-    <div>画像１：店舗画像<%= f.file_field :top_image %></div>
-    <div>画像１：店舗メッセージ<%= f.text_field :top_image_text %></div>
-    <div><%= f.select :top_image_select,{"画像を使う"=>"1","テキストを使う"=>"2"} %>
-    <br/>
-    <div>画像２：チェックインメッセージ画像<%= f.file_field :middle_image %></div>
-    <div>画像２：チェックインメッセージテキスト<%= f.text_field :middle_image_text %></div>
-    <div><%= f.select :middle_image_select,{"画像を使う"=>"1","テキストを使う"=>"2"} %>
-    <div>チェックインコメントタイトル：<%= f.text_field  :comment_title %></div>
-    <br/>
-    <div>クーポン画像：<%= f.file_field :coupon_image %></div>
-    <div>クーポンテキスト：<%= f.text_field :coupon_image_text %></div>
-    <div><%= f.select :coupon_image_select,{"画像を使う"=>"1","テキストを使う"=>"2"} %>
-    <br/>
-    <div>完了メッセージ<%= f.text_field  :comment_message %></div>
-    <br/>
-    <div>ウォール書き込み Message：<%= f.text_field  :wall_message %>
-    <div>ウォール書き込み Name：<%= f.text_field  :wall_name %>
-    <div>ウォール書き込み Link：<%= f.text_field  :wall_link %>
-    <div>ウォール書き込み Caption：<%= f.text_field  :wall_caption %>
-    <div>ウォール書き込み Description：<%= f.text_field  :wall_description %>
-    <div>ウォール書き込み 画像（省略の場合は、クーポン画像)：<%= f.file_field  :wall_picture %>
+ <div id="searchFbPlace">
+  <div id="searchByName">
+登録するチェックインプレイスをFacebookから検索する。
+   <%= form_tag(url_for(:action => 'search'), :remote => true, :id => "result_form") do %>
+登録名称で検索する： 名称を入力してください。</br>
+    <%= text_field_tag :name,'', :size=>"60" %><%= submit_tag '名称で検索'%><br/><br/>
+   <% end %>
   </div>
+  <div id="searchByfbId">
+   <%= form_tag(url_for(:action => 'search_by_fbid'), :remote => true, :id => "result_form") do %>
+Facebook IDで検索する： FacebookアカウントのID（１２桁数字）を入力して検索してください。</br>
+    <%= text_field_tag :id,'', :size=>"60" %><%= submit_tag 'IDで検索'%><br/><br/>
+   <% end %>
+  </div>
+  <div id="searchByfbName">
+   <%= form_tag(url_for(:action => 'search_by_fbid'), :remote => true, :id => "result_form") do %>
+Facebook アカウントで検索する： Facebookアカウントの文字列を入力して検索してください。</br>
+    <%= text_field_tag :id,'', :size=>"60" %><%= submit_tag 'IDで検索'%><br/><br/>
+   <% end %>
+  </div>
+ </div>
+ <div id="checkin_item">
+  <!-- AJAX検索結果リスト表示 -->
+  <div id="result"></div>
+ </div>
+ <!-- 入力情報 -->
+ <div class="field"></div>
+ <div id="facebook_item">
+  <br/>
+  <p>選択したFacebookプレイス情報</p>
+  <p>Name<%= f.text_field :fbName, :id=>'fbName', :size=>60, :readonly=>'true' %></p>
+  <p>Category<%= f.text_field :fbCategory, :id=>'fbCategory', :size=>60, :readonly=>'true' %></p>
+  <p>Country<%= f.text_field :fbCountry, :id=>'fbCountry', :size=>60, :readonly=>'true' %></p>
+  <p>State<%= f.text_field :fbState, :id=>'fbState', :size=>60, :readonly=>'true' %></p>
+  <p>City<%= f.text_field :fbCity, :id=>'fbCity', :size=>60, :readonly=>'true' %></p>
+  <p>Street<%= f.text_field :fbStreet, :id=>'fbStreet', :size=>60, :readonly=>'true' %></p>
+  <p>Title<%= f.text_field :title, :id=>'title', :size=>60, :readonly=>'true' %></p>
+  <p>CheckinId<%= f.text_field :fbCheckinId, :id=>'fbCheckinId', :size=>60, :readonly=>'true' %></p>
+ </div>
+ <br/>
+ <div id="place_item">
+  <p>登録情報</p>
+  <p>アイテム名称（管理用） <%= text_field :item_name, :id=>'item_name' %></p>
+  <br/>
+  <p>チェックインクーポン情報</p>
+  <p>表示タイトル<%= f.text_field :title, :id=>'title' %></p>
+  <p><%= f.select :top_image_select,{"画像を使う"=>"1","テキストを使う"=>"2"}, :id=>"top_image_select" %></p>
+  <p>画像１：店舗画像<%= f.file_field :top_image, :id=>"top_image" %></p>
+  <p>画像１：店舗メッセージ<%= f.text_field :top_image_text, :id=>"top_image_text" %></p>
+  <br/>
+
+  <p><%= f.select :middle_image_select,{"画像を使う"=>"1","テキストを使う"=>"2"},:id=>"middle_image_select" %></p>
+  <p>画像２：チェックインメッセージ画像<%= f.file_field :middle_image %></p>
+  <p>画像２：チェックインメッセージテキスト<%= f.text_field :middle_image_text, :id=>"middle_image_text" %></p>
+
+  <p>チェックインコメントタイトル：<%= f.text_field :comment_title, :id=>"comment_title" %></p>
+  <br/>
+ </div>
+
+ <div id="docheckin">
+  <p><%= f.select :coupon_image_select,{"画像を使う"=>"1","テキストを使う"=>"2"},:id=>"coupon_image_select" %></p>
+  <p>クーポン画像：<%= f.file_field :coupon_image,:id=>"coupon_image" %></p>
+  <p>クーポンテキスト：<%= f.text_field :coupon_image_text,:id=>"coupon_image_text" %></p>
+
+  <br/>
+  <p>完了メッセージ<%= f.text_field  :comment_message,:id=>"comment_message" %></p>
+  <br/>
+ </div>    
+
+ <div id="fbwall">
+  <p>ウォール書き込み Message：<%= f.text_field :wall_message,:id=>"wall_message" %></p>
+  <p>ウォール書き込み Name：<%= f.text_field :wall_name,:id=>"wall_name" %></p>
+  <p>ウォール書き込み Link：<%= f.text_field :wall_link,:id=>"wall_link" %></p>
+  <p>ウォール書き込み Caption：<%= f.text_field :wall_caption,:id=>"wall_caption" %></p>
+  <p>ウォール書き込み Description：<%= f.text_field :wall_description,:id=>"wall_description" %></p>
+  <p>ウォール書き込み 画像（省略の場合は、クーポン画像)：<%= f.file_field :wall_picture,:id=>"wall_picture" %></p>
+ </div>
+
+<% end %>
+
+<!-- Submit用JavaScript -->
+<script language="javascript" type="text/javascript"><!--
+function xSubmit(){
+  d=document;
+  d.f.item_name.value=d.getElementsByName("item_name")[0].value;
+  d.f.fbName.value=d.getElementsByName("fbName")[0].value;
+  d.f.fbCategory.value=d.getElementsByName("fbCategory")[0].value;
+  d.f.fbCountry.value=d.getElementsByName("fbCountry")[0].value;
+  d.f.fbState.value=d.getElementsByName("fbState")[0].value;
+  d.f.fbCity.value=d.getElementsByName("fbCity")[0].value;
+  d.f.fbStreet.value=d.getElementsByName("fbStreet")[0].value;
+  d.f.fbCheckinId.value=d.getElementsByName("fbCheckinId")[0].value;
+  d.f.title.value=d.getElementsByName("title")[0].value;
+  d.f.top_image.value=d.getElementsByName("top_image")[0].value;
+  d.f.top_image_text.value=d.getElementsByName("top_image_text")[0].value;
+  d.f.top_image_select.value=d.getElementsByName("top_image_select")[0].value;
+  d.f.middle_image.value=d.getElementsByName("middle_image")[0].value;
+  d.f.middle_image_text.value=d.getElementsByName("middle_image_text")[0].value;
+  d.f.middle_image_select.value=d.getElementsByName("middle_image_select")[0].value;
+  d.f.comment_title.value=d.getElementsByName("comment_title")[0].value;
+  d.f.coupon_image.value=d.getElementsByName("coupon_image")[0].value;
+  d.f.coupon_image_text.value=d.getElementsByName("coupon_image_text")[0].value;
+  d.f.coupon_image_select.value=d.getElementsByName("coupon_image_select")[0].value;
+  d.f.wall_message.value=d.getElementsByName("wall_message")[0].value;
+  d.f.wall_name.value=d.getElementsByName("wall_name")[0].value;
+  d.f.wall_link.value=d.getElementsByName("wall_link")[0].value;
+  d.f.:wall_caption.value=d.getElementsByName("wall_caption")[0].value;
+  d.f.wall_description.value=d.getElementsByName("wall_description")[0].value;
+  d.f.wall_picture.value=d.getElementsByName("wall_picture")[0].value;
+}
+//-->
+</script>
+<!-- Submit用Form -->
+<%= form_for(@checkin_item, :url => { :action => :method, :access_key =>@checkin_item.access_key },:onsubmit=>"return xSubmit()") do |f| %>
+ <%= f.hidden_field :item_name, :id=>"item_name" %>
+ <%= f.hidden_field :fbName, :id=>"fbName" %>
+ <%= f.hidden_field :fbCategory, :id=>"fbCategory" %>
+ <%= f.hidden_field :fbCountry, :id=>"fbCountry" %>
+ <%= f.hidden_field :fbState, :id=>"fbState" %>
+ <%= f.hidden_field :fbCity, :id=>"fbCity" %>
+ <%= f.hidden_field :fbStreet, :id=>"fbStreet" %>
+ <%= f.hidden_field :fbCheckinId, :id=>"fbCheckinId" %>
+ <%= f.hidden_field :title, :id=>"title" %>
+ <%= f.hidden_field :top_image, :id=>"top_image" %>
+ <%= f.hidden_field :top_image_text, :id=>"top_image_text" %>
+ <%= f.hidden_field :top_image_select, :id=>"top_image_select" %>
+ <%= f.file_field :middle_image, :style=>"display:none", :id=>"middle_image" %>
+ <%= f.hidden_field :middle_image_text, :id=>"middle_image_text" %>
+ <%= f.hidden_field :middle_image_select, :id=>"middle_image_select" %>
+ <%= f.hidden_field :comment_title, :id=>"comment_title" %>
+ <%= f.file_field :coupon_image, :style=>"display:none", :id=>"coupon_image" %>
+ <%= f.hidden_field :coupon_image_text, :id=>"coupon_image_text" %>
+ <%= f.hidden_field :coupon_image_select, :id=>"coupon_image_select" %>
+ <%= f.hidden_field :wall_message, :id=>"wall_message" %>
+ <%= f.hidden_field  :wall_name, :id=>"wall_name" %>
+ <%= f.hidden_field  :wall_link, :id=>"wall_link" %>
+ <%= f.hidden_field  :wall_caption, :id=>"wall_caption" %>
+ <%= f.hidden_field  :wall_description, :id=>"wall_description" %>
+ <%= f.hidden_field  :wall_picture, :id=>"wall_picture" %>
+<%end%>
 

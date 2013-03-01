@@ -70,6 +70,39 @@ p, ul, ol, dl, table, pre {
 img {border: 0;	vertical-align: bottom;}
 
 
+.container:after {
+    clear: both;
+}
+.container:before, .container:after {
+    content: "";
+    display: table;
+}
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 940px;
+}
+.contents {
+    border-radius: 6px 6px 6px 6px;
+    margin-bottom: 20px;
+    padding: 30px 40px;
+}
+
+#preview_place{
+    position: absolute;
+    top: 200px;
+    right: 100px;
+}
+
+#preview_docheckin{
+
+}
+
+#preview_facebook{
+
+}
+
+
 /***** Link styles
 *******************************************/
 

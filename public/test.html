@@ -1,0 +1,28 @@
+<html>
+<head>
+<script type="text/javascript" src="/assets/jquery.js?body=1"></script>
+<script type="text/javascript" src="/assets/jquery_ujs.js?body=1"></script>
+<script type="text/javascript" src="/assets/jquery-ui.js?body=1"></script>
+
+<script language="javascript" type="text/javascript">
+
+(function() {
+jQuery(function() {
+return $("#title").change(function() {
+$('#preview_place').contents().find("#title").html($(this).val());
+});
+});
+}).call(this);
+
+</script>
+</head>
+<body>
+iframe更新テスト
+<form action="#">
+<input id="title"  value="Pool＆Darts beep!" name="checkin_item[item_name]">
+</form>
+<br/><br/>
+<iframe id="preview_place" src="/test_iframe.html"></iframe>
+</body>
+</html>
+

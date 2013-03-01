@@ -15,3 +15,5 @@
 //= require jquery-ui
 //= require jquery.qrcode.min
 //= require_tree .
+
+

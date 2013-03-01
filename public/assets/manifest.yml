@@ -33,6 +33,8 @@ rails.png: rails.png
 rails/index.png: rails.png
 application.js: application.js
 application/index.js: application.js
+checkin_items.js.coffe: checkin_items.js.coffe
+checkin_items/index.js.coffe: checkin_items.js.coffe
 application.css: application.css
 application/index.css: application.css
 jquery.min.map: jquery.min.map
