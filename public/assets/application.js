@@ -24952,38 +24952,206 @@ d+"px").css("background-color",a.isDark(e,i)?h.foreground:h.background).appendTo
 
 
 }).call(this);
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+(function() {
 
-$ ->
-  $("#title").change(function(){
-    alert("change!");
-    txt=$(this).text();
-    $('preview_place').contents().find('#title').val(txt);
-  }
+  jQuery(function() {
+    return $("input#title").change(function() {
+      $("#preview_place").contents().find("#title").html($(this).val());
+      return $("#preview_docheckin").contents().find("#title").html($(this).val());
+    });
+  });
 
+  jQuery(function() {
+    return $("input#top_image").change(function() {
+      return $("#preview_place").contents().find("#top_image").html($(this).val());
+    });
+  });
+
+  jQuery(function() {
+    return $("input#top_image_text").change(function() {
+      return $("#preview_place").contents().find("#top_image_text").html($(this).val());
+    });
+  });
+
+  jQuery(function() {
+    return $("input#top_image_select").change(function() {
+      return $("#preview_place").contents().find("#top_image_select").html($(this).val());
+    });
+  });
+
+  jQuery(function() {
+    return $("input#middle_image").change(function() {
+      return $("#preview_place").contents().find("#middle_image").html($(this).val());
+    });
+  });
+
+  jQuery(function() {
+    return $("input#middle_image_text").change(function() {
+      return $("#preview_place").contents().find("#middle_image_text").html($(this).val());
+    });
+  });
+
+  jQuery(function() {
+    return $("input#middle_image_select").change(function() {
+      return $("#preview_place").contents().find("#middle_image_select").html($(this).val());
+    });
+  });
+
+  jQuery(function() {
+    return $("input#comment_title").change(function() {
+      return $("#preview_place").contents().find("#comment_title").html($(this).val());
+    });
+  });
+
+  jQuery(function() {
+    return $("input#coupon_image").change(function() {
+      return $("#preview_docheckin").contents().find("#coupon_image").html($(this).val());
+    });
+  });
+
+  jQuery(function() {
+    return $("input#coupon_image_text").change(function() {
+      return $("#preview_docheckin").contents().find("#coupon_image_text").html($(this).val());
+    });
+  });
+
+  jQuery(function() {
+    return $("input#coupon_image_select").change(function() {
+      return $("#preview_docheckin").contents().find("#coupon_image_select").html($(this).val());
+    });
+  });
+
+  jQuery(function() {
+    return $("input#wall_message").change(function() {
+      return $("#preview_facebook").contents().find("#wall_message").html($(this).val());
+    });
+  });
+
+  jQuery(function() {
+    return $("input#wall_name").change(function() {
+      return $("#preview_facebook").contents().find("#wall_name").html($(this).val());
+    });
+  });
+
+  jQuery(function() {
+    return $("input#wall_link").change(function() {
+      return $("#preview_facebook").contents().find("#wall_link").html($(this).val());
+    });
+  });
+
+  jQuery(function() {
+    return $("input#:wall_caption").change(function() {
+      return $("#preview_facebook").contents().find("#wall_caption").html($(this).val());
+    });
+  });
+
+  jQuery(function() {
+    return $("input#wall_description").change(function() {
+      return $("#preview_facebook").contents().find("#wall_description").html($(this).val());
+    });
+  });
+
+  jQuery(function() {
+    return $("input#wall_picture").change(function() {
+      return $("#preview_facebook").contents().find("#wall_picture").html($(this).val());
+    });
+  });
+
+}).call(this);
+(function() {
+
+
+
+}).call(this);
+(function( jQuery ) {
+	var matched,
+		userAgent = navigator.userAgent || "";
+
+	// Use of jQuery.browser is frowned upon.
+	// More details: http://api.jquery.com/jQuery.browser
+	// jQuery.uaMatch maintained for back-compat
+	jQuery.uaMatch = function( ua ) {
+		ua = ua.toLowerCase();
+
+		var match = /(chrome)[ \/]([\w.]+)/.exec( ua ) ||
+			/(webkit)[ \/]([\w.]+)/.exec( ua ) ||
+			/(opera)(?:.*version)?[ \/]([\w.]+)/.exec( ua ) ||
+			/(msie) ([\w.]+)/.exec( ua ) ||
+			ua.indexOf("compatible") < 0 && /(mozilla)(?:.*? rv:([\w.]+))?/.exec( ua ) ||
+			[];
+
+		return {
+			browser: match[ 1 ] || "",
+			version: match[ 2 ] || "0"
+		};
+	};
+
+	matched = jQuery.uaMatch( userAgent );
+
+	jQuery.browser = {};
+
+	if ( matched.browser ) {
+		jQuery.browser[ matched.browser ] = true;
+		jQuery.browser.version = matched.version;
+	}
+
+	// Deprecated, use jQuery.browser.webkit instead
+	// Maintained for back-compat only
+	if ( jQuery.browser.webkit ) {
+		jQuery.browser.safari = true;
+	}
+
+}( jQuery ));
+(function() {
+
+
+
+}).call(this);
+(function() {
+
+
+
+}).call(this);
+(function() {
+
+
+
+}).call(this);
+function doIframe(){
+	o = document.getElementsByTagName('iframe');
+	for(i=0;i<o.length;i++){
+		if (/\bautoHeight\b/.test(o[i].className)){
+			setHeight(o[i]);
+			addEvent(o[i],'load', doIframe);
+		}
+	}
+}
+
+function setHeight(e){
+	if(e.contentDocument){
+		e.height = e.contentDocument.body.offsetHeight + 35;
+	} else {
+		e.height = e.contentWindow.document.body.scrollHeight;
+	}
+}
+
+function addEvent(obj, evType, fn){
+	if(obj.addEventListener)
+	{
+	obj.addEventListener(evType, fn,false);
+	return true;
+	} else if (obj.attachEvent){
+	var r = obj.attachEvent("on"+evType, fn);
+	return r;
+	} else {
+	return false;
+	}
+}
+
+if (document.getElementById && document.createTextNode){
+ addEvent(window,'load', doIframe);	
+}
 ;
-(function() {
-
-
-
-}).call(this);
-(function() {
-
-
-
-}).call(this);
-(function() {
-
-
-
-}).call(this);
-(function() {
-
-
-
-}).call(this);
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -24996,6 +25164,8 @@ $ ->
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
+
+
 
 
 
