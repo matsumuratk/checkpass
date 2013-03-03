@@ -3,7 +3,7 @@
 <script type="text/javascript" src="/assets/jquery.js?body=1"></script>
 <script type="text/javascript" src="/assets/jquery_ujs.js?body=1"></script>
 <script type="text/javascript" src="/assets/jquery-ui.js?body=1"></script>
-
+<script type="text/javascript" src="/jquery.iframe-auto-height.plugin.js"></script>
 <script language="javascript" type="text/javascript">
 
 (function() {
@@ -22,7 +22,9 @@ iframe更新テスト
 <input id="title"  value="Pool＆Darts beep!" name="checkin_item[item_name]">
 </form>
 <br/><br/>
-<iframe id="preview_place" src="/test_iframe.html"></iframe>
+<iframe id="preview_place" class="autoHeight" width="320" scroll="auto" src="/test_iframe.html"></iframe>
+<br/>
+<iframe id="preview_place" class="autoHeight" width="320" scroll="auto" src="/test_iframe2.html"></iframe>
 </body>
 </html>
 

@@ -10,6 +10,7 @@ function set_checkin_item(fbName,fbCategory,fbCountry,fbState,fbCity,fbStreet,ti
   $("#title").attr("value",title);
   $("#fbCheckinId").attr("value",fbCheckinId);
   $("#fbLink").attr("value",fbLink);  
+  
   return false;
 }
 </script>
@@ -38,7 +39,7 @@ function set_checkin_item(fbName,fbCategory,fbCountry,fbState,fbCity,fbStreet,ti
       <td class="id"><div id="qr<%=cnt %>"></div><%= place.id %></td>
       <td class="link"><%= link_to "#{place.link}","#{place.link}", :target=>'_blank' %></td>
       <td class="save">
-      <%= form_tag 'create', :onsubmit=>"set_checkin_item('#{place.name}','#{place.category}','#{place.country}','#{place.state}','#{place.city}','#{place.street}','#{place.name}','#{place.id}','#{place.link}');return false;" do |f| %>
+      <%= form_tag '', :onsubmit=>"set_checkin_item('#{place.name}','#{place.category}','#{place.country}','#{place.state}','#{place.city}','#{place.street}','#{place.name}','#{place.id}','#{place.link}');return false;" do |f| %>
         <%= submit_tag '選択' %>
       <% end %>
       </td>

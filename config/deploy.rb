@@ -23,22 +23,33 @@ role :db,  "fbapp.evangelize.jp", :primary => true # This is where Rails migrati
 # if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts
 
+after "deploy:symlink", "deploy:link_images"
+before "deploy:restart", "assets:precompile"
+
 # If you are using Passenger mod_rails uncomment this:
 namespace :deploy do
   task :start do ; end
   task :stop do ; end
+
+  desc "make sym_link to uploads directory"
+  task :link_images do
+    run <<-CMD
+    cd #{release_path} && ln -nfs #{shared_path}/uploads #{release_path}/public/uploads
+    CMD
+  end
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
-  namespace :assets do
-    task :precompile, :roles => :web, :except => { :no_release => true } do
-      from = source.next_revision(current_revision)
-      if capture("cd #{latest_release} && #{source.local.log(from)} app/assets/ | wc -l").to_i > 0
-        run %Q{cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} #{asset_env} assets:precompile}
-      else
-        logger.info "Skipping asset pre-compilation because there were no asset changes"
-      end
+ end
+ namespace :assets do
+  task :precompile, :roles => :web, :except => { :no_release => true } do
+    from = source.next_revision(current_revision)
+    if capture("cd #{latest_release} && #{source.local.log(from)} app/assets/ | wc -l").to_i > 0
+       run %Q{cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} #{asset_env} assets:precompile}
+    else
+       logger.info "Skipping asset pre-compilation because there were no asset changes"
     end
   end
 end
+
 

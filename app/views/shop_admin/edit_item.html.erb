@@ -5,22 +5,6 @@
 
   <%= render 'item_form', {:method=>"update_item"} %>
 
-  <div id="preview_place">
-   <br/>
-   プレビュー：place
-   <br/>
-   <iframe id="preview_place" class="autoHeight" scrolling="auto" width="320" bordercolor="black" src="<%= url_for :controller => "checkin",:action => 'preview_place',:access_key=>@checkin_item.access_key %>"></iframe>
-  </div>
-  <div id="preview_docheckin">
-   プレビュー：docheckin
-   <br/>
-   <iframe id="preview_docheckin" class="autoHeight" scrolling="auto" width="320" scrolling="no" bordercolor="black" src="http://localhost:3000/checkin/preview_docheckin/<%=@checkin_item.access_key%>"></iframe>
-  </div>
-  <div id="preview_facebook">
-   プレビュー：facebook投稿
-   <br/>
-   <iframe id="preview_facebook" class="autoHeight" scrolling="auto" width="320" scrolling="no" bordercolor="black" src="/checkin/preview_facebook/<%=@checkin_item.access_key%>"></iframe>
-  </div>
   <br/>
   <%= link_to 'Back', shop_admin_path %>
  </div>
