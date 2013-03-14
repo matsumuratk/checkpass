@@ -23,7 +23,7 @@ function set_checkin_item(fbName,fbCategory,fbCountry,fbState,fbCity,fbStreet,ti
       <th class="state">State</th>
       <th class="city">City</th>
       <th class="street">Street</th>
-      <th class="checkinQr">Checkin QR</th>
+      <th class="checkinQr">CheckinId</th>
       <th class="link">link</th>
       <th class="save"></th>
     </tr>
@@ -36,16 +36,13 @@ function set_checkin_item(fbName,fbCategory,fbCountry,fbState,fbCity,fbStreet,ti
       <td class="state"><%=h place.state %></td>
       <td class="city"><%=h place.city %></td>
       <td class="street"><%=h place.street %></td>
-      <td class="id"><div id="qr<%=cnt %>"></div><%= place.id %></td>
+      <td class="id"><%= place.id %></td>
       <td class="link"><%= link_to "#{place.link}","#{place.link}", :target=>'_blank' %></td>
       <td class="save">
       <%= form_tag '', :onsubmit=>"set_checkin_item('#{place.name}','#{place.category}','#{place.country}','#{place.state}','#{place.city}','#{place.street}','#{place.name}','#{place.id}','#{place.link}');return false;" do |f| %>
         <%= submit_tag '選択' %>
       <% end %>
       </td>
-      <script>
-        jQuery('#qr<%=cnt%>').qrcode({width: 32,height: 32,text: "<%=@checkin_url%><%= place.id %>"});
-      </script>
     </tr>
     <% end %>
 

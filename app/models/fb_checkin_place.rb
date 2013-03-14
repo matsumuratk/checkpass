@@ -30,7 +30,6 @@ class FbCheckinPlace
     #facebookからチェックインプレイスを検索
     graphLists = @graph.search(search, {:type => "place"})
     graphLists.each do |gl|
-pp gl
       #countryがjapanのものだけを対象
       #if gl['location']['country'] == "Japan" then
         fbCheckinPlace = FbCheckinPlace.new(@graph)
@@ -56,7 +55,6 @@ pp gl
     ret = Array.new
 
  		gl = @graph.get_object("/#{id}")
-Rails.logger.debug("search_by_fbid:gl = #{gl}")
     fbCheckinPlace = FbCheckinPlace.new(@graph)
     fbCheckinPlace.id = gl['id']
     fbCheckinPlace.name = gl['name']
@@ -109,7 +107,7 @@ Rails.logger.debug("search_by_fbid:gl = #{gl}")
       })
     rescue => e
       #エラー処理
-      Rails.logger.debug("writeWall エラー:#{e.message}")
+      Rails.logger.error("writeWall エラー:#{e.message}")
       raise
     end
   end

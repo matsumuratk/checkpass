@@ -2,7 +2,7 @@
 <div id="searchFbPlace">
  <div id="searchByName">
 登録するチェックインプレイスをFacebookから検索する。
-  <%= form_tag(url_for(:action => 'search'), :remote => true, :id => "_search_name_form") do %>
+  <%= form_tag(url_for(:action => 'search'), :remote => true, :id => "name_search_form") do %>
 登録名称で検索する： 名称を入力してください。</br>
    <%= text_field_tag :name,'', :size=>"60" %><%= submit_tag '名称で検索'%><br/><br/>
   <% end %>
