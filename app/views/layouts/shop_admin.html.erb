@@ -2,20 +2,17 @@
 <html>
 <head>
   <title>Checkpass</title>
+<!--
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= stylesheet_link_tag    "admin/style" %>
   <%= javascript_include_tag "application" %>
+-->
+  <%= stylesheet_link_tag    params[:controller], :media => "all" %>
+  <%= javascript_include_tag params[:controller] %>
+
   <%= csrf_meta_tags %>
 </head>
 <body>
 <div id="out">
-
-<!--
-<div id="head">
-<h1>チェックパス 登録情報</h1>
-<div id="menu"><%= link_to "登録情報",index_shop_admin_path %> | <%= link_to "チェックインアイテム",index_checkinitem_shop_admin_path %> | <%= link_to "チェックイン履歴", index_checkinlog_shop_admin_path %></div>
-</div>
--->
 
 <%= yield %>
 

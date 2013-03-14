@@ -57,7 +57,11 @@ Checkpass::Application.routes.draw do
   match 'shop_admin/paypal_checkout_debug', :to => 'shop_admin#paypal_checkout_debug', :as => 'paypal_checkout_debug_shop_admin'
   match 'shop_admin/paypal_cancel_debug/:access_key', :to => 'shop_admin#paypal_cancel_debug', :as => 'paypal_cancel_debug_shop_admin'
   
-
+  match "shop_admin/preview_upload_top_image", :to => 'shop_admin#preview_upload_top_image'
+  match "shop_admin/preview_upload_middle_image", :to => 'shop_admin#preview_upload_middle_image'
+  match "shop_admin/preview_upload_coupon_image", :to => 'shop_admin#preview_upload_coupon_image'
+  match "shop_admin/preview_upload_wall_picture", :to => 'shop_admin#preview_upload_wall_picture'
+  
   #管理者機能
   match 'admin', :to => 'admin#index', :as => 'admin'
   match 'admin/index', :to => 'admin#index', :as => 'index_admin'

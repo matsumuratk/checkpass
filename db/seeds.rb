@@ -9,3 +9,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 AdminMaster.create(:master_id=>'100002903694146')   #Katou Yoshio
+  
+
+

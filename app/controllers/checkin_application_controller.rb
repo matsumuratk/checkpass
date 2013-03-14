@@ -3,8 +3,8 @@
 class CheckinApplicationController < ApplicationController
 
   #ユーザー用ログイン認証用フィルタ
-  before_filter :check_logined_User
-
+  before_filter :check_logined_User, :except => [:preview_place,:preview_docheckin,:preview_facebook]
+  
   #レイアウト指定
   layout "checkin"
 

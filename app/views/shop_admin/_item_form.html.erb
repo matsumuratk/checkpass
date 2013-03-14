@@ -2,24 +2,25 @@
 <div id="searchFbPlace">
  <div id="searchByName">
 登録するチェックインプレイスをFacebookから検索する。
-  <%= form_tag(url_for(:action => 'search'), :remote => true, :id => "result_form") do %>
+  <%= form_tag(url_for(:action => 'search'), :remote => true, :id => "_search_name_form") do %>
 登録名称で検索する： 名称を入力してください。</br>
    <%= text_field_tag :name,'', :size=>"60" %><%= submit_tag '名称で検索'%><br/><br/>
   <% end %>
  </div>
  <div id="searchByfbId">
-  <%= form_tag(url_for(:action => 'search_by_fbid'), :remote => true, :id => "result_form") do %>
+  <%= form_tag(url_for(:action => 'search_by_fbid'), :remote => true, :class => "search_fbid_form") do %>
 Facebook IDで検索する： FacebookアカウントのID（１２桁数字）を入力して検索してください。</br>
    <%= text_field_tag :id,'', :size=>"60" %><%= submit_tag 'IDで検索'%><br/><br/>
   <% end %>
  </div>
  <div id="searchByfbName">
-  <%= form_tag(url_for(:action => 'search_by_fbid'), :remote => true, :id => "result_form") do %>
+  <%= form_tag(url_for(:action => 'search_by_fbid'), :remote => true, :id => "search_account_form") do %>
 Facebook アカウントで検索する： Facebookアカウントの文字列を入力して検索してください。</br>
    <%= text_field_tag :id,'', :size=>"60" %><%= submit_tag 'IDで検索'%><br/><br/>
   <% end %>
 
  <!-- AJAX検索結果リスト表示 -->
+ <div id="spin"></div>
  <div id="result"></div>
 </div>
 
@@ -27,6 +28,7 @@ Facebook アカウントで検索する： Facebookアカウントの文字列�
 <div class="field">
  <a name="input">
  <%= form_for(@checkin_item, :url => { :action => method, :access_key =>@checkin_item.access_key }) do |f| %>
+  <%= f.hidden_field :fbUserId, :id=>'fbUserId' %>
 
   <div id="facebook_item">
    <p>選択したFacebookプレイス情報</p>
@@ -43,7 +45,7 @@ Facebook アカウントで検索する： Facebookアカウントの文字列�
  
   <div id="place_item" class="item_contents">
    <p>登録情報</p>
-   <p>アイテム名称（管理用） <%= text_field :item_name, :id=>'item_name' %></p>
+   <p>アイテム名称（管理用） <%= f.text_field :item_name, :id=>'item_name' %></p>
    <br/>
    <p>チェックインクーポン情報</p>
    <p>表示タイトル<%= f.text_field :title, :id=>'title' %></p>
@@ -53,7 +55,7 @@ Facebook アカウントで検索する： Facebookアカウントの文字列�
    <br/>
 
    <p><%= f.select :middle_image_select,{"画像を使う"=>"1","テキストを使う"=>"2"},:id=>"middle_image_select" %></p>
-   <p>画像２：チェックインメッセージ画像<%= f.file_field :middle_image %></p>
+   <p>画像２：チェックインメッセージ画像<%= f.file_field :middle_image, :id=>"middle_image" %></p>
    <p>画像２：チェックインメッセージテキスト<%= f.text_field :middle_image_text, :id=>"middle_image_text" %></p>
 
    <p>チェックインコメントタイトル：<%= f.text_field :comment_title, :id=>"comment_title" %></p>
@@ -61,7 +63,7 @@ Facebook アカウントで検索する： Facebookアカウントの文字列�
 
    <div class="item_contents_preview">
     プレビュー：place<br/>
-    <iframe id="preview_place" scrolling="auto" height="500" width="320" bordercolor="black" src="<%= url_for :controller => "checkin",:action => 'preview_place',:access_key=>@checkin_item.access_key %>"></iframe>
+    <iframe id="preview_place" scrolling="auto" height="500" width="320" bordercolor="black" src="<%= url_for :controller => "checkin",:action => 'preview_place',:access_key=>@checkin_item.access_key %>" ></iframe>
    </div>
   </div>
 
@@ -75,7 +77,7 @@ Facebook アカウントで検索する： Facebookアカウントの文字列�
 
    <div class="item_contents_preview">
     プレビュー：docheckin<br/>
-    <iframe id="preview_docheckin" scrolling="auto" height="500" width="320" scrolling="no" bordercolor="black" src="http://localhost:3000/checkin/preview_docheckin/<%=@checkin_item.access_key%>"></iframe>
+    <iframe id="preview_docheckin" scrolling="auto" height="500" width="320" scrolling="no" bordercolor="black" src="<%= url_for :controller => "checkin",:action => 'preview_docheckin',:access_key=>@checkin_item.access_key %>" ></iframe>
    </div>
   </div>    
 
@@ -89,9 +91,10 @@ Facebook アカウントで検索する： Facebookアカウントの文字列�
 
    <div class="item_contents_preview">
     プレビュー：facebook投稿<br/>
-    <iframe id="preview_facebook" height="200" width="320" scrolling="no" bordercolor="black" src="/checkin/preview_facebook/<%=@checkin_item.access_key%>"></iframe>
+    <iframe id="preview_facebook" height="200" width="320" scrolling="no" bordercolor="black" src="<%= url_for :controller => "checkin",:action => 'preview_facebook',:access_key=>@checkin_item.access_key %>" ></iframe>
    </div>
   </div>
+  <%= f.submit submit_view(method) %>
  <% end %>
 </div>
 

@@ -71,6 +71,13 @@ class CheckinItem < ActiveRecord::Base
     record.create_datetime = Time.now.to_s(:db)
   end
 
+  #wall_picture 取得処理
+  #wall_pictureが無ければ、coupon_iamageを返す
+  def get_wall_picture
+    return self.wall_picture.presence || self.coupon_image
+  end
+
+
   #ステータスメッセージ
   def status_message
     case self.status
@@ -136,4 +143,26 @@ class CheckinItem < ActiveRecord::Base
     end
   end
 
+  #ダミーデータ作成（プレビュー用）
+  def setDummy
+      self.title = "CHECKPASS"
+      self.top_image = "/assets/dummy.gif"
+      self.top_image_text = "WELLCOME MESSAGE"
+      self.top_image_select = "1"
+      self.middle_image = "/assets/dummy.gif"
+      self.middle_image_text = 'MIDDLE MESSAGE'
+      self.middle_image_select = "1"
+      self.coupon_image = "/assets/dummy.gif"
+      self.coupon_image_text = "COUPON MESSAGE"
+      self.coupon_image_select = "1"
+      self.comment_title = "TITLE"
+      self.comment_message = "COMMENT MESSAGE"
+      self.wall_name = "WALL NAME"
+      self.wall_link = "http://www.facebook.com/checkpass"
+      self.wall_caption = "WALL CAPTION"
+      self.wall_description = "WALL DESCRIPTION"
+      self.wall_picture = "/assets/dummy.gif"
+      self.wall_message = "WALL MESSAGE"
+  end
+  
 end

@@ -1,6 +1,29 @@
 # coding: utf-8
 
 module ShopAdminHelper
+  #image/textセレクタ
+  def display_img(sel)
+    case sel
+    when 1;return ""
+    when 2;return "display:none"
+    end
+  end
+  def display_txt(sel)
+    case sel
+    when 1;return "display:none"
+    when 2;return ""
+    end
+  end
+  
+  #登録／更新出力判別
+  def submit_view(method)
+    case method
+    when "create_item";return "登録"
+    when "update_item";return "更新"
+    end
+  end
+
+
   #paypalチェックアウトorキャンセル production/test/development表示わけ
   def paypal_checkout(checkin_item)
     case checkin_item.status

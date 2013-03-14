@@ -1,5 +1,3 @@
-@import "http://";
-@charset "utf-8";
 
 /***** default styles
 *******************************************/
@@ -69,6 +67,16 @@ p, ul, ol, dl, table, pre {
 
 img {border: 0;	vertical-align: bottom;}
 
+#place_item {
+    min-height: 600px;
+}
+#docheckin_item {
+    min-height: 600px;
+}
+
+#fbwall_item {
+    min-height: 300px;
+}
 
 .container:after {
     clear: both;
@@ -99,18 +107,12 @@ img {border: 0;	vertical-align: bottom;}
     right: 5px;
 }
 
-#preview_docheckin{
-
-}
-
-#preview_facebook{
-
-}
 
 
 /***** Link styles
 *******************************************/
 
+/*
 #out a {text-decoration: none;}
 
 #out a:link {
@@ -127,6 +129,7 @@ img {border: 0;	vertical-align: bottom;}
 	color: #337ED2;
 	border-bottom: 1px solid #337ED2;
 }
+*/
 
 /***** layout styles
 *******************************************/

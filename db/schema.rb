@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130110173829) do
+ActiveRecord::Schema.define(:version => 20130221173829) do
 
   create_table "admin_masters", :force => true do |t|
     t.string   "master_id"
@@ -68,6 +68,17 @@ ActiveRecord::Schema.define(:version => 20130110173829) do
     t.datetime "checkin_date"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+  end
+
+  create_table "checkin_pv_items", :force => true do |t|
+    t.datetime "create_datetime"
+    t.string   "fbUserId"
+    t.binary   "top_image"
+    t.binary   "middle_image"
+    t.binary   "coupon_image"
+    t.binary   "wall_picture"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "payed_logs", :force => true do |t|

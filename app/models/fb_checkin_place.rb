@@ -30,6 +30,7 @@ class FbCheckinPlace
     #facebookからチェックインプレイスを検索
     graphLists = @graph.search(search, {:type => "place"})
     graphLists.each do |gl|
+pp gl
       #countryがjapanのものだけを対象
       #if gl['location']['country'] == "Japan" then
         fbCheckinPlace = FbCheckinPlace.new(@graph)

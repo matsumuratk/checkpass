@@ -249,7 +249,29 @@ Rails.logger.debug("search_by_fbid:@places=#{@places}")
     respond_to do |format|
       format.js { render :layout => false }
     end
-
   end
   
+  #Ajax プレビュー画像アップロード
+  def preview_upload_top_image
+    _preview_upload_image(params[:checkin_item],"top_image")
+  end
+  def preview_upload_middle_image
+    _preview_upload_image(params[:checkin_item],"middle_image")
+  end
+  def preview_upload_coupon_image
+    _preview_upload_image(params[:checkin_item],"coupon_image")
+  end
+  def preview_upload_wall_picture
+    _preview_upload_image(params[:checkin_item],"wall_picture")
+  end
+  def _preview_upload_image(item,method)
+    checkin_pv_item = CheckinPvItem.where(:fbUserId => item[:fbUserId]).first_or_create
+    if checkin_pv_item.update_attributes(item)
+      Rails.logger.debug("_preview_upload:method=#{method}")
+      Rails.logger.debug("_preview_upload:url=#{checkin_pv_item.send(method)}")
+      render :text => checkin_pv_item.send(method)
+    else
+      render :text => "NG"
+    end
+  end
 end

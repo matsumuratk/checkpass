@@ -47,9 +47,17 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+
+  # use twitter-bootstrap-rails
+  
+  # use jquery-ui
 end
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'jquery_mobile_rails'
+gem 'twitter-bootstrap-rails'
+gem 'spinjs-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

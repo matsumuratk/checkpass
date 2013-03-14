@@ -3,10 +3,18 @@
 class ShopAdminApplicationController < ApplicationController
 
   #店舗用ログイン認証用フィルタ
-  before_filter :check_logined_ShopAdmin
+  before_filter :check_logined_ShopAdmin, :except => [:noregist, :regist, :doregist, 
+        :preview_upload_top_image,
+        :preview_upload_middle_image,
+        :preview_upload_coupon_image,
+        :preview_upload_wall_picture   ]
 
   #registチェックフィルタ
-  before_filter :check_regist, :except => [:noregist,:regist,:doregist]
+  before_filter :check_regist, :except => [:noregist, :regist, :doregist, 
+        :preview_upload_top_image,
+        :preview_upload_middle_image,
+        :preview_upload_coupon_image,
+        :preview_upload_wall_picture   ]
 
   #レイアウト指定
   #layout "shop_admin"

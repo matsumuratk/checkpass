@@ -9,8 +9,11 @@ class CheckinController < CheckinApplicationController
   #チェックイン表示
   def place
     Rails.logger.debug("place :access_key = #{params[:access_key]}")
+    
+    access_key = params[:access_key].presence || 'dummy'
+    @checkin_item = CheckinItem.find_by_access_key(access_key)
 
-    @checkin_item = CheckinItem.find_by_access_key(params[:access_key])
+    Rails.logger.debug("place :checkin_item = #{@checkin_item}")
 
     respond_to do |format|
       #キーが無ければ、キャンペーンなし。
@@ -97,10 +100,12 @@ class CheckinController < CheckinApplicationController
   #プレビュー画面 place
   def preview_place
     unless params[:access_key].nil?
-      @checkin_item = CheckinItem.find_by_access_key(params[:access_key])
+      @checkin_item = CheckinItem.find_by_access_key(params[:access_key]) 
     else
       @checkin_item = CheckinItem.new
+      @checkin_item.setDummy
     end
+ 
     respond_to do |format|
       format.html {render :template=>'checkin/place',:locals => {:preview => true}}
     end
@@ -108,7 +113,12 @@ class CheckinController < CheckinApplicationController
 
   #プレビュー画面 docheckin
   def preview_docheckin
-    @checkin_item = CheckinItem.find_by_access_key(params[:access_key])
+    unless params[:access_key].nil?
+      @checkin_item = CheckinItem.find_by_access_key(params[:access_key]) 
+    else
+      @checkin_item = CheckinItem.new
+      @checkin_item.setDummy
+    end
     respond_to do |format|
       format.html {render :template=>'checkin/docheckin',:locals => {:preview => true}}
     end
@@ -116,13 +126,19 @@ class CheckinController < CheckinApplicationController
 
   #プレビュー画面　Facebook投稿
   def preview_facebook  
+    unless params[:access_key].nil?
+      @checkin_item = CheckinItem.find_by_access_key(params[:access_key]) 
+    else
+      @checkin_item = CheckinItem.new
+      @checkin_item.setDummy
+    end
     respond_to do |format|
       format.html 
     end
   end
 
-
-
 end
 
 class NoGraphPlaceException < Exception; end  #GraphPlaceなし
+
+

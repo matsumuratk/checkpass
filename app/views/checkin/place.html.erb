@@ -1,22 +1,14 @@
 <div data-role="page" data-theme="a">
   <div data-role="content" data-theme="a">
     <span class="tCenter"><h1><span id="title"><%= @checkin_item.title %></span></h1></span>
-    <div id="top_image">
-    <% case @checkin_item.top_image_select
-      when 1 %>
-    <%= image_tag(@checkin_item.top_image, :style =>"width:100%; max-width:680px;",:id=>"top_image") %>
-    <% when 2 %>
-    <span class="tCenter" id="top_image_text"><%= @checkin_item.top_image_text.html_safe %></span>
-    <% end %>
+    <div id="top">
+    <%= image_tag((@checkin_item.top_image.presence || '/assets/dummy.gif'), :style =>"width:100%; max-width:680px;#{display_img(@checkin_item.top_image_select)}",:id=>"top_image") %>
+    <span class="tCenter" id="top_image_text" style="<%=display_txt(@checkin_item.top_image_select)%>"><%= @checkin_item.top_image_text.html_safe %></span>
     </div> 
 
-    <div id="middle_image">
-    <% case @checkin_item.middle_image_select
-      when 1 %>
-    <%= image_tag(@checkin_item.middle_image, :style =>"width:100%; max-width:680px;", :id=>"middle_image") if @checkin_item.middle_image? %>
-    <% when 2 %>
-    <span class="tCenter" id="middle_image_text"><%= @checkin_item.middle_image_text.html_safe %></span>
-    <% end %>
+    <div id="middle">
+     <%= image_tag((@checkin_item.middle_image.presence || '/assets/dummy.gif'), :style =>"width:100%; max-width:680px;#{display_img(@checkin_item.middle_image_select)}", :id=>"middle_image")  %>
+     <span class="tCenter" id="middle_image_text" style="<%=display_txt(@checkin_item.middle_image_select)%>"><%= @checkin_item.middle_image_text.html_safe %></span>
     </div>
 <br/>
 <br/>
@@ -33,7 +25,6 @@
     <% end %>
   </div>
   <div data-role="footer">
-aaa
   </div>
 </div>
 
