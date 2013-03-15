@@ -13,10 +13,10 @@ $(function(){
 // facebook place ローディング処理
 $(function(){
   $("#search_name_form")
-    .live("ajax:beforeSend", function(){ $("#spin").spin(); }) 
-    .live("ajax:success", function(){ $("#spin").spin(false); }) 
-    .live("ajax:error", function(){ $("#spin").spin(false); }) 
-    .live("ajax:complete", function(){ $("#spin").spin(false); });
+    .on('ajax:beforeSend',function(){ $("#spin").spin(); })
+    .on('ajax:success',function(){ $("#spin").spin(false); })
+    .on('ajax:error',function(){ $("#spin").spin(false); })
+    .on('ajax:complete',function(){ $("#spin").spin(false); });
 });
 
 // プレビュー表示処理

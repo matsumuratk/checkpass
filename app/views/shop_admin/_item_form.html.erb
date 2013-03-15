@@ -26,7 +26,7 @@ Facebook アカウントで検索する： Facebookアカウントの文字列�
 
 <!-- 入力情報 -->
 <div class="field">
- <a name="input">
+ <a name="input_top">
  <%= form_for(@checkin_item, :url => { :action => method, :access_key =>@checkin_item.access_key }) do |f| %>
   <%= f.hidden_field :fbUserId, :id=>'fbUserId' %>
 
