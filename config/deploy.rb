@@ -25,11 +25,17 @@ role :db,  "fbapp.evangelize.jp", :primary => true # This is where Rails migrati
 
 after "deploy:symlink", "deploy:link_images"
 before "deploy:restart", "assets:precompile"
+before "deploy:setup", "deploy:create_uploads_dir"
 
 # If you are using Passenger mod_rails uncomment this:
 namespace :deploy do
   task :start do ; end
   task :stop do ; end
+
+  desc 'Create a directory to uploads'
+  task :create_uploads_dir, :roles => :app do
+    run "mkdir -p #{shared_path}/uploads"
+  end
 
   desc "make sym_link to uploads directory"
   task :link_images do

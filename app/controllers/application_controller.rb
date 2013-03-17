@@ -30,7 +30,8 @@ class ApplicationController < ActionController::Base
 # Rails.logger.debug "check_logined:graph=#{@graph.dump}"
         session[:fbprofile] = @graph.get_object("me",{:locale=>"ja_JP"})
         @fbProfile = session[:fbprofile]
-        @myFbUserId = session[:fbprofile]['id']        
+        @myFbUserId = session[:fbprofile]['id'] 
+        Rails.logger.info "check_logined:fbUserId=#{@myFbUserId}\n"
       rescue =>e
         #セッションをクリアして再読み込み
         Rails.logger.debug "check_logined:rescue=#{e}\n"

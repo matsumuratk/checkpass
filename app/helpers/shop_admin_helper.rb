@@ -26,36 +26,32 @@ module ShopAdminHelper
 
   #paypalチェックアウトorキャンセル production/test/development表示わけ
   def paypal_checkout(checkin_item)
+   
+    #未登録,キャンセル状態－再登録
     case checkin_item.status
-    when CheckinItem::REGIST #未登録
-      case Rails.env
-      when "production";render :partial => 'paypal_checkout_production', :locals => {:checkin_item=>checkin_item}
-      when "test";render :partial => 'paypal_checkout_test', :locals => {:checkin_item=>checkin_item}
-      when "development";render :partial => 'paypal_checkout_development', :locals => {:checkin_item=>checkin_item}
-      else
-        Rails.logger.error("Rails.env=#{Rails.env}")
-        "<div>paypal checkout error</div>"
-      end
-    when CheckinItem::PRE_AVAILABLE,CheckinItem::AVAILABLE,CheckinItem::LAST1MONTH #利用中
-      case Rails.env
-      when "production";render :partial => 'paypal_cancel_production',:locals => {:checkin_item=>checkin_item}
-      when "test";render :partial => 'paypal_cancel_test',:locals => {:checkin_item=>checkin_item}
-      when "development";render :partial => 'paypal_cancel_development',:locals => {:checkin_item=>checkin_item}
-      else
-        Rails.logger.error("Rails.env=#{Rails.env}")
-        "<div>paypal checkout error</div>"
-      end
+      when CheckinItem::REGIST,CheckinItem::INVALID,CheckinItem::LEAVE
+        paypal_url = lambda{
+          case Rails.env
+            when "production";return "https://www.paypal.com/cgi-bin/webscr";
+            when "test";return "https://www.sandbox.paypal.com/cgi-bin/webscr"
+            when "development";return url_for(:action => 'paypal_checkout_debug', :access_key =>checkin_item.access_key)
+          end
+        }.call()
 
-    when CheckinItem::INVALID,CheckinItem::LEAVE #キャンセル状態－再登録
-      case Rails.env
-      when "production";render :partial => 'paypal_checkout_production', :locals => {:checkin_item=>checkin_item}
-      when "test";render :partial => 'paypal_checkout_test', :locals => {:checkin_item=>checkin_item}
-      when "development";render :partial => 'paypal_checkout_development', :locals => {:checkin_item=>checkin_item}
-      else
-        Rails.logger.error("Rails.env=#{Rails.env}")
-        "<div>paypal checkout error</div>"
-      end
+        render :partial => 'paypal_checkout', :locals => {:paypal_url=>paypal_url,:access_key=>checkin_item.access_key}
 
-    end
+      #利用中
+      when CheckinItem::PRE_AVAILABLE,CheckinItem::AVAILABLE,CheckinItem::LAST1MONTH
+        paypal_url = lambda{
+          case Rails.env
+            when "production";return "https://www.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=L2L5H5NK32QM4";
+            when "test";return "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=DUHM4A8JY74HY"
+            when "development";return url_for(:action => 'paypal_cancel_debug', :access_key =>checkin_item.access_key)
+          end
+        }.call()
+        
+        render :partial => 'paypal_cancel',:locals => {:paypal_url=>paypal_url, :access_key=>checkin_item.access_key}
+    end      
   end
 end
+
