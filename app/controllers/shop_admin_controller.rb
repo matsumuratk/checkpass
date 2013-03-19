@@ -15,7 +15,8 @@ class ShopAdminController < ShopAdminApplicationController
   def regist
     @shop = Shop.new
     @shop.fbUserId = @myFbUserId
-    @shop.shop_name = session[:fbprofile]['name']
+    #@shop.shop_name = session[:fbprofile]['name']
+    @shop.shop_name = @myFbName
 
     respond_to do |format|
       format.html 
@@ -27,7 +28,8 @@ class ShopAdminController < ShopAdminApplicationController
   def doregist
     @shop = Shop.new(params[:shop])
     @shop.fbUserId = @myFbUserId
-    @shop.fbName = session[:fbprofile]['name']
+    #@shop.fbName = session[:fbprofile]['name']
+    @shop.fbName = @myFbName
     @shop.regist_datetime = Time.now.to_s(:db)
 
     respond_to do |format|

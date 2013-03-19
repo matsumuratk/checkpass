@@ -21,7 +21,7 @@ Checkpass::Application.routes.draw do
   #get "checkin/showplace"
   #get "commons/callback"
 
-  match 'commons/callback' => 'commons#callback'
+  match 'commons/callback/:mode' => 'commons#callback'
 
   #ユーザー機能
   match 'checkin/place/:access_key', :to => 'checkin#place'

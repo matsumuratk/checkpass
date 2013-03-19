@@ -7,18 +7,19 @@ class CommonsController < ApplicationController
   #Facebookログインのコールバック処理
 	#GET /commons/callback
 	def callback
-logger.debug "callback"
-logger.debug "callback:oauth=#{session[:oauth]}"
+    mode = params[:mode]
+    logger.debug "callback:mode=#{[mode]}"
+    logger.debug "callback:oauth=#{session[mode.to_s+":"+:oauth.to_s]}"
 
 		#get the access token from facebook with your code
-		session[:access_token] = session[:oauth].get_access_token(params[:code])
-    @graph = Koala::Facebook::GraphAPI.new(session[:access_token])
-    session[:fbprofile] = @graph.get_object("/me")
+		session[mode.to_s+":"+:access_token.to_s] = session[mode.to_s+":"+:oauth.to_s].get_access_token(params[:code])
+    @graph = Koala::Facebook::GraphAPI.new(session[mode.to_s+":"+:access_token.to_s])
+    #session[mode][:fbprofile] = @graph.get_object("/me")
 
-logger.debug "callback:access_token=#{session[:access_token]}"
-logger.debug "callback:redirect_to=#{session[:after_login_redirect_url]}"
+    logger.debug "callback:access_token=#{session[mode.to_s+":"+:access_token.to_s]}"
+    logger.debug "callback:redirect_to=#{session[mode.to_s+":"+:after_login_redirect_url.to_s]}"
 
-		redirect_to session[:after_login_redirect_url]
+		redirect_to session[mode.to_s+":"+:after_login_redirect_url.to_s]
 	end
 
 
