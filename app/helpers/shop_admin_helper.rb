@@ -30,9 +30,10 @@ module ShopAdminHelper
     #未登録,キャンセル状態－再登録
     case checkin_item.status
       when CheckinItem::REGIST,CheckinItem::INVALID,CheckinItem::LEAVE
+        Rails.logger.debug(PAYPAL::CHECKOUT_URL);
         paypal_url = lambda{
           case Rails.env
-            when "production","test";return Checkpass:PAYPAL_CHECKOUT_URL;
+            when "production","test";return PAYPAL::CHECKOUT_URL;
             when "development";return url_for(:action => 'paypal_checkout_debug', :access_key =>checkin_item.access_key)
           end
         }.call()
@@ -43,7 +44,7 @@ module ShopAdminHelper
       when CheckinItem::PRE_AVAILABLE,CheckinItem::AVAILABLE,CheckinItem::LAST1MONTH
         paypal_url = lambda{
           case Rails.env
-            when "production","test";return Checkpass::PAYPAL_CANCEL_URL;
+            when "production","test";return PAYPAL::CANCEL_URL;
             when "development";return url_for(:action => 'paypal_cancel_debug', :access_key =>checkin_item.access_key)
           end
         }.call()
