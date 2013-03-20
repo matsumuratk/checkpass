@@ -153,30 +153,30 @@ class ShopAdminController < ShopAdminApplicationController
 
   #paypalコールバック処理
   def paypal_notify
+    Rails.logger.info("notify")
     Rails.logger.info(params)
-    @paras = params
-    respond_to do |format|
-      format.html 
-    end
   end
 
   #paypal購読完了処理
   def paypal_checkout
+    Rails.logger.info("checkout")
     Rails.logger.info(params)
-    @paras = params
-    respond_to do |format|
-      format.html { render action: "paypal_notify" }
-    end
   end
 
   #paypal解約完了処理
   def paypal_cancel
+    Rails.logger.info("cancel")
     Rails.logger.info(params)
-    @paras = params
+  end
+
+  #paypal処理完了処理
+  def paypal_thanks
     respond_to do |format|
-      format.html { render action: "paypal_notify" }
+      format.html
+      format.json
     end
   end
+
 
   #debug用　paypal購読完了処理
   def paypal_checkout_debug

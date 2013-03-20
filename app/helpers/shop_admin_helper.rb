@@ -32,8 +32,7 @@ module ShopAdminHelper
       when CheckinItem::REGIST,CheckinItem::INVALID,CheckinItem::LEAVE
         paypal_url = lambda{
           case Rails.env
-            when "production";return "https://www.paypal.com/cgi-bin/webscr";
-            when "test";return "https://www.sandbox.paypal.com/cgi-bin/webscr"
+            when "production","test";return Checkpas:PAYPAL_CHECKOUT_URL;
             when "development";return url_for(:action => 'paypal_checkout_debug', :access_key =>checkin_item.access_key)
           end
         }.call()
@@ -44,8 +43,7 @@ module ShopAdminHelper
       when CheckinItem::PRE_AVAILABLE,CheckinItem::AVAILABLE,CheckinItem::LAST1MONTH
         paypal_url = lambda{
           case Rails.env
-            when "production";return "https://www.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=L2L5H5NK32QM4";
-            when "test";return "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=DUHM4A8JY74HY"
+            when "production","test";return Checkpass::PAYPAL_CANCEL_URL;
             when "development";return url_for(:action => 'paypal_cancel_debug', :access_key =>checkin_item.access_key)
           end
         }.call()

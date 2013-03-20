@@ -50,12 +50,12 @@ Checkpass::Application.routes.draw do
   match "shop_admin/paypal_checkout", :to => 'shop_admin#paypal_checkout'
   match "shop_admin/paypal_notify", :to => 'shop_admin#paypal_notify'
   match "shop_admin/paypal_cancel", :to => 'shop_admin#paypal_cancel'
+  match 'shop_admin/paypal_checkout_debug', :to => 'shop_admin#paypal_checkout_debug', :as => 'paypal_checkout_debug_shop_admin'
+  match 'shop_admin/paypal_cancel_debug/:access_key', :to => 'shop_admin#paypal_cancel_debug', :as => 'paypal_cancel_debug_shop_admin'
 
   match 'shop_admin/search', :to => 'shop_admin#search'
   match 'shop_admin/search_by_fbid', :to => 'shop_admin#search_by_fbid'
 
-  match 'shop_admin/paypal_checkout_debug', :to => 'shop_admin#paypal_checkout_debug', :as => 'paypal_checkout_debug_shop_admin'
-  match 'shop_admin/paypal_cancel_debug/:access_key', :to => 'shop_admin#paypal_cancel_debug', :as => 'paypal_cancel_debug_shop_admin'
   
   match "shop_admin/preview_upload_top_image", :to => 'shop_admin#preview_upload_top_image'
   match "shop_admin/preview_upload_middle_image", :to => 'shop_admin#preview_upload_middle_image'
