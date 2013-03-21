@@ -6,28 +6,37 @@ class PaypalController < ApplicationController
   def paypal_notify
     Rails.logger.info("notify")
     Rails.logger.info(params)
+    respond_to do |format|
+      format.html       render :text => "OK"
+    end
   end
 
   #paypal購読完了処理
   def checkout
-    Rails.logger.info("checkout")
-    Rails.logger.info(params)
-  end
-
-  #paypal解約完了処理
-  def cancel
-    Rails.logger.info("cancel")
-    Rails.logger.info(params)
-  end
-
-  #paypal処理完了処理
-  def success
+    Rails.logger.info("paypal_checkout:params=#{params}")
     respond_to do |format|
       format.html
       format.json
     end
   end
 
+  #paypal処理完了処理
+  def success
+    Rails.logger.info("paypal_success:params=#{params}")
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
+  #paypal解約完了処理
+  def cancel
+    Rails.logger.info("paypal_cancel:params=#{params}")
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
 
   #debug用　paypal購読完了処理
   def checkout_debug
