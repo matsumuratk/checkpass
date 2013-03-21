@@ -47,12 +47,6 @@ Checkpass::Application.routes.draw do
   match "shop_admin/update_item/:access_key", :to => 'shop_admin#update_item', :as => 'update_item_shop_admin'
   match "shop_admin/destroy/:access_key", :to => 'shop_admin#destroy_item', :as => 'destroy_item_shop_admin'
 
-  match "shop_admin/paypal_checkout", :to => 'shop_admin#paypal_checkout'
-  match "shop_admin/paypal_notify", :to => 'shop_admin#paypal_notify'
-  match "shop_admin/paypal_cancel", :to => 'shop_admin#paypal_cancel'
-  match 'shop_admin/paypal_checkout_debug', :to => 'shop_admin#paypal_checkout_debug', :as => 'paypal_checkout_debug_shop_admin'
-  match 'shop_admin/paypal_cancel_debug/:access_key', :to => 'shop_admin#paypal_cancel_debug', :as => 'paypal_cancel_debug_shop_admin'
-
   match 'shop_admin/search', :to => 'shop_admin#search'
   match 'shop_admin/search_by_fbid', :to => 'shop_admin#search_by_fbid'
 
@@ -61,6 +55,14 @@ Checkpass::Application.routes.draw do
   match "shop_admin/preview_upload_middle_image", :to => 'shop_admin#preview_upload_middle_image'
   match "shop_admin/preview_upload_coupon_image", :to => 'shop_admin#preview_upload_coupon_image'
   match "shop_admin/preview_upload_wall_picture", :to => 'shop_admin#preview_upload_wall_picture'
+
+  #Paypal支払い処理
+  match "paypal/checkout", :to => 'paypal#checkout', :as=>'checkout_paypal'
+  match "paypal/cancel", :to => 'paypal#cancel', :as=>'cancel_paypal'
+  match "paypal/notify/:ipn", :to => 'paypal#notify'
+  match "paypal/checkout_debug/:access_key", :to => 'paypal#checkout_debug', :as => 'checkout_debug_paypal' unless Rails.env.production?
+  match 'paypal/cancel_debug/:access_key', :to => 'paypal#cancel_debug', :as => 'cancel_debug_paypal' unless Rails.env.production?
+  
   
   #管理者機能
   match 'admin', :to => 'admin#index', :as => 'admin'
