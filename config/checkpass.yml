@@ -2,19 +2,19 @@
 development:
   paypal_checkout_url: ""
   paypal_cancel_url: ""
-  paypal_notify_url:  "http://localhost:3000/paypal/notify_url"
+  paypal_notify_url:  "http://localhost:3000/paypal/notify"
   paypal_id: "00000000"
   
 test:
   paypal_checkout_url: "https://www.paypal.com/cgi-bin/webscr"
   paypal_cancel_url: "https://www.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=L2L5H5NK32QM4"
-  paypal_notify_url: "http://test.checkpass.evangelize.jp/paypal/notify_url"
+  paypal_notify_url: "http://test.checkpass.evangelize.jp/paypal/notify"
   paypal_id: "268Z9C7RWMCWQ"
 
 production:
   paypal_checkout_url: "https://www.paypal.com/cgi-bin/webscr"
   paypal_cancel_url: "https://www.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=L2L5H5NK32QM4"
-  paypal_notify_url: "http://checkpass.evangelize.jp/paypal/notify_url"
+  paypal_notify_url: "http://checkpass.evangelize.jp/paypal/notify"
   paypal_id: "XP57FP72GAD7A"
 
 
