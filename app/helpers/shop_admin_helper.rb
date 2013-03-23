@@ -32,12 +32,13 @@ module ShopAdminHelper
       when CheckinItem::REGIST,CheckinItem::INVALID,CheckinItem::LEAVE
         paypal_url = lambda{
           case Rails.env
-            when "production","test";return "#{PAYPAL::CHECKOUT_URL}/checkin_item.access_key";
-            when "development";return checkout_debug_paypal_path(checkin_item.access_key)
+            when "production","test";return PAYPAL::CHECKOUT_URL;
+            when "development";return checkout_debug_paypal_path(checkin_item.access_key))
           end
         }.call()
+        paypal_notift_url = PAYPAL::NOTIFY_URL + "/#{checkin_item.access_key}"
 
-        render :partial => 'paypal_checkout', :locals => {:paypal_url=>paypal_url,:access_key=>checkin_item.access_key}
+        render :partial => 'paypal_checkout', :locals => {:paypal_url=>paypal_url,:paypal_notify_url=>paypal_notify_url,:access_key=>checkin_item.access_key}
 
       #利用中
       when CheckinItem::PRE_AVAILABLE,CheckinItem::AVAILABLE,CheckinItem::LAST1MONTH

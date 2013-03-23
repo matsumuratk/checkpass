@@ -2,8 +2,8 @@
 development:
   paypal_checkout_url: ""
   paypal_cancel_url: ""
-  paypal_notify_url: ""
-  paypal_id: ""
+  paypal_notify_url:  "http://localhost:3000/paypal/notify_url"
+  paypal_id: "00000000"
   
 test:
   paypal_checkout_url: "https://www.paypal.com/cgi-bin/webscr"
