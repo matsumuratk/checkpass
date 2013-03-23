@@ -16,7 +16,7 @@ class PaypalController < ApplicationController
     payedLog.verify_sign = params[:verify_sign]
     payedLog.ipn_track_id = params[:ipn_track_id]
     payedLog.payer_date = params[:payer_date]
-    payedLog.subscr_date = params[:subscr_date]
+    payedLog.subscr_date = Time.parse(params[:subscr_date]).in_time_zone("PDT")
     payedLog.save!
 
     #notify処理
