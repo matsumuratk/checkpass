@@ -32,7 +32,7 @@ module ShopAdminHelper
       when CheckinItem::REGIST,CheckinItem::INVALID,CheckinItem::LEAVE
         paypal_url = lambda{
           case Rails.env
-            when "production","test";return PAYPAL::CHECKOUT_URL;
+            when "production","test";return "#{PAYPAL::CHECKOUT_URL}/checkin_item.access_key";
             when "development";return checkout_debug_paypal_path(checkin_item.access_key)
           end
         }.call()

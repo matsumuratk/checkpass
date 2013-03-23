@@ -59,7 +59,7 @@ Checkpass::Application.routes.draw do
   #Paypal支払い処理
   match "paypal/checkout", :to => 'paypal#checkout', :as=>'checkout_paypal'
   match "paypal/cancel", :to => 'paypal#cancel', :as=>'cancel_paypal'
-  match "paypal/notify/:ipn", :to => 'paypal#notify'
+  match "paypal/notify/:access_key", :to => 'paypal#notify'
   match "paypal/checkout_debug/:access_key", :to => 'paypal#checkout_debug', :as => 'checkout_debug_paypal' unless Rails.env.production?
   match 'paypal/cancel_debug/:access_key', :to => 'paypal#cancel_debug', :as => 'cancel_debug_paypal' unless Rails.env.production?
   
