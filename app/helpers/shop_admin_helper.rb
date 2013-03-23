@@ -36,7 +36,7 @@ module ShopAdminHelper
             when "development";return checkout_debug_paypal_path(checkin_item.access_key)
           end
         }.call()
-        paypal_notify_url = PAYPAL::NOTIFY_URL + "/#{checkin_item.access_key}"
+        paypal_notify_url = PAYPAL::NOTIFY_URL+"/#{checkin_item.fbUserId}/#{checkin_item.access_key}"
 
         render :partial => 'paypal_checkout', :locals => {:paypal_url=>paypal_url,:paypal_notify_url=>paypal_notify_url,:access_key=>checkin_item.access_key}
 
