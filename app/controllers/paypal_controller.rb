@@ -13,7 +13,7 @@ class PaypalController < ApplicationController
     payedLog.payer_email = params[:payer_email]
     payedLog.first_name = params[:first_name]
     payedLog.last_name = params[:last_name]
-    payedLog.verify_sign = params[:verify_sign:]
+    payedLog.verify_sign = params[:verify_sign]
     payedLog.ipn_track_id = params[:ipn_track_id]
     payedLog.payer_date = params[:payer_date]
     payedLog.subscr_date = params[:subscr_date]
