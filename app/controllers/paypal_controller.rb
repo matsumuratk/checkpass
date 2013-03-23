@@ -6,7 +6,7 @@ class PaypalController < ApplicationController
   def notify
     #PayedLogセット
     payedLog = PayedLog.new
-    payedLog.fbShopid = params[:fbShopid]
+    payedLog.fbUserid = params[:fbUserid]
     payedLog.access_key = params[:access_key]
     payedLog.subscr_id = params[:subscr_id]
     payedLog.txn_type = params[:txn_type]

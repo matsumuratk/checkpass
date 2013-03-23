@@ -1,7 +1,7 @@
 class CreatePayedLogs < ActiveRecord::Migration
   def change
     create_table :payed_logs do |t|
-      t.string :fbShopid
+      t.string :fbUserid
       t.string :access_key
       t.string :subscr_id
       t.string :txn_type
