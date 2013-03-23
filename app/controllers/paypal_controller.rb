@@ -11,8 +11,8 @@ class PaypalController < ApplicationController
     payedLog.subscr_id = params[:subscr_id]
     payedLog.txn_type = params[:txn_type]
     payedLog.payer_email = params[:payer_email]
-    payedLog.first_name = params[:first_name]
-    payedLog.last_name = params[:last_name]
+    payedLog.first_name = params[:first_name].encode("sjis","utf-8")
+    payedLog.last_name = params[:last_name].encode("sjis","utf-8")
     payedLog.verify_sign = params[:verify_sign]
     payedLog.ipn_track_id = params[:ipn_track_id]
     payedLog.payer_date = params[:payer_date]
