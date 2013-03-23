@@ -4,8 +4,43 @@ class PaypalController < ApplicationController
 
   #paypalコールバック処理
   def notify
-    Rails.logger.info("notify")
-    Rails.logger.info(params)
+    #PayedLogセット
+    payedLog = PayedLog.new
+    payedLog.fbShopid = params[:fbShopid]
+    payedLog.access_key = params[:access_key]
+    payedLog.subscr_id = params[:subscr_id]
+    payedLog.txn_type = params[:txn_type]
+    payedLog.payer_email = params[:payer_email]
+    payedLog.first_name = params[:first_name]
+    payedLog.last_name = params[:last_name]
+    payedLog.verify_sign = params[:verify_sign:]
+    payedLog.ipn_track_id = params[:ipn_track_id]
+    payedLog.payer_date = params[:payer_date]
+    payedLog.subscr_date = params[:subscr_date]
+    payedLog.save!
+
+    #notify処理
+    checkin_item = CheckinItem.find_by_access_key(params[:access_key])
+
+    case params[:txn_type]
+    when "subscr_signup"   
+      #登録処理
+      #statusをAVAILABLEに更新
+      checkin_item.status = CheckinItem::AVAILABLE
+      checkin_item.start_date = Date.today
+      checkin_item.payment_date = Date.today
+      checkin_item.limit_date = Date.today << 12
+    when "subscr_cancel"
+      #キャンセル処理
+      #statusをAVAILABLEに更新
+      checkin_item.status = CheckinItem::LEAVE
+      checkin_item.cancel_date = Date.today
+    else
+      #その他の処理がきた場合
+      Rails.logger.info("paypal#notify:txn_type=#{params[:txn_type]}")
+      Rails.logger.info(params)      
+    end
+
     respond_to do |format|
       format.html { render :text => "OK" }
     end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130221173829) do
+ActiveRecord::Schema.define(:version => 20130326174848) do
 
   create_table "admin_masters", :force => true do |t|
     t.string   "master_id"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20130221173829) do
     t.string   "wall_message"
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
+    t.datetime "cancel_date"
   end
 
   create_table "checkin_logs", :force => true do |t|
@@ -83,9 +84,18 @@ ActiveRecord::Schema.define(:version => 20130221173829) do
 
   create_table "payed_logs", :force => true do |t|
     t.string   "fbShopid"
-    t.datetime "payed_date"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "access_key"
+    t.string   "subscr_id"
+    t.string   "txn_type"
+    t.string   "payer_email"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "verify_sign"
+    t.string   "ipn_track_id"
+    t.string   "payer_date"
+    t.datetime "subscr_date"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "shops", :force => true do |t|

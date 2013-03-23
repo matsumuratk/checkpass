@@ -6,9 +6,10 @@ class CreateCheckinItems < ActiveRecord::Migration
       t.datetime :create_datetime
 
       t.integer :status, {:default => 1}
-      t.date :start_date
-      t.date :payment_date
+      t.datetime :start_date
+      t.datetime :payment_date
       t.date :limit_date
+      t.datetime :cancel_date
 
       t.string :fbUserId
       t.string :fbShopId

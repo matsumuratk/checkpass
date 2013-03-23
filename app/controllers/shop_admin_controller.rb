@@ -15,7 +15,6 @@ class ShopAdminController < ShopAdminApplicationController
   def regist
     @shop = Shop.new
     @shop.fbUserId = @myFbUserId
-    #@shop.shop_name = session[:fbprofile]['name']
     @shop.shop_name = @myFbName
 
     respond_to do |format|

@@ -26,6 +26,7 @@ class CheckinItem < ActiveRecord::Base
   attr_accessible :start_date     #利用開始日
   attr_accessible :payment_date   #支払いを完了した日
   attr_accessible :limit_date     #利用期限
+  attr_accessible :cancel_date    #キャンセル日
 
   attr_accessible :fbUserId         # 登録者FacebookID
   attr_accessible :fbShopId         # CheckinItemを作成したショップID
