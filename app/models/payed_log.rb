@@ -1,5 +1,5 @@
 class PayedLog < ActiveRecord::Base
-  attr_accessible :fbUserid
+  attr_accessible :fbUserId
   attr_accessible :access_key
   attr_accessible :subscr_id
   attr_accessible :txn_type

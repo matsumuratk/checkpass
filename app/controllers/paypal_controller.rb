@@ -7,13 +7,13 @@ class PaypalController < ApplicationController
 Rails.logger.info("params=#{params}")      
 
 ##development debug code
-params={"controller"=>"paypal", "action"=>"notify","txn_type"=>"subscr_signup", "subscr_id"=>"I-U3W9J558L1H0", "last_name"=>"\x8F\xBC\x91\xBA", "option_selection1"=>"", "residence_country"=>"JP", "mc_currency"=>"JPY", "item_name"=>"\x83`\x83F\x83b\x83N\x83p\x83X\x81@test", "business"=>"matsumuratk@yahoo.co.jp", "recurring"=>"1", "verify_sign"=>"ATasCS1Jl2VWHiyCH4RFZq70n7BIAS2u2BQTuSyUlmIOznUpJLEHcHDX", "payer_status"=>"unverified", "payer_email"=>"taku@matsmura.jp", "first_name"=>"\x91\xF1", "receiver_email"=>"matsumuratk@yahoo.co.jp", "payer_id"=>"RWTYZ5EDHXFJ6", "option_name1"=>"wpm1TP", "reattempt"=>"1", "item_number"=>"1234567", "subscr_date"=>"05:29:26 Mar 23, 2013 PDT", "btn_id"=>"59306892", "charset"=>"Shift_JIS", "notify_version"=>"3.7", "period1"=>"1 D", "mc_amount1"=>"0", "period3"=>"1 D", "mc_amount3"=>"1", "ipn_track_id"=>"73759ddd8db6e", "access_key"=>"hBlVlR"} if Rails.env.development?
+params.merge!({"txn_type"=>"subscr_signup", "subscr_id"=>"I-U3W9J558L1H0", "last_name"=>"\x8F\xBC\x91\xBA", "option_selection1"=>"", "residence_country"=>"JP", "mc_currency"=>"JPY", "item_name"=>"\x83`\x83F\x83b\x83N\x83p\x83X\x81@test", "business"=>"matsumuratk@yahoo.co.jp", "recurring"=>"1", "verify_sign"=>"ATasCS1Jl2VWHiyCH4RFZq70n7BIAS2u2BQTuSyUlmIOznUpJLEHcHDX", "payer_status"=>"unverified", "payer_email"=>"taku@matsmura.jp", "first_name"=>"\x91\xF1", "receiver_email"=>"matsumuratk@yahoo.co.jp", "payer_id"=>"RWTYZ5EDHXFJ6", "option_name1"=>"wpm1TP", "reattempt"=>"1", "item_number"=>"1234567", "subscr_date"=>"05:29:26 Mar 23, 2013 PDT", "btn_id"=>"59306892", "charset"=>"Shift_JIS", "notify_version"=>"3.7", "period1"=>"1 D", "mc_amount1"=>"0", "period3"=>"1 D", "mc_amount3"=>"1", "ipn_track_id"=>"73759ddd8db6e" }) if Rails.env.development?
 
-  begin
+#  begin
     #PayedLogセット
     payedLog = PayedLog.new
-Rails.logger.info("fbUserid=#{params['fbUserid']}")      
-    payedLog.fbUserid = params['fbUserid']
+Rails.logger.info("fbUserId=#{params['fbUserId']}")      
+    payedLog.fbUserId = params['fbUserId']
     payedLog.access_key = params['access_key']
     payedLog.subscr_id = params['subscr_id']
     payedLog.txn_type = params['txn_type']
@@ -67,10 +67,10 @@ Rails.logger.info("CheckinItem.save")
 
     render :text => "OK" 
 
-  rescue => e
-    Rails.logger.error("paypal#notify error:#{e}")
-    render :text => "NG" 
-  end
+#  rescue => e
+#    Rails.logger.error("paypal#notify error:#{e}")
+#    render :text => "NG" 
+#  end
   end
 
   #paypal購読完了処理
