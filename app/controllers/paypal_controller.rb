@@ -4,19 +4,22 @@ class PaypalController < ApplicationController
 
   #paypalコールバック処理
   def notify
+
+params={"controller"=>"paypal", "action"=>"notify","txn_type"=>"subscr_signup", "subscr_id"=>"I-U3W9J558L1H0", "last_name"=>"\x8F\xBC\x91\xBA", "option_selection1"=>"", "residence_country"=>"JP", "mc_currency"=>"JPY", "item_name"=>"\x83`\x83F\x83b\x83N\x83p\x83X\x81@test", "business"=>"matsumuratk@yahoo.co.jp", "recurring"=>"1", "verify_sign"=>"ATasCS1Jl2VWHiyCH4RFZq70n7BIAS2u2BQTuSyUlmIOznUpJLEHcHDX", "payer_status"=>"unverified", "payer_email"=>"taku@matsmura.jp", "first_name"=>"\x91\xF1", "receiver_email"=>"matsumuratk@yahoo.co.jp", "payer_id"=>"RWTYZ5EDHXFJ6", "option_name1"=>"wpm1TP", "reattempt"=>"1", "item_number"=>"1234567", "subscr_date"=>"05:29:26 Mar 23, 2013 PDT", "btn_id"=>"59306892", "charset"=>"Shift_JIS", "notify_version"=>"3.7", "period1"=>"1 D", "mc_amount1"=>"0", "period3"=>"1 D", "mc_amount3"=>"1", "ipn_track_id"=>"73759ddd8db6e", "access_key"=>"wpm1TP"} if Rails.env.development?
+
     #PayedLogセット
     payedLog = PayedLog.new
-    payedLog.fbUserid = params[:fbUserid]
-    payedLog.access_key = params[:access_key]
-    payedLog.subscr_id = params[:subscr_id]
-    payedLog.txn_type = params[:txn_type]
-    payedLog.payer_email = params[:payer_email]
-    payedLog.first_name = params[:first_name].encode("sjis","utf-8")
-    payedLog.last_name = params[:last_name].encode("sjis","utf-8")
-    payedLog.verify_sign = params[:verify_sign]
-    payedLog.ipn_track_id = params[:ipn_track_id]
-    payedLog.payer_date = params[:payer_date]
-    payedLog.subscr_date = Time.parse(params[:subscr_date]).in_time_zone("PDT")
+    payedLog.fbUserid = params['fbUserid']
+    payedLog.access_key = params['access_key']
+    payedLog.subscr_id = params['subscr_id']
+    payedLog.txn_type = params['txn_type']
+    payedLog.payer_email = params['payer_email']
+    payedLog.first_name = params['first_name'].encode("utf-8","sjis")
+    payedLog.last_name = params['last_name'].encode("utf-8","sjis")
+    payedLog.verify_sign = params['verify_sign']
+    payedLog.ipn_track_id = params['ipn_track_id']
+    payedLog.payer_date = params['payer_date']
+    payedLog.subscr_date = Time.parse(params['subscr_date']).in_time_zone("US/Pacific")
     payedLog.save!
 
     #notify処理
