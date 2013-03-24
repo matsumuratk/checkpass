@@ -22,9 +22,9 @@ Rails.logger.info("first_name=#{params['first_name']}")
     payedLog.first_name = params['first_name'].encode("utf-8","sjis")
     payedLog.last_name = params['last_name'].encode("utf-8","sjis")
     payedLog.verify_sign = params['verify_sign']
-    payedLog.ipn_track_id = params['ipn_track_id']
+    payedLog.ipn_track_id = params['ipn_track_id'] unless params['ipn_track_id']
 Rails.logger.info("subscr_date=#{params['subscr_date']}")      
-    payedLog.subscr_date = Time.parse(params['subscr_date']).in_time_zone("US/Pacific")
+    payedLog.subscr_date = Time.parse(params['subscr_date']).in_time_zone("US/Pacific") unless params['subscr_date'].nil?
     payedLog.save!
 Rails.logger.info("payerLog.save")      
 Rails.logger.info("access_key=#{params['access_key']}")      
