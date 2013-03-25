@@ -4,6 +4,10 @@
 
 <%= form_for(@checkin_item, :url => { :action => "update_checkin_item", :access_key =>@checkin_item.access_key }) do |f| %>
  <div class="field">
+  <b>利用状況：</b>
+  <%= f.select :status, @checkin_item.status_arry_admin, :selected => @checkin_item.status %>
+ </div>
+ <div class="field">
   <b>利用開始日：</b>
   <% if @checkin_item.start_date.nil? %>
    <%= f.date_select :start_date, :include_blank=>true %>
