@@ -86,6 +86,7 @@ class CheckinItem < ActiveRecord::Base
       when PRE_AVAILABLE then message = "試用期間中"
       when AVAILABLE,LAST1MONTH then message = "利用中"
       when INVALID then message = "無効"
+      when LEAVE then message = "終了"
     end
 
     return message

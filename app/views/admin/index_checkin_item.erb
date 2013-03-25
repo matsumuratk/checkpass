@@ -20,7 +20,7 @@
     <td><%= checkin_item.fbCheckinId %></td>
     <td><div id="qr<%=cnt%>"></div><%= "#{Facebook::CHECKIN_URL}#{checkin_item.access_key}" %></td>
 <script>
-jQuery('#qr<%=cnt%>').qrcode({width: 48,height: 48,text: "<%="#{Facebook::CHECKIN_URL}#{checkin_item.access_key}"%>"});
+jQuery('#qr<%=cnt%>').qrcode({width: 94,height: 94,text: "<%="#{Facebook::CHECKIN_URL}#{checkin_item.access_key}"%>"});
 </script>
     <td><%= checkin_item.status_message_admin %></td>
     <td><%= link_to 'Show', show_checkin_item_admin_path(checkin_item.access_key) %></td>
@@ -31,7 +31,6 @@ jQuery('#qr<%=cnt%>').qrcode({width: 48,height: 48,text: "<%="#{Facebook::CHECKI
 
 
 <br />
-<%= link_to 'チェックインアイテム作成', new_checkin_item_admin_path %><br/>
 <%= link_to 'トップ', admin_path %>
 <br/>
 <%= link_to 'Back', request.referer %>

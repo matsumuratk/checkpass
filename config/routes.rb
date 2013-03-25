@@ -70,12 +70,13 @@ Checkpass::Application.routes.draw do
   match 'admin/show_shop/:fbUserId', :to => 'admin#show_shop', :as => 'show_shop_admin'
   match 'admin/edit_shop/:fbUserId', :to => 'admin#edit_shop', :as => 'edit_shop_admin'
   match 'admin/update_shop/:fbUserId', :to => 'admin#update_shop', :as => 'update_shop_admin'
-  match 'admin/index_checkin_item', :to => 'admin#index_checkin_item', :as => 'index_checkin_item_admin'
+  match 'admin/index_checkin_item', :to => 'admin#index_checkin_item', :as => 'index_item_admin'
+  match 'admin/index_checkin_item/:fbUserId', :to => 'admin#index_checkin_item', :as => 'index_checkin_item_admin'
   match 'admin/show_checkin_item/:access_key', :to => 'admin#show_checkin_item', :as => 'show_checkin_item_admin'
   match 'admin/edit_checkin_item/:access_key', :to => 'admin#edit_checkin_item', :as => 'edit_checkin_item_admin'
   match 'update_checkin_item/:access_key', :to => 'admin#update_checkin_item', :as => 'update_checkin_item_admin'
-  match 'new_checkin_item', :to => 'admin#new_checkin_item', :as => 'new_checkin_item_admin'
-  match 'create_checkin_item', :to => 'admin#create_checkin_item', :as => 'create_checkin_item_admin'
+  #match 'new_checkin_item', :to => 'admin#new_checkin_item', :as => 'new_checkin_item_admin'
+  #match 'create_checkin_item', :to => 'admin#create_checkin_item', :as => 'create_checkin_item_admin'
   match 'index_checkin_log', :to => 'admin#index_checkin_log', :as => 'index_checkin_log_admin'
 
   # The priority is based upon order of creation:

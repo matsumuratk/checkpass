@@ -48,8 +48,12 @@ class AdminController < AdminApplicationController
   end
 
   def index_checkin_item
-    @checkin_items = CheckinItem.all
-
+    #fbUserIdが指定されていたら、対象fbUserIdの一覧を出す
+    if params.has_key?(:fbUserId)
+      @checkin_items = CheckinItem.find_by_fbUserId(params[:fbUserId])
+    else
+      @checkin_items = CheckinItem.all
+    end
     respond_to do |format|
       format.html
     end
@@ -86,6 +90,7 @@ class AdminController < AdminApplicationController
 
   end
 
+=begin
   def new_checkin_item
     @checkin_item = CheckinItem.new
 
@@ -107,6 +112,7 @@ class AdminController < AdminApplicationController
     end
 
   end
+=end
 
   def index_checkin_log
     @checkin_logs = CheckinLog.all

@@ -2,9 +2,8 @@
 <html>
 <head>
   <title>Checkpass</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= stylesheet_link_tag    "admin/style" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag    params[:controller], :media => "all" %>
+  <%= javascript_include_tag params[:controller] %>
   <%= csrf_meta_tags %>
 </head>
 <body>

@@ -29,7 +29,7 @@ module ShopAdminHelper
    
     #未登録,キャンセル状態－再登録
     case checkin_item.status
-      when CheckinItem::REGIST,CheckinItem::INVALID,CheckinItem::LEAVE
+      when CheckinItem::REGIST,CheckinItem::INVALID
         paypal_url = lambda{
           case Rails.env
             when "production","test";return PAYPAL::CHECKOUT_URL;
@@ -50,6 +50,11 @@ module ShopAdminHelper
         }.call()
         
         render :partial => 'paypal_cancel',:locals => {:paypal_url=>paypal_url, :access_key=>checkin_item.access_key}
+
+      #キャンセル状態
+      when CheckinItem::LEAVE
+        render :text=>"キャンセル済"
+
     end      
   end
 end

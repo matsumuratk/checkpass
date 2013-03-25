@@ -2,19 +2,19 @@
 <div id="searchFbPlace">
  <div id="searchByName">
 登録するチェックインプレイスをFacebookから検索する。
-  <%= form_tag(url_for(:action => 'search'), :remote => true, :id => "search_name_form") do %>
+  <%= form_tag({:controller=>'shop_admin',:action=>'search'}, :remote=>true, :id => "search_name_form") do %>
 登録名称で検索する： 名称を入力してください。</br>
    <%= text_field_tag :name,'', :size=>"60" %><%= submit_tag '名称で検索'%><br/><br/>
   <% end %>
  </div>
  <div id="searchByfbId">
-  <%= form_tag(url_for(:action => 'search_by_fbid'), :remote => true, :class => "search_fbid_form") do %>
+  <%= form_tag({:controller=>'shop_admin',:action=>'search_by_fbid'}, :remote => true, :class => "search_fbid_form") do %>
 Facebook IDで検索する： FacebookアカウントのID（１２桁数字）を入力して検索してください。</br>
    <%= text_field_tag :id,'', :size=>"60" %><%= submit_tag 'IDで検索'%><br/><br/>
   <% end %>
  </div>
  <div id="searchByfbName">
-  <%= form_tag(url_for(:action => 'search_by_fbid'), :remote => true, :id => "search_account_form") do %>
+  <%= form_tag({:controller=>'shop_admin',:action=>'search_by_fbid'}, :remote => true, :id => "search_account_form") do %>
 Facebook アカウントで検索する： Facebookアカウントの文字列を入力して検索してください。</br>
    <%= text_field_tag :id,'', :size=>"60" %><%= submit_tag 'IDで検索'%><br/><br/>
   <% end %>

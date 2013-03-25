@@ -10,4 +10,3 @@
 #= require shop_admin/edit_item
 #= require scroll.js
 
-

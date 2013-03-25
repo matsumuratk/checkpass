@@ -1,27 +1,34 @@
 <h1>Editing item</h1>
 チェックインプレイスを編集する。
 <br/>
-<%= form_tag(url_for(:controller => 'shop_admin', :action => 'search'), :remote => true, :id => "result_form") do %>
-  名称で検索<%= text_field_tag :name,'', :size=>"60" %><%= submit_tag %><br/><br/>
-<% end %>
-<br/><br/>
-<%= form_tag(url_for(:controller => 'shop_admin', :action => 'search_by_fbid'), :remote => true, :id => "result_form") do %>
-  IDで検索<%= text_field_tag :id,'', :size=>"60" %><%= submit_tag %><br/><br/>
-<% end %>
-
 
 <%= form_for(@checkin_item, :url => { :action => "update_checkin_item", :access_key =>@checkin_item.access_key }) do |f| %>
+ <div class="field">
+  <b>利用開始日：</b>
+  <% if @checkin_item.start_date.nil? %>
+   <%= f.date_select :start_date, :include_blank=>true %>
+  <% else %>
+   <%= f.date_select :start_date, :default=>@checkin_item.start_date, :include_blank=>true %>
+  <% end %>
+ </div>
+ <div class="field">
+  <b>支払いを完了した日：</b>
+  <% if @checkin_item.payment_date.nil? %>
+   <%= f.date_select :payment_date, :include_blank=>true %>
+  <% else %>
+   <%= f.date_select :payment_date, :default=>@checkin_item.payment_date, :include_blank=>true %>
+  <% end %>
+ </div>
 
-  <div id="result"></div>
-
-  <div class="field">
-
-  <%= render 'item_form', :f=>f %>
-
-  <div class="actions">
-    <%= f.submit "更新"%>
-  </div>
+ <%= submit_tag('利用状況更新') %>
 <% end %>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<%= render 'shop_admin/item_form', {:method=>"update_item"} %>
 
 
 <%= link_to 'Back', admin_path %>

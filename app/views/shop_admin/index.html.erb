@@ -35,9 +35,8 @@
     <tr>
       <th></th>
       <th>アイテム名</th>
-      <th>QRコード</th>
+      <th>QRコード （このQRコードをコピーしてください）</th>
       <th>利用状況</th>
-      <th>利用期限</th>
       <th>チェックイン履歴</th>
       <th>操作</th>
       <th></th>
@@ -47,14 +46,13 @@
     <tr>
       <td><%=cnt+1%></td>
       <td><%= checkin_item.item_name %></td>
-      <td><p id="qr<%=cnt%>"</p><br/><%= @checkin_url + checkin_item.access_key%></td>
+      <td><p id="qr<%=cnt%>"></p><%= @checkin_url + checkin_item.access_key%></td>
       <td><%= checkin_item.status_message %></td>
-      <td><%= checkin_item.limit_date %></td>
       <td><%= link_to "#{checkin_item.checkin_logs.count}件", index_checkinlog_shop_admin_path %></td>
       <td><%= paypal_checkout(checkin_item) %></td>
       <td><%= link_to "編集", edit_item_shop_admin_path(checkin_item.access_key) %>
           <br/>
-          <%= link_to "削除", destroy_item_shop_admin_path(checkin_item.access_key) %>
+          <%= link_to "削除", destroy_item_shop_admin_path(checkin_item.access_key), :confirm=>"削除してもよろしいですか？\nこの動作は取り消せません" %>
       </td>
       <script>
         $('#qr<%=cnt%>').qrcode({width: 96,height: 96,text: "<%= @checkin_url + checkin_item.access_key %>"});
