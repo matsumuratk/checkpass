@@ -1,12 +1,12 @@
+<% content_for :title do %>チェックインプレイス編集<%end%>
 <div class="container">
  <div class="contents">
   <h1>チェックインプレイスの編集</h1>
-  <br/>
 
   <%= render 'item_form', {:method=>"update_item"} %>
 
   <br/>
-  <%= link_to 'Back', shop_admin_path %>
+  <%= link_to 'トップページに戻る', shop_admin_path %>
  </div>
 </div>
 

@@ -32,15 +32,19 @@ Checkpass::Application.routes.draw do
   match 'checkin/preview_facebook/:access_key', :to => 'checkin#preview_facebook'  
   
   #店舗管理機能
-  match "shop_admin/", :to => 'shop_admin#index', :as => 'shop_admin', :defaults => {:render=>'index'}
+  match "shop_admin/", :to => 'shop_admin#index', :as => 'shop_admin'
   match "shop_admin/noregist", :to => 'shop_admin#noregist', :as => 'noregist_shop_admin'
   match "shop_admin/regist", :to => 'shop_admin#regist', :as => 'regist_shop_admin'
   match "shop_admin/doregist", :to => 'shop_admin#doregist', :as => 'doregist_shop_admin'
-  match "shop_admin/index", :to => 'shop_admin#index', :as => 'index_shop_admin', :defaults => {:render=>'index'}
-  match "shop_admin/index_checkinitem", :to => 'shop_admin#index', :as => 'index_checkinitem_shop_admin', :defaults => {:render=>'index_checkinitem'}
-  match "shop_admin/index_checkinlog", :to => 'shop_admin#index', :as => 'index_checkinlog_shop_admin', :defaults => {:render=>'index_checkinlog'}
+  match "shop_admin/index", :to => 'shop_admin#index', :as => 'index_shop_admin'
+
+  match "shop_admin/show_checkinlog/:access_key", :to => 'shop_admin#show_checkinlog', :as => 'show_checkinlog_shop_admin'
+  match "shop_admin/show_checkinlog/:access_key.csv", :to => 'shop_admin#show_checkinlog', :defaults => {:format => 'csv'}, :as => 'show_checkinlog_csv_shop_admin'
+
   match "shop_admin/edit_manager", :to => 'shop_admin#edit_manager', :as => 'edit_manager_shop_admin'
   match "shop_admin/update_manager", :to => 'shop_admin#update_manager', :as => 'update_manager_shop_admin'
+
+  match "shop_admin/show_item/:access_key", :to => 'shop_admin#show_item', :as => 'show_item_shop_admin'
   match "shop_admin/new_item", :to => 'shop_admin#new_item', :as => 'new_item_shop_admin'
   match "shop_admin/create_item", :to => 'shop_admin#create_item', :as => 'create_item_shop_admin'
   match "shop_admin/edit_item/:access_key", :to => 'shop_admin#edit_item', :as => 'edit_item_shop_admin'

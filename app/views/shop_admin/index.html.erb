@@ -1,3 +1,6 @@
+<% content_for :title do %>管理画面トップ<%end%>
+<div class="container">
+ <div class="contents">
 <h1>チェックパス 登録情報</h1>
 <h3>登録Facebookアカウント情報（編集不可）</h3>
 <table class="shop-info" summary="登録Facebookアカウント情報">
@@ -48,11 +51,21 @@
       <td><%= checkin_item.item_name %></td>
       <td><p id="qr<%=cnt%>"></p><%= @checkin_url + checkin_item.access_key%></td>
       <td><%= checkin_item.status_message %></td>
-      <td><%= link_to "#{checkin_item.checkin_logs.count}件", index_checkinlog_shop_admin_path %></td>
+      <td>
+       <% unless checkin_item.checkin_logs.count == 0 %>        
+        <%= link_to "#{checkin_item.checkin_logs.count}件", show_checkinlog_shop_admin_path(checkin_item.access_key) %><br/>
+        <%= link_to "csvでダウンロードする", show_checkinlog_csv_shop_admin_path(checkin_item.access_key) %>
+       <% else %>
+         0件
+       <% end %>
+      </td>
       <td><%= paypal_checkout(checkin_item) %></td>
-      <td><%= link_to "編集", edit_item_shop_admin_path(checkin_item.access_key) %>
-          <br/>
-          <%= link_to "削除", destroy_item_shop_admin_path(checkin_item.access_key), :confirm=>"削除してもよろしいですか？\nこの動作は取り消せません" %>
+      <td>
+       <%= link_to "参照", show_item_shop_admin_path(checkin_item.access_key) %>
+       <br/>
+       <%= link_to "編集", edit_item_shop_admin_path(checkin_item.access_key) %>
+       <br/>
+       <%= link_to "削除", destroy_item_shop_admin_path(checkin_item.access_key), :confirm=>"削除してもよろしいですか？\nこの動作は取り消せません" %>
       </td>
       <script>
         $('#qr<%=cnt%>').qrcode({width: 96,height: 96,text: "<%= @checkin_url + checkin_item.access_key %>"});
@@ -64,3 +77,6 @@
 <% #end %>
 <br/>
 <br/>
+</div>
+</div>
+

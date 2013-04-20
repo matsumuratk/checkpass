@@ -54,9 +54,10 @@ ActiveRecord::Schema.define(:version => 20130327174847) do
     t.string   "wall_description"
     t.binary   "wall_picture"
     t.string   "wall_message"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
     t.datetime "cancel_date"
+    t.boolean  "post_wall_check",     :default => true
   end
 
   create_table "checkin_logs", :force => true do |t|

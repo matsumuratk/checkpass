@@ -93,7 +93,7 @@ img {border: 0;	vertical-align: bottom;}
 .contents {
     border-radius: 6px 6px 6px 6px;
     margin-bottom: 20px;
-    padding: 30px 10px;
+    padding: 10px 10px;
 }
 
 .item_contents {
@@ -108,6 +108,18 @@ img {border: 0;	vertical-align: bottom;}
 }
 
 
+/* 必須項目 */
+span.require {
+  color:red;
+}
+
+/*注意書き*/
+p.attention {
+  line-height:0.5em;
+  font-size:80%;
+  margin-left:1em;
+  color:red"
+}
 
 /***** Link styles
 *******************************************/
@@ -237,4 +249,3 @@ h4 {
 	text-decoration: none;
 }
 
-<!-- Copyright (C) Net Mania. All Rights Reserved. http://www.netmania.jp/ -->

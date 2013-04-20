@@ -14,34 +14,39 @@ function set_checkin_item(fbName,fbCategory,fbCountry,fbState,fbCity,fbStreet,ti
   return false;
 }
 </script>
+<p>登録するチェックインプレイスを選択してください。</p>
 <div>
   <table border="1" height="100">
     <tr>
-      <th class="name">Name</th>
+      <th class="name">登録名称</th>
       <th class="category">Category</th>
       <th class="country">Country</th>
       <th class="state">State</th>
       <th class="city">City</th>
       <th class="street">Street</th>
       <th class="checkinQr">CheckinId</th>
-      <th class="link">link</th>
+      <th class="link">Facebookページへのlink</th>
       <th class="save"></th>
     </tr>
 
     <% @places.each_with_index do |place, cnt| %>
     <tr>
-      <td class="name"><%=h place.name %></td>
-      <td class="category"><%=h place.category %></td>
-      <td class="country"><%=h place.country %></td>
-      <td class="state"><%=h place.state %></td>
-      <td class="city"><%=h place.city %></td>
-      <td class="street"><%=h place.street %></td>
+      <td class="name"><%= place.name %></td>
+      <td class="category"><%= place.category %></td>
+      <td class="country"><%= place.country %></td>
+      <td class="state"><%= place.state %></td>
+      <td class="city"><%= place.city %></td>
+      <td class="street"><%= place.street %></td>
       <td class="id"><%= place.id %></td>
       <td class="link"><%= link_to "#{place.link}","#{place.link}", :target=>'_blank' %></td>
       <td class="save">
+      <%= link_to "選択", "#input_top", :onclick=> "set_checkin_item('#{place.name}','#{place.category}','#{place.country}','#{place.state}','#{place.city}','#{place.street}','#{place.name}','#{place.id}','#{place.link}');return true;" %>
+      
+<!--
       <%= form_tag '', :onsubmit=>"set_checkin_item('#{place.name}','#{place.category}','#{place.country}','#{place.state}','#{place.city}','#{place.street}','#{place.name}','#{place.id}','#{place.link}');location.hash='input_top';return false;" do |f| %>
-        <%= submit_tag '選択' %>
+        <%= submit_tag '選択する' %>
       <% end %>
+-->
       </td>
     </tr>
     <% end %>

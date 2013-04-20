@@ -51,6 +51,7 @@ class CheckinItem < ActiveRecord::Base
   attr_accessible :comment_title    #文言１：チェックインコメントタイトル
   attr_accessible :comment_message   #文言２：完了メッセージ
 
+  attr_accessible :post_wall_check   #ウォールに書き込むかチェック boolean
   attr_accessible :wall_message      #ウォール書き込み Message
   attr_accessible :wall_name         #ウォール書き込み Name
   attr_accessible :wall_link         #ウォール書き込み Link
@@ -147,24 +148,24 @@ class CheckinItem < ActiveRecord::Base
 
   #ダミーデータ作成（プレビュー用）
   def setDummy
-      self.title = "CHECKPASS"
-      self.top_image = "/assets/dummy.gif"
-      self.top_image_text = "WELLCOME MESSAGE"
-      self.top_image_select = "1"
-      self.middle_image = "/assets/dummy.gif"
-      self.middle_image_text = 'MIDDLE MESSAGE'
-      self.middle_image_select = "1"
-      self.coupon_image = "/assets/dummy.gif"
-      self.coupon_image_text = "COUPON MESSAGE"
-      self.coupon_image_select = "1"
-      self.comment_title = "TITLE"
-      self.comment_message = "COMMENT MESSAGE"
-      self.wall_name = "WALL NAME"
+      self.title = "[表示タイトル]"
+      self.top_image = "/assets/sample_image1.gif"
+      self.top_image_text = "[お店の紹介テキスト]"
+      self.top_image_select = "2"
+      self.middle_image = "/assets/sample_image2.gif"
+      self.middle_image_text = '[メッセージ]'
+      self.middle_image_select = "2"
+      self.coupon_image = "/assets/sample_couponimage.gif"
+      self.coupon_image_text = "[クーポンテキスト]"
+      self.coupon_image_select = "2"
+      self.comment_title = "[コメント]"
+      self.comment_message = "[チェックイン完了メッセージ]"
+      self.wall_name = "[お店の名前]"
       self.wall_link = "http://www.facebook.com/checkpass"
-      self.wall_caption = "WALL CAPTION"
-      self.wall_description = "WALL DESCRIPTION"
-      self.wall_picture = "/assets/dummy.gif"
-      self.wall_message = "WALL MESSAGE"
+      self.wall_caption = "[見出し]"
+      self.wall_description = "[お店の紹介]"
+      self.wall_picture = "/assets/sample_coupon.gif"
+      self.wall_message = "[メッセージ]"
   end
   
 end

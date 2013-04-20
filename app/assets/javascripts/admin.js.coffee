@@ -8,5 +8,5 @@
 #= require jquery.qrcode.min
 #= require jquery.spin
 #= require shop_admin/edit_item
-#= require scroll.js
+#= require jquery.smoothScroll.js
 

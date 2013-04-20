@@ -48,13 +48,20 @@ class ShopAdminController < ShopAdminApplicationController
   def index
     @shop = @myShop
     @checkin_url = Facebook::CHECKIN_URL
-
-
     respond_to do |format|
       format.html { render action: params[:render] }
       format.json { render json: @shop}
     end
+  end
 
+  #チェックインログリスト
+  def show_checkinlog
+    @checkin_item = @myShop.checkin_items.find_by_access_key(params[:access_key])
+    respond_to do |format|
+      format.html
+      format.csv {send_data CheckinLog.csv(params[:access_key]), type: 'text/csv; charset=shift_jis', filename: "checkin_log.csv"}
+      format.json { render json: @checkin_item.checkin_logs}
+    end
   end
 
   #管理者情報更新画面
@@ -110,6 +117,16 @@ class ShopAdminController < ShopAdminApplicationController
       end
     end
 
+  end
+
+  #チェックインアイテム表示
+  def show_item
+    @checkin_item = @myShop.checkin_items.find_by_access_key(params[:access_key])
+    @checkin_url = Facebook::CHECKIN_URL
+    respond_to do |format|
+      format.html
+      format.json { render json: @checkin_item}
+    end
   end
 
   #チェックインアイテム情報編集

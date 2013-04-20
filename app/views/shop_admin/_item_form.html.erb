@@ -1,28 +1,36 @@
 <!-- Facebook検索 -->
 <div id="searchFbPlace">
  <div id="searchByName">
-登録するチェックインプレイスをFacebookから検索する。
+  <h3>チェックインプレイスの検索</h3>
+  <p style="line-height:10%;">登録するチェックインプレイスをFacebookから検索してください。</p>
+  <p class="attention">
+  ●チェックインプレイスとして登録されていないページは検索できません。<br/>
+  ●ページの名称で検索の場合、検索件数の条件により表示できないことがあります。その場合にはFacebookIDで検索してください。
+  </p><br/>    
   <%= form_tag({:controller=>'shop_admin',:action=>'search'}, :remote=>true, :id => "search_name_form") do %>
-登録名称で検索する： 名称を入力してください。</br>
-   <%= text_field_tag :name,'', :size=>"60" %><%= submit_tag '名称で検索'%><br/><br/>
+登録名称で検索する： Facebookページの名称を入力して検索してください。</br>
+   <%= text_field_tag :name,'', :size=>"60" %><%= submit_tag '名称で検索する'%><br/><br/>
   <% end %>
  </div>
  <div id="searchByfbId">
   <%= form_tag({:controller=>'shop_admin',:action=>'search_by_fbid'}, :remote => true, :class => "search_fbid_form") do %>
-Facebook IDで検索する： FacebookアカウントのID（１２桁数字）を入力して検索してください。</br>
-   <%= text_field_tag :id,'', :size=>"60" %><%= submit_tag 'IDで検索'%><br/><br/>
+Facebook IDで検索する： FacebookアカウントのID（URLの後ろのにある12桁の数字）を入力して検索してください。</br>
+   <%= text_field_tag :id,'', :size=>"60" %><%= submit_tag 'IDで検索する'%><br/><br/>
   <% end %>
  </div>
  <div id="searchByfbName">
   <%= form_tag({:controller=>'shop_admin',:action=>'search_by_fbid'}, :remote => true, :id => "search_account_form") do %>
-Facebook アカウントで検索する： Facebookアカウントの文字列を入力して検索してください。</br>
-   <%= text_field_tag :id,'', :size=>"60" %><%= submit_tag 'IDで検索'%><br/><br/>
+Facebookアカウントで検索する： Facebookアカウントの文字列を入力して検索してください。</br>
+   <%= text_field_tag :id,'', :size=>"60" %><%= submit_tag 'アカウントで検索する'%><br/><br/>
   <% end %>
 
  <!-- AJAX検索結果リスト表示 -->
  <div id="spin"></div>
- <div id="result"></div>
-</div>
+ <h3>チェックインプレイスの選択</h3>
+  <div id="result">
+   <p>検索した結果が表示されます。</p>
+  </div>
+ </div>
 
 <!-- 入力情報 -->
 <div class="field">
@@ -31,66 +39,73 @@ Facebook アカウントで検索する： Facebookアカウントの文字列�
   <%= f.hidden_field :fbUserId, :id=>'fbUserId' %>
 
   <div id="facebook_item">
-   <p>選択したFacebookプレイス情報</p>
-   <p>Name<%= f.text_field :fbName, :id=>'fbName', :size=>60, :readonly=>'true' %></p>
-   <p>Category<%= f.text_field :fbCategory, :id=>'fbCategory', :size=>60, :readonly=>'true' %></p>
-   <p>Country<%= f.text_field :fbCountry, :id=>'fbCountry', :size=>60, :readonly=>'true' %></p>
-   <p>State<%= f.text_field :fbState, :id=>'fbState', :size=>60, :readonly=>'true' %></p>
-   <p>City<%= f.text_field :fbCity, :id=>'fbCity', :size=>60, :readonly=>'true' %></p>
-   <p>Street<%= f.text_field :fbStreet, :id=>'fbStreet', :size=>60, :readonly=>'true' %></p>
-   <p>Title<%= f.text_field :title, :id=>'title', :size=>60, :readonly=>'true' %></p>
-   <p>CheckinId<%= f.text_field :fbCheckinId, :id=>'fbCheckinId', :size=>60, :readonly=>'true' %></p>
+   <h3>選択したFacebookページの情報</h3>
+   <p>Name：<%= f.text_field :fbName, :id=>'fbName', :size=>60, :readonly=>'true' %></p>
+   <p>Category：<%= f.text_field :fbCategory, :id=>'fbCategory', :size=>60, :readonly=>'true' %></p>
+   <p>Country：<%= f.text_field :fbCountry, :id=>'fbCountry', :size=>60, :readonly=>'true' %></p>
+   <p>State：<%= f.text_field :fbState, :id=>'fbState', :size=>60, :readonly=>'true' %></p>
+   <p>City：<%= f.text_field :fbCity, :id=>'fbCity', :size=>60, :readonly=>'true' %></p>
+   <p>Street：<%= f.text_field :fbStreet, :id=>'fbStreet', :size=>60, :readonly=>'true' %></p>
+   <p>Title：<%= f.text_field :title, :id=>'title', :size=>60, :readonly=>'true' %></p>
+   <p>CheckinId：<%= f.text_field :fbCheckinId, :id=>'fbCheckinId', :size=>60, :readonly=>'true' %></p>
   </div>
   <br/>
  
   <div id="place_item" class="item_contents">
-   <p>登録情報</p>
-   <p>アイテム名称（管理用） <%= f.text_field :item_name, :id=>'item_name' %></p>
+   <h3>チェックインアイテムの登録情報</h3>
+   <p>アイテム名称（管理用）<span class="require">（※必須）</span>： <%= f.text_field :item_name, :id=>'item_name' %></p>
    <br/>
-   <p>チェックインクーポン情報</p>
-   <p>表示タイトル<%= f.text_field :title, :id=>'title' %></p>
-   <p><%= f.select :top_image_select,{"画像を使う"=>"1","テキストを使う"=>"2"}, :id=>"top_image_select" %></p>
-   <p>画像１：店舗画像<%= f.file_field :top_image, :id=>"top_image" %></p>
-   <p>画像１：店舗メッセージ<%= f.text_field :top_image_text, :id=>"top_image_text" %></p>
+   <h3>チェックイン画面作成</h3>
+   <p>表示タイトル<span class="require">（※必須）</span>：<%= f.text_field :title, :id=>'title' %></p>
+   <p>店舗画像を使うか店舗テキストを使うかを選択します。<span class="require">（※どちらか必須）</span></p>
+   <p><%= f.select :top_image_select,{"店舗画像を使う"=>"1","メッセージを使う"=>"2"}, :id=>"top_image_select" %></p>
+   <p>店舗画像：<%= f.file_field :top_image, :id=>"top_image" %></p>
+   <p>店舗テキスト：<%= f.text_field :top_image_text, :id=>"top_image_text" %></p>
    <br/>
 
-   <p><%= f.select :middle_image_select,{"画像を使う"=>"1","テキストを使う"=>"2"},:id=>"middle_image_select" %></p>
-   <p>画像２：チェックインメッセージ画像<%= f.file_field :middle_image, :id=>"middle_image" %></p>
-   <p>画像２：チェックインメッセージテキスト<%= f.text_field :middle_image_text, :id=>"middle_image_text" %></p>
-
-   <p>チェックインコメントタイトル：<%= f.text_field :comment_title, :id=>"comment_title" %></p>
+　 <p>メッセージ画像を使うかメッセージテキストを使うかを選択します。<span class="require">（※どちらか必須）</span></p>
+   <p><%= f.select :middle_image_select,{"メッセージ画像を使う"=>"1","メッセージテキストを使う"=>"2"},:id=>"middle_image_select" %></p>
+   <p>メッセージ画像：<%= f.file_field :middle_image, :id=>"middle_image" %></p>
+   <p>メッセージテキスト：<%= f.text_field :middle_image_text, :id=>"middle_image_text" %></p>
+   <br/>
+   <p>チェックインコメントタイトル<span class="require">（※必須）</span>：<%= f.text_field :comment_title, :id=>"comment_title" %></p>
    <br/>
 
    <div class="item_contents_preview">
-    プレビュー：place<br/>
+    プレビュー：チェックイン画面<br/>
     <iframe id="preview_place" scrolling="auto" height="500" width="320" bordercolor="black" src="<%= url_for :controller => "checkin",:action => 'preview_place',:access_key=>@checkin_item.access_key %>" ></iframe>
    </div>
   </div>
-
+ 
   <div id="docheckin_item" class="item_contents">
-   <p><%= f.select :coupon_image_select,{"画像を使う"=>"1","テキストを使う"=>"2"},:id=>"coupon_image_select" %></p>
+   <h3>チェックイン完了画面作成</h3>
+　 <p>クーポン画像を使うかクーポンテキストを使うかを選択します。<span class="require">（※どちらか必須）</span></p>
+   <p><%= f.select :coupon_image_select,{"クーポン画像を使う"=>"1","クーポンテキストを使う"=>"2"},:id=>"coupon_image_select" %></p>
    <p>クーポン画像：<%= f.file_field :coupon_image,:id=>"coupon_image" %></p>
    <p>クーポンテキスト：<%= f.text_field :coupon_image_text,:id=>"coupon_image_text" %></p>
 
    <br/>
-   <p>完了メッセージ<%= f.text_field  :comment_message,:id=>"comment_message" %></p>
+   <p>チェックイン完了メッセージ：<%= f.text_field  :comment_message,:id=>"comment_message" %></p>
 
    <div class="item_contents_preview">
-    プレビュー：docheckin<br/>
+    プレビュー：チェックイン完了画面<br/>
     <iframe id="preview_docheckin" scrolling="auto" height="500" width="320" scrolling="no" bordercolor="black" src="<%= url_for :controller => "checkin",:action => 'preview_docheckin',:access_key=>@checkin_item.access_key %>" ></iframe>
    </div>
   </div>    
 
   <div id="fbwall_item" class="item_contents">
-   <p>ウォール書き込み Message：<%= f.text_field :wall_message,:id=>"wall_message" %></p>
-   <p>ウォール書き込み Name：<%= f.text_field :wall_name,:id=>"wall_name" %></p>
-   <p>ウォール書き込み Link：<%= f.text_field :wall_link,:id=>"wall_link" %></p>
-   <p>ウォール書き込み Caption：<%= f.text_field :wall_caption,:id=>"wall_caption" %></p>
-   <p>ウォール書き込み Description：<%= f.text_field :wall_description,:id=>"wall_description" %></p>
-   <p>ウォール書き込み 画像（省略の場合は、クーポン画像)：<%= f.file_field :wall_picture,:id=>"wall_picture" %></p>
+   <h3>Facebookへの投稿画面作成</h3>
+  <div><%= f.check_box :fbpost_wall_check,{:checked => true}, true, false %>Facebookのウォールに投稿する</div>
+   <p>メッセージ：<%= f.text_field :wall_message,:id=>"wall_message" %></p>
+   <p>お店の名前：<%= f.text_field :wall_name,:id=>"wall_name" %></p>
+   <p>お店サイトへのリンク：<%= f.text_field :wall_link,:id=>"wall_link" %></p>
+   <p>見出し：<%= f.text_field :wall_caption,:id=>"wall_caption" %></p>
+   <p>お店の紹介：<%= f.text_field :wall_description,:id=>"wall_description" %></p>
+   <p>画像：<%= f.file_field :wall_picture,:id=>"wall_picture" %></p>
+   <p style="line-height:10%;color:red">（省略した場合は、クーポン画像が表示されます。)</p>
 
    <div class="item_contents_preview">
-    プレビュー：facebook投稿<br/>
+    プレビュー：Facebook投稿画面<br/>
     <iframe id="preview_facebook" height="200" width="320" scrolling="no" bordercolor="black" src="<%= url_for :controller => "checkin",:action => 'preview_facebook',:access_key=>@checkin_item.access_key %>" ></iframe>
    </div>
   </div>

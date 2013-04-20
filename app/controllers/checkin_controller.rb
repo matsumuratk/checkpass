@@ -53,48 +53,58 @@ class CheckinController < CheckinApplicationController
     
     begin
       #access_keyが無ければ、エラー
-      #raise "no access_key error" if flash[:access_key].nil?
+      raise NoAccessKeyException,"no access_key error" if params.key?(:checkin)
      
       fbCheckinPlace = FbCheckinPlace.new(@graph)
-      #@checkin_item = CheckinItem.find_by_access_key(flash[:access_key])
       @checkin_item = CheckinItem.find_by_access_key(params[:checkin][:access_key])
       graph_place = fbCheckinPlace.search_by_fbid(@checkin_item.fbCheckinId).first
 
       #graph_placeが無ければ、エラー
       raise NoGraphPlaceException, "no place error" if graph_place.nil?
 
+    #access_keyなしエラー（直接アクセス、timeout等)
+    rescue NoAccessKeyException => e
+      Rails.logger.warn("WARNING docheckin:NoAccessKeyException ")
+      respond_to do |format|
+        format.html {render :action => :place_no_access_key, :notice => "no AccessKey" }
+      end
+      return  
+    #graph placeなしエラー Facebookページ消失等。
+    rescue NoGraphPlaceException => e
+      Rails.logger.warn("WARNING docheckin:NoGraphPlaceException :access_key=#{params[:checkin][:access_key]}")
+      respond_to do |format|
+        format.html {render :action => :place_no_access_key, :notice => "no CheckinPlace" }
+      end
+      return
+    #その他のエラー
     rescue  => e
-      #graph_placd無しの時はエラー画面表示
-      Rails.logger.error("ERROR docheckin:params=#{params}")
-      Rails.logger.error("ERROR docheckin:accesskey=#{params[:checkin][:access_key]}")
       Rails.logger.error("ERROR docheckin:#{e}")
 
-      if e.class.name == "NoGraphPlaceException" || params[:checkin][:access_key].nil?
-        respond_to do |format|
-          format.html {render :action => :place_no_access_key, :notice => "no CheckinPlace" }
-        end
-      else
-        #その他のエラーの場合は、place画面にリダイレクト
-        redirect_to :controller => 'checkin',:action => 'place',:access_key=>params[:checkin][:access_key]
-      end
+      #その他のエラーの場合は、place画面にリダイレクト access_keyがなければ、トップ
+      redirect_to :controller => 'checkin',:action => 'place',:access_key=>params[:checkin][:access_key] if params.key?(:checkin)
+      redirect_to "/"
       return
     end
 
-    #チェックイン処理、ウォール書き込み処理
-    begin
-      #チェックイン
-      graph_place.checkin(:message => params[:checkin][:message])
-      graph_place.writeWall(@checkin_item)
-      @checkin_item.setCheckinLog(@fbProfile)
-    rescue => e
-      #エラー処理
-      Rails.logger.debug("docheckinエラー:#{e.message}")
-      raise
-    end
+    if @checkin_item.post_wall_check == true
+      #チェックイン処理、ウォール書き込み処理
+      begin
+        #チェックイン
+        graph_place.checkin(:message => params[:checkin][:message])
+        graph_place.writeWall(@checkin_item)
+        @checkin_item.setCheckinLog(@fbProfile)
 
+      rescue => e
+        #エラー処理
+        Rails.logger.debug("docheckinエラー:#{e.message}")
+        raise
+      end
+    end
+    
     respond_to do |format|
       format.html
     end
+
   end
 
   #プレビュー画面 place
@@ -140,5 +150,5 @@ class CheckinController < CheckinApplicationController
 end
 
 class NoGraphPlaceException < Exception; end  #GraphPlaceなし
-
+class NoAccessKeyException < Exception; end   #AccessKeyなし
 

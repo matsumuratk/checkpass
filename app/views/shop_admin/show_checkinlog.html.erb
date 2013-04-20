@@ -1,0 +1,21 @@
+<% content_for :title do %>チェックインログ表示<%end%>
+<h3>チェックインログ</h3>
+<div>
+<% unless @checkin_item.checkin_logs.nil? %>
+ <table>
+ <tr>
+  <th>利用者名</th>
+  <th>チェックイン日時</th>
+ </tr>
+ <% @checkin_item.checkin_logs.each do |checkin_log| %>
+ <tr>
+  <td><%= checkin_log.fbCheckinUserName %></td>
+  <td><%= checkin_log.checkin_date.getlocal %></td>
+ </tr>
+ <% end %>
+ </table> 
+<% end %>
+</div>
+<%= link_to 'トップに戻る',shop_admin_path %>
+
+
