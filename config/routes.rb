@@ -81,7 +81,9 @@ Checkpass::Application.routes.draw do
   match 'update_checkin_item/:access_key', :to => 'admin#update_checkin_item', :as => 'update_checkin_item_admin'
   #match 'new_checkin_item', :to => 'admin#new_checkin_item', :as => 'new_checkin_item_admin'
   #match 'create_checkin_item', :to => 'admin#create_checkin_item', :as => 'create_checkin_item_admin'
-  match 'index_checkin_log', :to => 'admin#index_checkin_log', :as => 'index_checkin_log_admin'
+  match 'index_checkin_log', :to => 'admin#index_checkin_log', :defaults =>{:key=>:all},:as => 'index_checkin_log_admin'
+  match 'index_checkin_log_access_key/:p' ,:to=> 'admin#index_checkin_log', :defaults => {:key=>:access_key}, :as => 'index_checkin_log_access_key_admin'
+  match 'index_checkin_log_fbuserid/:p' ,:to=> 'admin#index_checkin_log', :defaults => {:key=>:fbUserId}, :as => 'index_checkin_log_fbuserid_admin'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

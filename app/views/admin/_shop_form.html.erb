@@ -24,34 +24,6 @@
     <%= f.text_field :fbName , :value=>@shop.fbName %>
   </div>
   <div class="field">
-    <b>利用状況：</b>
-    <%= f.select :status, @shop.status_arry_admin, :selected => @shop.status %>
-  </div>
-  <div class="field">
-    <b>利用開始日：</b>
-    <% if @shop.start_date.nil? %>
-      <%= f.date_select :start_date, :include_blank=>true %>
-    <% else %>
-      <%= f.date_select :start_date, :default=>@shop.start_date, :include_blank=>true %>
-    <% end %>
-  </div>
-  <div class="field">
-    <b>支払いを完了した日：</b>
-    <% if @shop.payment_date.nil? %>
-      <%= f.date_select :payment_date, :include_blank=>true %>
-    <% else %>
-      <%= f.date_select :payment_date, :default=>@shop.payment_date, :include_blank=>true %>
-    <% end %>
-  </div>
-  <div class="field">
-    <b>利用期限：</b>
-    <% if @shop.limit_date.nil? %>
-      <%= f.date_select :limit_date, :include_blank=>true %>
-    <% else %>
-      <%= f.date_select :limit_date, :default=>@shop.limit_date, :include_blank=>true %>
-    <% end %>
-  </div>
-  <div class="field">
     <b>ショップ名：</b>
     <%= f.text_field :shop_name, :value=>@shop.shop_name, :readonly=>'true' %>
   </div>

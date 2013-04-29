@@ -50,7 +50,7 @@ class AdminController < AdminApplicationController
   def index_checkin_item
     #fbUserIdが指定されていたら、対象fbUserIdの一覧を出す
     if params.has_key?(:fbUserId)
-      @checkin_items = CheckinItem.find_by_fbUserId(params[:fbUserId])
+      @checkin_items = CheckinItem.where(:fbUserId => params[:fbUserId])
     else
       @checkin_items = CheckinItem.all
     end
@@ -90,33 +90,13 @@ class AdminController < AdminApplicationController
 
   end
 
-=begin
-  def new_checkin_item
-    @checkin_item = CheckinItem.new
-
-    respond_to do |format|
-      format.html
+  def index_checkin_log    
+    if params[:key] == :all
+      @checkin_logs = CheckinLog.all
+    else
+      @checkin_logs = CheckinLog.where("#{params[:key]}=?",params[:p])
     end
-
-  end
-
-  def create_checkin_item
-    @checkin_item = CheckinItem.new(params[:checkin_item])
-
-    respond_to do |format|
-      if @checkin_item.save
-        format.html { redirect_to :action=>'index', notice: 'Checkin item was successfully created.' }
-      else
-        format.html { render action: "new_checkin_item" }
-      end
-    end
-
-  end
-=end
-
-  def index_checkin_log
-    @checkin_logs = CheckinLog.all
-
+    
     respond_to do |format|
       format.html
     end

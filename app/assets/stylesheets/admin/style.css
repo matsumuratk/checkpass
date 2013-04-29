@@ -249,3 +249,18 @@ h4 {
 	text-decoration: none;
 }
 
+
+/* フォントサイズ */
+.xs { font-size: xx-small } /* 小2 */
+.xm { font-size: x-small }  /* 小1 */
+.sm { font-size: small }    /* 小 */
+.md { font-size: medium }   /* 標準 */
+.la { font-size: large }    /* 大 */
+.xr { font-size: x-large }  /* 大1 */
+.xl { font-size: xx-large } /* 大2 */
+.sr { font-size: smaller }  /* 一段階小さい */
+.lr { font-size: larger }   /* 一段階大きい */
+.pt { font-size: 10pt }     /* 10pt */
+.px { font-size: 20px }     /* 20px */
+.pe { font-size: 200% }     /* 200% */
+
