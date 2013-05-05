@@ -3,8 +3,9 @@
 <head>
   <title><%= yield :title%>|Checkpass管理</title>
   <%= stylesheet_link_tag    params[:controller], :media => "all" %>
+  <%= yield :stylesheet_includes %>
   <%= javascript_include_tag params[:controller] %>
-
+  <%= yield :javascript_includes %>
   <%= csrf_meta_tags %>
 </head>
 <body>

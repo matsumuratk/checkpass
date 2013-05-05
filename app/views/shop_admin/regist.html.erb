@@ -1,7 +1,11 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "shop_admin/regist.js" %>
+<% end %>
 <% content_for :title do %>チェックパス利用登録<%end%>
-<h1>利用登録</h1>
-<p>Find me in app/views/shops_controller/regist.html.erb</p>
-<br/>
+<div class="container">
+<div class="contents">
+<h3>チェックパス利用登録</h3><br/>
+下記の情報を入力してください。<br/>
 <%= form_tag(url_for(:action => 'doregist'), :id => "regist_form") do %>
   <% if @shop.errors.any? %>
     <div id="error_explanation">
@@ -15,15 +19,29 @@
     </div>
   <% end %>
 
-表示ショップ名<%= text_field :shop, :shop_name, :size=>"60" %><br/><br/>
-管理者名（※必須）<%= text_field :shop, :manager_name, :size=>"60" %><br/><br/>
-管理者メールアドレス（※必須）<%= text_field :shop, :manager_mail, :size=>"60" %><br/><br/>
-管理者電話番号（※必須）<%= text_field :shop, :manager_tel, :size=>"60" %><br/><br/>
+  <label class="in" for='shop[shop_name]'>表示ショップ名 ：</label>
+  <%= text_field :shop, :shop_name, :class=>"in" %><br class="in"/>
+  
+  <label class="in" for='shop[manager_name]'>管理者名<span class="require">（※必須） ：</span></label>
+  <%= text_field :shop, :manager_name, :class=>"in" %><br class="in"/>
+  
+  <label class="in" for='shop[manager_mail]'>管理者連絡用メールアドレス<span class="require">（※必須） ：</span></label>
+  <%= text_field :shop, :manager_mail, :class=>"in" %><br class="in"/>
+  
+  <label class="in" for='shop[manager_tel]'>管理者連絡用電話番号<span class="require">（※必須） ：</span></label>
+  <%= text_field :shop, :manager_tel, :class=>"in" %><br class="in"/>
 <br/>
+<div id="policy">
+利用規約を確認し、同意してください。<br/>
+<iframe src="/policy.html" width="700" height="200" scrolling="yes"></iframe>
 <br/>
-利用規約<br/>
-あれこれあれこれ<br/>
-<br/>
-<%= submit_tag "利用開始" %>
+<%= check_box 'policy','agreement',{},true,false %>利用規約に同意する
 
+</div>
+<br/>
+<br/>
+<%= image_submit_tag "/assets/shop_admin/riyoukaisi_disable.png", :id=>'submit', :disabled =>'true' %>
 <% end %>
+</div>
+</div>
+

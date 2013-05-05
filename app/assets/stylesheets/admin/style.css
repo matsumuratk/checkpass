@@ -264,3 +264,19 @@ h4 {
 .px { font-size: 20px }     /* 20px */
 .pe { font-size: 200% }     /* 200% */
 
+/* 入力フォーム */
+label.in,input.in {
+display: block;
+width: 400px;
+float: left;
+margin-bottom: 10px;
+}
+label.in {
+display: block;
+width: 220px;
+text-align: left;
+padding-right: 15px;
+}
+br.in { clear: left; }
+
+
