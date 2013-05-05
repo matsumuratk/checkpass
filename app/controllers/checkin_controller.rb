@@ -49,11 +49,10 @@ class CheckinController < CheckinApplicationController
   end
 
   def docheckin
-    Rails.logger.debug("docheckin:access_key=#{flash[:access_key]}")
-    
     begin
       #access_keyが無ければ、エラー
-      raise NoAccessKeyException,"no access_key error" if params.key?(:checkin)
+      Rails.logger.debug(params)
+      raise NoAccessKeyException,"no access_key error" unless params.key?(:checkin)
      
       fbCheckinPlace = FbCheckinPlace.new(@graph)
       @checkin_item = CheckinItem.find_by_access_key(params[:checkin][:access_key])
