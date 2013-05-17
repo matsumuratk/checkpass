@@ -193,7 +193,6 @@ class ShopAdminController < ShopAdminApplicationController
     begin
       fbCheckinPlace = FbCheckinPlace.new(@graph)
       @places = fbCheckinPlace.search_by_fbid(id)
-Rails.logger.debug("search_by_fbid:@places=#{@places}")
     rescue =>e
       Rails.logger.debug("search_by_fbid:rescue = #{e}")
       @error=e

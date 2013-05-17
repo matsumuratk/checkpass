@@ -150,7 +150,7 @@ class CheckinItem < ActiveRecord::Base
   def setDummy
       self.title = "[表示タイトル]"
       self.top_image = "/assets/sample_image1.gif"
-      self.top_image_text = "[お店の紹介テキスト]"
+      self.top_image_text = "[お店紹介テキスト]"
       self.top_image_select = "2"
       self.middle_image = "/assets/sample_image2.gif"
       self.middle_image_text = '[メッセージ]'

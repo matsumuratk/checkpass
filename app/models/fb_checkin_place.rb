@@ -43,7 +43,7 @@ class FbCheckinPlace
 			  fbCheckinPlace.latitude = gl['location']['latitude']
         fbCheckinPlace.longitude = gl['location']['longitude']
         fbCheckinPlace.link = "#{FACEBOOK_URL}#{gl['id']}"
-
+        #Rails.logger.debug("FbCheckinPlace:search #{gl}")
         ret.push fbCheckinPlace
       #end
     end
@@ -66,7 +66,7 @@ class FbCheckinPlace
 		fbCheckinPlace.latitude = gl['location']['latitude']
     fbCheckinPlace.longitude = gl['location']['longitude']
     fbCheckinPlace.link = "#{FACEBOOK_URL}#{gl['id']}"
-    
+    #Rails.logger.debug("FbCheckinPlace:search_by_fbid #{gl}")    
     ret.push fbCheckinPlace
 
     return ret

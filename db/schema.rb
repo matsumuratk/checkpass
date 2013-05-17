@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130327174847) do
+ActiveRecord::Schema.define(:version => 20130505174848) do
 
   create_table "admin_masters", :force => true do |t|
     t.string   "master_id"
@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(:version => 20130327174847) do
     t.string   "manager_tel"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "coupon_code"
   end
 
 end

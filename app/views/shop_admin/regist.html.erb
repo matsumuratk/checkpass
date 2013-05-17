@@ -22,26 +22,30 @@
   <label class="in" for='shop[shop_name]'>表示ショップ名 ：</label>
   <%= text_field :shop, :shop_name, :class=>"in" %><br class="in"/>
   
-  <label class="in" for='shop[manager_name]'>管理者名<span class="require">（※必須） ：</span></label>
+  <label class="in" for='shop[manager_name]'>管理者名<span class="require">（※必須）</span>　：</label>
   <%= text_field :shop, :manager_name, :class=>"in" %><br class="in"/>
   
-  <label class="in" for='shop[manager_mail]'>管理者連絡用メールアドレス<span class="require">（※必須） ：</span></label>
+  <label class="in" for='shop[manager_mail]'>管理者連絡用メールアドレス<span class="require">（※必須）</span>　：</label>
   <%= text_field :shop, :manager_mail, :class=>"in" %><br class="in"/>
   
-  <label class="in" for='shop[manager_tel]'>管理者連絡用電話番号<span class="require">（※必須） ：</span></label>
+  <label class="in" for='shop[manager_tel]'>管理者連絡用電話番号<span class="require">（※必須）</span>　：</label>
   <%= text_field :shop, :manager_tel, :class=>"in" %><br class="in"/>
-<br/>
-<div id="policy">
-利用規約を確認し、同意してください。<br/>
-<iframe src="/policy.html" width="700" height="200" scrolling="yes"></iframe>
-<br/>
-<%= check_box 'policy','agreement',{},true,false %>利用規約に同意する
+  <br/>
+  <label class="in" for='shop[coupon_code]'>クーポン番号：<span style="font-size:small">クーポン番号がある場合のみ</span></label>
+  <%= text_field :shop, :coupon_code, :class=>"in" %><br class="in"/>
 
-</div>
-<br/>
-<br/>
-<%= image_submit_tag "/assets/shop_admin/riyoukaisi_disable.png", :id=>'submit', :disabled =>'true' %>
-<% end %>
+  <br/>
+  <div id="policy">
+   利用規約を確認し、同意してください。<br/>
+   <iframe src="/policy.html" width="700" height="200" scrolling="yes"></iframe>
+   <br/>
+   <%= check_box 'policy','agreement',{},true,false %>利用規約に同意する
+
+  </div>
+  <br/>
+  <br/>
+  <%= image_submit_tag "/assets/shop_admin/riyoukaisi_disable.png", :id=>'submit', :disabled =>'true' %>
+ <% end %>
 </div>
 </div>
 

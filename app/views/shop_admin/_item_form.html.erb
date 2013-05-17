@@ -1,10 +1,10 @@
 <!-- Facebook検索 -->
 <div id="searchFbPlace">
  <div id="searchByName">
-  <h3>チェックインプレイスの検索</h3>
-  <p style="line-height:10%;">登録するチェックインプレイスをFacebookから検索してください。</p>
+  <h3>チェックインスポットのFacebookページを検索</h3>
+  <p style="line-height:10%;">登録するチェックインスポットをFacebookから検索してください。</p>
   <p class="attention">
-  ●チェックインプレイスとして登録されていないページは検索できません。<br/>
+  ●チェックインスポットとして登録されていないページは検索できません。<br/>
   ●ページの名称で検索の場合、検索件数の条件により表示できないことがあります。その場合にはFacebookIDで検索してください。
   </p><br/>    
   <%= form_tag({:controller=>'shop_admin',:action=>'search'}, :remote=>true, :id => "search_name_form") do %>
@@ -13,20 +13,20 @@
   <% end %>
  </div>
  <div id="searchByfbId">
-  <%= form_tag({:controller=>'shop_admin',:action=>'search_by_fbid'}, :remote => true, :class => "search_fbid_form") do %>
+  <%= form_tag({:controller=>'shop_admin',:action=>'search_by_fbid'}, :remote => true, :id => "search_fbid_form", :class => "search_ajax_spin") do %>
 Facebook IDで検索する： FacebookアカウントのID（URLの後ろのにある12桁の数字）を入力して検索してください。</br>
    <%= text_field_tag :id,'', :size=>"60" %><%= submit_tag 'IDで検索する'%><br/><br/>
   <% end %>
  </div>
  <div id="searchByfbName">
-  <%= form_tag({:controller=>'shop_admin',:action=>'search_by_fbid'}, :remote => true, :id => "search_account_form") do %>
+  <%= form_tag({:controller=>'shop_admin',:action=>'search_by_fbid'}, :remote => true, :id => "search_account_form", :class => "search_ajax_spin") do %>
 Facebookアカウントで検索する： Facebookアカウントの文字列を入力して検索してください。</br>
    <%= text_field_tag :id,'', :size=>"60" %><%= submit_tag 'アカウントで検索する'%><br/><br/>
   <% end %>
 
  <!-- AJAX検索結果リスト表示 -->
  <div id="spin"></div>
- <h3>チェックインプレイスの選択</h3>
+ <h3>チェックインスポットの選択</h3>
   <div id="result">
    <p>検索した結果が表示されます。</p>
   </div>
@@ -52,15 +52,15 @@ Facebookアカウントで検索する： Facebookアカウントの文字列を
   <br/>
  
   <div id="place_item" class="item_contents">
-   <h3>チェックインアイテムの登録情報</h3>
-   <p>アイテム名称（管理用）<span class="require">（※必須）</span>： <%= f.text_field :item_name, :id=>'item_name' %></p>
+   <h3>チェックインアイテムの名称を登録します。</h3>
+   <p>管理画面に表示する名称<span class="require">（※必須）</span>： <%= f.text_field :item_name, :id=>'item_name' %></p>
    <br/>
-   <h3>チェックイン画面作成</h3>
+   <h3>１．QRコードを読み込んだ時表示する画面作成</h3>
    <p>表示タイトル<span class="require">（※必須）</span>：<%= f.text_field :title, :id=>'title' %></p>
-   <p>店舗画像を使うか店舗テキストを使うかを選択します。<span class="require">（※どちらか必須）</span></p>
-   <p><%= f.select :top_image_select,{"店舗画像を使う"=>"1","メッセージを使う"=>"2"}, :id=>"top_image_select" %></p>
-   <p>店舗画像：<%= f.file_field :top_image, :id=>"top_image" %></p>
-   <p>店舗テキスト：<%= f.text_field :top_image_text, :id=>"top_image_text" %></p>
+   <p>お店紹介画像を使うか、お店紹介テキストを使うかを選択します。<span class="require">（※どちらか必須）</span></p>
+   <p><%= f.select :top_image_select,{"画像を使う"=>"1","テキストを使う"=>"2"}, :id=>"top_image_select" %></p>
+   <p>お店紹介画像：<%= f.file_field :top_image, :id=>"top_image" %></p>
+   <p>お店説明テキスト：<%= f.text_field :top_image_text, :id=>"top_image_text" %></p>
    <br/>
 
 　 <p>メッセージ画像を使うかメッセージテキストを使うかを選択します。<span class="require">（※どちらか必須）</span></p>

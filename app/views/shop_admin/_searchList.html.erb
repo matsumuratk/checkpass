@@ -14,7 +14,7 @@ function set_checkin_item(fbName,fbCategory,fbCountry,fbState,fbCity,fbStreet,ti
   return false;
 }
 </script>
-<p>登録するチェックインプレイスを選択してください。</p>
+<p>作成するFacebookチェックインスポットを選択してください。</p>
 <div>
   <table border="1" height="100">
     <tr>
@@ -25,7 +25,7 @@ function set_checkin_item(fbName,fbCategory,fbCountry,fbState,fbCity,fbStreet,ti
       <th class="city">City</th>
       <th class="street">Street</th>
       <th class="checkinQr">CheckinId</th>
-      <th class="link">Facebookページへのlink</th>
+      <th class="link">Facebookページへのリンク</th>
       <th class="save"></th>
     </tr>
 
@@ -37,16 +37,10 @@ function set_checkin_item(fbName,fbCategory,fbCountry,fbState,fbCity,fbStreet,ti
       <td class="state"><%= place.state %></td>
       <td class="city"><%= place.city %></td>
       <td class="street"><%= place.street %></td>
-      <td class="id"><%= place.id %></td>
+      <td class="id"><%= place.id %><%= noCheckinPlace(place)%></td>
       <td class="link"><%= link_to "#{place.link}","#{place.link}", :target=>'_blank' %></td>
       <td class="save">
-      <%= link_to "選択", "#input_top", :onclick=> "set_checkin_item('#{place.name}','#{place.category}','#{place.country}','#{place.state}','#{place.city}','#{place.street}','#{place.name}','#{place.id}','#{place.link}');return true;" %>
-      
-<!--
-      <%= form_tag '', :onsubmit=>"set_checkin_item('#{place.name}','#{place.category}','#{place.country}','#{place.state}','#{place.city}','#{place.street}','#{place.name}','#{place.id}','#{place.link}');location.hash='input_top';return false;" do |f| %>
-        <%= submit_tag '選択する' %>
-      <% end %>
--->
+      <%= link_chekinPlace(place) %>
       </td>
     </tr>
     <% end %>

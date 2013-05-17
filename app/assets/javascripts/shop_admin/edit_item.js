@@ -18,6 +18,13 @@ $(function(){
     .on('ajax:error',function(){ $("#spin").spin(false); })
     .on('ajax:complete',function(){ $("#spin").spin(false); });
 });
+$(function(){
+  $(".search_ajax_spin")
+    .on('ajax:beforeSend',function(){ $("#spin").spin(); })
+    .on('ajax:success',function(){ $("#spin").spin(false); })
+    .on('ajax:error',function(){ $("#spin").spin(false); })
+    .on('ajax:complete',function(){ $("#spin").spin(false); });
+});
 
 // プレビュー表示処理
 $(function(){

@@ -57,5 +57,29 @@ module ShopAdminHelper
 
     end      
   end
+
+  #searchList CheckinPlaceでない場合の選択
+  def link_chekinPlace(place)
+    unless place.latitude.nil?
+      text = <<EOT
+<%= link_to "選択", "#input_top", :onclick=> "set_checkin_item('#{place.name}','#{place.category}','#{place.country}','#{place.state}','#{place.city}','#{place.street}','#{place.name}','#{place.id}','#{place.link}');return true;" %>
+EOT
+
+    else
+      text = <<EOT
+<span style="">選択できません</span>
+EOT
+    end
+    
+    render :inline =>text
+  end
+
+  #searchList CheckinPlaceでない場合のlink位置表示処理
+  def noCheckinPlace(place)
+    text = '<br/><span style="color:red">チェックインスポットとして登録されていません。</span>'
+    render :inline =>text if place.latitude.nil?
+  end
+  
 end
+
 
