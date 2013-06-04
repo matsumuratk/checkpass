@@ -4,8 +4,9 @@
   <h3>チェックインスポットのFacebookページを検索</h3>
   <p style="line-height:10%;">登録するチェックインスポットをFacebookから検索してください。</p>
   <p class="attention">
+  ●チェックインしてもらうFacebookページを検索し、選択します。<br/>
   ●チェックインスポットとして登録されていないページは検索できません。<br/>
-  ●ページの名称で検索の場合、検索件数の条件により表示できないことがあります。その場合にはFacebookIDで検索してください。
+  ●ページの名称で検索の場合、検索件数の条件により表示できないことがあります。その場合はFacebookIDかFacebookアカウントで検索してください。
   </p><br/>    
   <%= form_tag({:controller=>'shop_admin',:action=>'search'}, :remote=>true, :id => "search_name_form") do %>
 登録名称で検索する： Facebookページの名称を入力して検索してください。</br>
@@ -55,20 +56,21 @@ Facebookアカウントで検索する： Facebookアカウントの文字列を
    <h3>チェックインアイテムの名称を登録します。</h3>
    <p>管理画面に表示する名称<span class="require">（※必須）</span>： <%= f.text_field :item_name, :id=>'item_name' %></p>
    <br/>
-   <h3>１．QRコードを読み込んだ時表示する画面作成</h3>
-   <p>表示タイトル<span class="require">（※必須）</span>：<%= f.text_field :title, :id=>'title' %></p>
-   <p>お店紹介画像を使うか、お店紹介テキストを使うかを選択します。<span class="require">（※どちらか必須）</span></p>
-   <p><%= f.select :top_image_select,{"画像を使う"=>"1","テキストを使う"=>"2"}, :id=>"top_image_select" %></p>
-   <p>お店紹介画像：<%= f.file_field :top_image, :id=>"top_image" %></p>
+   <h3>１．QRコードを読み込んだ時表示する画面作成します。</h3>
+   <p>お店の名前<span class="require">（※必須）</span>：<%= f.text_field :title, :id=>'title' %></p>
+   <p>お店の写真。写真がない場合は、テキストで代替できます。<span class="require">（※どちらか必須）</span></p>
+   <p><%= f.select :top_image_select,{"写真を選択する"=>"1","テキストを使う"=>"1"}, :id=>"top_image_select" %></p>
+   <p>お店紹介写真：<%= f.file_field :top_image, :id=>"top_image" %></p>
    <p>お店説明テキスト：<%= f.text_field :top_image_text, :id=>"top_image_text" %></p>
    <br/>
 
+   <p>お店の紹介を登録してください。</p>
 　 <p>メッセージ画像を使うかメッセージテキストを使うかを選択します。<span class="require">（※どちらか必須）</span></p>
    <p><%= f.select :middle_image_select,{"メッセージ画像を使う"=>"1","メッセージテキストを使う"=>"2"},:id=>"middle_image_select" %></p>
-   <p>メッセージ画像：<%= f.file_field :middle_image, :id=>"middle_image" %></p>
-   <p>メッセージテキスト：<%= f.text_field :middle_image_text, :id=>"middle_image_text" %></p>
+   <p>お店の紹介画像：<%= f.file_field :middle_image, :id=>"middle_image" %></p>
+   <p>紹介文：<%= f.text_field :middle_image_text, :id=>"middle_image_text" %></p>
    <br/>
-   <p>チェックインコメントタイトル<span class="require">（※必須）</span>：<%= f.text_field :comment_title, :id=>"comment_title" %></p>
+   <p>チェックインを促すメッセージ<span class="require">（※必須）</span>：<%= f.text_field :comment_title, :id=>"comment_title" %></p>
    <br/>
 
    <div class="item_contents_preview">
@@ -78,14 +80,14 @@ Facebookアカウントで検索する： Facebookアカウントの文字列を
   </div>
  
   <div id="docheckin_item" class="item_contents">
-   <h3>チェックイン完了画面作成</h3>
-　 <p>クーポン画像を使うかクーポンテキストを使うかを選択します。<span class="require">（※どちらか必須）</span></p>
+   <h3>２．チェックイン完了画面を作成する。</h3>
+　 <p>クーポン画像を登録します。画像がない場合はテキストで代替できます。<span class="require">（※どちらか必須）</span></p>
    <p><%= f.select :coupon_image_select,{"クーポン画像を使う"=>"1","クーポンテキストを使う"=>"2"},:id=>"coupon_image_select" %></p>
-   <p>クーポン画像：<%= f.file_field :coupon_image,:id=>"coupon_image" %></p>
-   <p>クーポンテキスト：<%= f.text_field :coupon_image_text,:id=>"coupon_image_text" %></p>
+   <p>クーポン画像を使う：<%= f.file_field :coupon_image,:id=>"coupon_image" %></p>
+   <p>テキストで記述する：<%= f.text_field :coupon_image_text,:id=>"coupon_image_text" %></p>
 
    <br/>
-   <p>チェックイン完了メッセージ：<%= f.text_field  :comment_message,:id=>"comment_message" %></p>
+   <p>お礼のメッセージ：<%= f.text_field  :comment_message,:id=>"comment_message" %></p>
 
    <div class="item_contents_preview">
     プレビュー：チェックイン完了画面<br/>
@@ -94,18 +96,18 @@ Facebookアカウントで検索する： Facebookアカウントの文字列を
   </div>    
 
   <div id="fbwall_item" class="item_contents">
-   <h3>Facebookへの投稿画面作成</h3>
+   <h3>Facebookへの投稿画面を作成します。プレビューに表示された内容で投稿されます。</h3>
   <div><%= f.check_box :fbpost_wall_check,{:checked => true}, true, false %>Facebookのウォールに投稿する</div>
    <p>メッセージ：<%= f.text_field :wall_message,:id=>"wall_message" %></p>
    <p>お店の名前：<%= f.text_field :wall_name,:id=>"wall_name" %></p>
-   <p>お店サイトへのリンク：<%= f.text_field :wall_link,:id=>"wall_link" %></p>
+   <p>お店サイトのURL：<%= f.text_field :wall_link,:id=>"wall_link" %></p>
    <p>見出し：<%= f.text_field :wall_caption,:id=>"wall_caption" %></p>
    <p>お店の紹介：<%= f.text_field :wall_description,:id=>"wall_description" %></p>
    <p>画像：<%= f.file_field :wall_picture,:id=>"wall_picture" %></p>
    <p style="line-height:10%;color:red">（省略した場合は、クーポン画像が表示されます。)</p>
 
    <div class="item_contents_preview">
-    プレビュー：Facebook投稿画面<br/>
+    プレビュー：Facebookへの投稿画面<br/>
     <iframe id="preview_facebook" height="200" width="320" scrolling="no" bordercolor="black" src="<%= url_for :controller => "checkin",:action => 'preview_facebook',:access_key=>@checkin_item.access_key %>" ></iframe>
    </div>
   </div>
