@@ -1,5 +1,6 @@
 # coding: utf-8
 class Shop < ActiveRecord::Base
+
   has_many :checkin_items, :foreign_key=>'fbUserId', :primary_key=>'fbUserId', :validate=>true
   has_many :checkin_logs, :foreign_key => 'fbUserId', :primary_key => 'fbUserId'
   belongs_to :checkin_item, :foreign_key => 'fbUserId'
@@ -17,11 +18,10 @@ class Shop < ActiveRecord::Base
 
   validates :fbUserId, :presence=>true, :uniqueness=>true
   validates :fbName, :presence=>true
-  validates :shop_name, :presence=>true
-  validates :manager_name, :presence=>{:message=>'は必須です。'}
-  validates :manager_mail, :presence=>{:message=>'は必須です、またはメールアドレスのフォーマットではありません。'}, \
-                           :format=>{:with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, \
-                                     :message => "email must be valid" }
-  validates :manager_tel, :presence=>{:message=>'は必須です。'}
+  validates :shop_name, :presence=>{:message=>'法人名またはお店の名前は必須です。'}
+  validates :manager_name, :presence=>{:message=>'管理者名は必須です。'}
+  validates :manager_mail, :presence=>{:message=>'連絡用メールアドレスは必須です、またはメールアドレスのフォーマットではありません。'}, \
+                           :format=>{:with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i , :message=>'連絡用メールアドレスがメールアドレスのフォーマットではありません。'}
+  validates :manager_tel, :presence=>{:message=>'連絡先電話番号は必須です。'}
 
 end

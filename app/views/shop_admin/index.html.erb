@@ -11,7 +11,7 @@
   </tbody>
 </table>
 
-<h3>管理者情報 <span class="sr"> <%= link_to "編集", edit_manager_shop_admin_path, {"data-role"=>"button"} %></span></h3>
+<h3>管理者情報 <span class="sr"> <%= link_to "編集", edit_manager_shop_admin_path %></span></h3>
 <table class="shop-info" summary="登録情報">
   <tbody>
     <tr>
@@ -64,7 +64,9 @@
        <br/>
        <%= link_to "編集", edit_item_shop_admin_path(checkin_item.access_key) %>
        <br/>
+       <% unless checkin_item.status == CheckinItem::AVAILABLE %>
        <%= link_to "削除", destroy_item_shop_admin_path(checkin_item.access_key), :confirm=>"削除してもよろしいですか？\nこの動作は取り消せません" %>
+       <%end%>
       </td>
       <script>
         $('#qr<%=cnt%>').qrcode({width: 96,height: 96,text: "<%= @checkin_url + checkin_item.access_key %>"});

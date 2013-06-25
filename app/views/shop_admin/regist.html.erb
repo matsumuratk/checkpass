@@ -4,47 +4,47 @@
 <% content_for :title do %>チェックパス利用登録<%end%>
 <div class="container">
 <div class="contents">
-<h3>チェックパス利用登録</h3><br/>
-下記の情報を入力してください。<br/>
-<%= form_tag(url_for(:action => 'doregist'), :id => "regist_form") do %>
+<h1>チェックパス 利用登録</h1>
+<h3>利用情報を登録してください。（利用登録は無料です。）</h3>
+<%= form_tag(url_for(:action => 'doregist'), :id => "regist_form", :name=>"regist_form") do %>
   <% if @shop.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@shop.errors.count, "error") %> prohibited this shop from being saved:</h2>
+      <h2><%= @shop.errors.count %>つのエラーがあります。</h2>
 
       <ul>
-      <% @shop.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+      <% @shop.errors.messages.each_pair do |key,msg| %>
+        <li><%= msg[0] %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-  <label class="in" for='shop[shop_name]'>表示ショップ名 ：</label>
+  <label class="in" for='shop[shop_name]'>法人名またはお店の名前<span class="require">（※必須）</span> ：</label>
   <%= text_field :shop, :shop_name, :class=>"in" %><br class="in"/>
   
   <label class="in" for='shop[manager_name]'>管理者名<span class="require">（※必須）</span>　：</label>
   <%= text_field :shop, :manager_name, :class=>"in" %><br class="in"/>
   
-  <label class="in" for='shop[manager_mail]'>管理者連絡用メールアドレス<span class="require">（※必須）</span>　：</label>
+  <label class="in" for='shop[manager_mail]'>連絡用メールアドレス<span class="require">（※必須）</span>　：</label>
   <%= text_field :shop, :manager_mail, :class=>"in" %><br class="in"/>
   
-  <label class="in" for='shop[manager_tel]'>管理者連絡用電話番号<span class="require">（※必須）</span>　：</label>
+  <label class="in" for='shop[manager_tel]'>連絡用電話番号<span class="require">（※必須）</span>　：</label>
   <%= text_field :shop, :manager_tel, :class=>"in" %><br class="in"/>
   <br/>
-  <label class="in" for='shop[coupon_code]'>クーポン番号：<span style="font-size:small">クーポン番号がある場合のみ</span></label>
+  <label class="in" for='shop[coupon_code]'>クーポン番号：<span style="font-size:x-small">（クーポンがある場合のみ）</span></label>
   <%= text_field :shop, :coupon_code, :class=>"in" %><br class="in"/>
 
   <br/>
   <div id="policy">
-   利用規約を確認し、同意してください。<br/>
+   利用規約を確認してください。<br/>
    <iframe src="/policy.html" width="700" height="200" scrolling="yes"></iframe>
-   <br/>
-   <%= check_box 'policy','agreement',{},true,false %>利用規約に同意する
-
   </div>
   <br/>
   <br/>
-  <%= image_submit_tag "/assets/shop_admin/riyoukaisi_disable.png", :id=>'submit', :disabled =>'true' %>
+  <a class="large awesome green" href="#" onclick="document.regist_form.submit();return false;" >規約に同意して利用を開始する</a>
+
+
+  <%#= image_submit_tag "/assets/shop_admin/riyoukaisi_disable.png", :id=>'submit', :disabled =>'true' %>
  <% end %>
 </div>
 </div>

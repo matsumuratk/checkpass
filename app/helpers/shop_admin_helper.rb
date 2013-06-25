@@ -15,16 +15,21 @@ module ShopAdminHelper
     end
   end
   
-  #登録／更新出力判別
+  #
+  #チェックインアイテム新規登録／編集画面
+  #サブミット項目の文字列を、新規登録／更新 で出しわける
+  #
   def submit_view(method)
     case method
-    when "create_item";return "登録"
-    when "update_item";return "更新"
+    when "create_item";return "新規登録"
+    when "update_item";return "更　新"
     end
   end
 
-
-  #paypalチェックアウトorキャンセル production/test/development表示わけ
+  #
+  #shop_admin/index
+  #statusにあわせて、paypalチェックアウトorキャンセル production/test/development表示わけ
+  #
   def paypal_checkout(checkin_item)
    
     #未登録,キャンセル状態－再登録

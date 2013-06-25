@@ -1,11 +1,33 @@
 <% content_for :title do %>チェックインプレイス新規作成<%end%>
+<% content_for :javascript_includes do %>
+<%= javascript_include_tag "jquery.formExample.js" %>
+<script type="text/javascript">
+$(function(){
+  $("input#sfbName").val("例）東京スカイツリー");
+  $("input#sfbId").val("例）149655571740038");
+  $("input#sfbAcName").val("例）TOKYOSKYTREE");
+  $("input#item_name").val("<%= "例)#{@checkin_item_example.title}" %>");  
+  $("input#title").val("<%= "例)#{@checkin_item_example.title}" %>");
+  $("input#top_image_text").val("<%= "例)#{@checkin_item_example.top_image_text}" %>");
+  $("input#middle_image_text").val("<%= "例)#{@checkin_item_example.middle_image_text}"%>");
+  $("input#comment_title").val("<%= "例)#{@checkin_item_example.comment_title}" %>");
+  $("input#coupon_image_text").val("<%= "例)#{@checkin_item_example.comment_title}" %>");
+  $("input#comment_message").val("<%= "例)#{@checkin_item_example.comment_message}" %>");
+  $("input#wall_message").val("<%= "例)#{@checkin_item_example.wall_message}" %>");
+  $("input#wall_name").val("<%= "例)#{@checkin_item_example.wall_name}" %>");
+  $("input#wall_link").val("<%= "例)#{@checkin_item_example.wall_link}" %>"); 
+  $("input#wall_caption").val("<%= "例)#{@checkin_item_example.wall_caption}" %>");
+  $("input#wall_description").val("<%= "例)#{@checkin_item_example.wall_description}" %>"); 
+});
+</script>
+<%end%>
 <div class="container">
  <div class="contents">
   <h1>チェックインプレイス新規作成</h1>
 
   <%= render 'item_form', {:method=>"create_item"} %>
-
-  <br/>
+<p>※登録しても、有効にするまで課金は発生しません</p>
+  <br/><br/>
   <%= link_to 'トップページに戻る', shop_admin_path %>
  </div>
 </div>

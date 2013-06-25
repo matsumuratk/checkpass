@@ -4,9 +4,11 @@
 
 #= require jquery
 #= require jquery_ujs
+#= require jquery.ui.all
 #= require jquery.upload-1.0.2.min
 #= require jquery.qrcode.min
 #= require jquery.spin
+#= require shop_admin/common
 #= require shop_admin/edit_item
 #= require jquery.smoothScroll.js
 

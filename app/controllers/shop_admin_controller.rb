@@ -84,6 +84,9 @@ class ShopAdminController < ShopAdminApplicationController
         format.html { redirect_to :action=>'index', notice: 'Shop was successfully updated.' }
         format.json { head :no_content }
       else
+        Rails.logger.error("update_manager:shop.sava is false.") 
+        Rails.logger.error @shop.errors.full_messages.join("\n")
+
         format.html { render action: "edit_manager" }
         format.json { render json: @shop.errors, status: :unprocessable_entity }
       end
@@ -94,7 +97,8 @@ class ShopAdminController < ShopAdminApplicationController
   #チェックインアイテム新規作成
   def new_item
     @checkin_item = CheckinItem.new
-
+    @checkin_item_example = CheckinItem.new
+    @checkin_item_example.setDummy
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @checkin_item}

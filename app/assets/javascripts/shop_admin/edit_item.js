@@ -3,11 +3,34 @@
 // プレビュー表示処理
 //
 
-// iframeの表示でスクロールしてしまうので、強制的に戻す。
+/*
+	ページの表示時、iframeの表示でスクロールしてしまうので、強制的に戻す。
+*/
 $(function(){
   $(window).load(function() {
     $('html,body').animate({ scrollTop: 0 }, 'fast');
   });
+});
+
+/*
+	フォーム内のラベル位置を揃える。
+	function adjust_label() は、shop_admin/common.js内
+	#facebook_item
+*/
+
+$(document).ready(function() { 
+/*
+	var max = 0; 
+	sel = "#facebook_item label";
+  $(sel).each(function(){ 
+  	if ($(this).width() > max) 
+      max = $(this).width(); 
+  }); 
+  $(sel).css("display", "inline-block"); 
+  $(sel).width(max); 
+*/
+	adjust_label("#facebook_item");
+	adjust_label("#fbwall_item_message");
 });
 
 // facebook place ローディング処理

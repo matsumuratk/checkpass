@@ -1,5 +1,38 @@
-<h1>Editing manager</h1>
+<% content_for :title do %>管理者情報編集<%end%>
 
-<%= render 'manager_form' %>
+<h1>管理者情報編集</h1>
+<div class="container">
+<div class="contents">
+<h3>管理者情報を編集してください。</h3>
 
-<%= link_to 'Back', shop_admin_path %>
+<%= form_for(@shop, :url => {:action => "update_manager"}, :html=>{:name=>"update_manager"}) do |f| %>
+  <% if @shop.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @shop.errors.count %>つのエラーがあります。</h2>
+
+      <ul>
+      <% @shop.errors.messages.each_pair do |key,msg| %>
+        <li><%= msg[0] %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <label class="in" for='shop[manager_name]'>管理者名<span class="require">（※必須）</span>　：</label>
+  <%= text_field :shop, :manager_name, :class=>"in" %><br class="in"/>
+  <label class="in" for='shop[manager_mail]'>連絡用メールアドレス<span class="require">（※必須）</span>　：</label>
+  <%= text_field :shop, :manager_mail, :class=>"in" %><br class="in"/>
+  
+  <label class="in" for='shop[manager_tel]'>連絡用電話番号<span class="require">（※必須）</span>　：</label>
+  <%= text_field :shop, :manager_tel, :class=>"in" %><br class="in"/>
+  <br/>
+  <br/>
+
+  <a class="large awesome green" href="#" onclick="document.update_manager.submit();return false;">更新</a>
+
+<% end %>
+<br/>
+
+<%= link_to 'トップページに戻る', shop_admin_path %>
+</div>
+</div>

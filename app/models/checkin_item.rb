@@ -148,24 +148,24 @@ class CheckinItem < ActiveRecord::Base
 
   #ダミーデータ作成（プレビュー用）
   def setDummy
-      self.title = "[表示タイトル]"
-      self.top_image = "/assets/sample_image1.gif"
-      self.top_image_text = "[お店紹介テキスト]"
-      self.top_image_select = "2"
+      self.title = "カフェ チェックパス"
+      self.top_image = "/assets/sample_shopimage1.gif"
+      self.top_image_text = "スポーツ観戦もできる!!ダイニングバー"
+      self.top_image_select = "1"
       self.middle_image = "/assets/sample_image2.gif"
-      self.middle_image_text = '[メッセージ]'
+      self.middle_image_text = "☆お洒落で美味しいカフェレストランでゆったり時間をお過ごしください♪"
       self.middle_image_select = "2"
+      self.comment_title = "コメントを付けてチェックインしてください。すてきなクーポンをさしあげます！"
       self.coupon_image = "/assets/sample_couponimage.gif"
-      self.coupon_image_text = "[クーポンテキスト]"
-      self.coupon_image_select = "2"
-      self.comment_title = "[コメント]"
-      self.comment_message = "[チェックイン完了メッセージ]"
-      self.wall_name = "[お店の名前]"
+      self.coupon_image_text = "特別クーポン：ソフトドリンク一杯無料！<br/>この画面をお店のスタッフにみせてください。"
+      self.coupon_image_select = "1"
+      self.comment_message = "チェックインありがとうございます！どうぞごゆっくりお楽しみください。"
+      self.wall_message = "本日はご来店いただきありがとうございました。カフェ チェックパスでは皆様のご来店をお待ちしております。"
+      self.wall_name = "カフェチェックパス"
       self.wall_link = "http://www.facebook.com/checkpass"
-      self.wall_caption = "[見出し]"
-      self.wall_description = "[お店の紹介]"
+      self.wall_caption = "スポーツ観戦もできる!!ダイニングバー"
+      self.wall_description = "お洒落で美味しいカフェレストランでゆったり時間をお過ごしください♪"
       self.wall_picture = "/assets/sample_coupon.gif"
-      self.wall_message = "[メッセージ]"
   end
   
 end
