@@ -11,7 +11,7 @@ development:
   admin_permissions: "publish_stream,read_friendlists,user_checkins,publish_checkins"
   base_url: "http://localhost:3000"
   callback_url: "http://localhost:3000/commons/callback"
-  checkin_url: "http://locaohost:3000/checkin/place/"
+  checkin_url: "http://localhost:3000/checkin/place/"
   
 test:
   user_app_id: "496472717041047"

@@ -1,25 +1,25 @@
 <% content_for :title do %>チェックインプレイス新規作成<%end%>
 <% content_for :javascript_includes do %>
-<%= javascript_include_tag "jquery.formExample.js" %>
 <script type="text/javascript">
 $(function(){
-  $("input#sfbName").val("例）東京スカイツリー");
-  $("input#sfbId").val("例）149655571740038");
-  $("input#sfbAcName").val("例）TOKYOSKYTREE");
-  $("input#item_name").val("<%= "例)#{@checkin_item_example.title}" %>");  
-  $("input#title").val("<%= "例)#{@checkin_item_example.title}" %>");
-  $("input#top_image_text").val("<%= "例)#{@checkin_item_example.top_image_text}" %>");
-  $("input#middle_image_text").val("<%= "例)#{@checkin_item_example.middle_image_text}"%>");
-  $("input#comment_title").val("<%= "例)#{@checkin_item_example.comment_title}" %>");
-  $("input#coupon_image_text").val("<%= "例)#{@checkin_item_example.comment_title}" %>");
-  $("input#comment_message").val("<%= "例)#{@checkin_item_example.comment_message}" %>");
-  $("input#wall_message").val("<%= "例)#{@checkin_item_example.wall_message}" %>");
-  $("input#wall_name").val("<%= "例)#{@checkin_item_example.wall_name}" %>");
-  $("input#wall_link").val("<%= "例)#{@checkin_item_example.wall_link}" %>"); 
-  $("input#wall_caption").val("<%= "例)#{@checkin_item_example.wall_caption}" %>");
-  $("input#wall_description").val("<%= "例)#{@checkin_item_example.wall_description}" %>"); 
+  $("input#sfbName").val("例）東京スカイツリー").addClass("example");
+  $("input#sfbId").val("例）149655571740038").addClass("example");
+  $("input#sfbAcName").val("例）TOKYOSKYTREE").addClass("example");
+  $("input#item_name").val("<%= "例)#{@checkin_item_example.title}" %>").addClass("example");  
+  $("input#title").val("<%= "例)#{@checkin_item_example.title}" %>").addClass("example");
+  $("input#top_image_text").val("<%= "例)#{@checkin_item_example.top_image_text}" %>").addClass("example");
+  $("input#middle_image_text").val("<%= "例)#{@checkin_item_example.middle_image_text}"%>").addClass("example");
+  $("input#comment_title").val("<%= "例)#{@checkin_item_example.comment_title}" %>").addClass("example");
+  $("input#coupon_image_text").val("<%= "例)#{@checkin_item_example.comment_title}" %>").addClass("example");
+  $("input#comment_message").val("<%= "例)#{@checkin_item_example.comment_message}" %>").addClass("example");
+  $("input#wall_message").val("<%= "例)#{@checkin_item_example.wall_message}" %>").addClass("example");
+  $("input#wall_name").val("<%= "例)#{@checkin_item_example.wall_name}" %>").addClass("example");
+  $("input#wall_link").val("<%= "例)#{@checkin_item_example.wall_link}" %>").addClass("example"); 
+  $("input#wall_caption").val("<%= "例)#{@checkin_item_example.wall_caption}" %>").addClass("example");
+  $("input#wall_description").val("<%= "例)#{@checkin_item_example.wall_description}" %>").addClass("example"); 
 });
 </script>
+<%= javascript_include_tag "jquery.formExample.js" %>
 <%end%>
 <div class="container">
  <div class="contents">

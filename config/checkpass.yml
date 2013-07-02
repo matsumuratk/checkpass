@@ -1,4 +1,4 @@
-# config/facebook.yml
+# config/checkpass.yml
 development:
   paypal_checkout_url: ""
   paypal_cancel_url: ""

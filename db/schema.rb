@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130505174848) do
+ActiveRecord::Schema.define(:version => 20130625084848) do
 
   create_table "admin_masters", :force => true do |t|
     t.string   "master_id"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20130505174848) do
     t.datetime "updated_at",                            :null => false
     t.datetime "cancel_date"
     t.boolean  "post_wall_check",     :default => true
+    t.string   "fbTitle"
   end
 
   create_table "checkin_logs", :force => true do |t|

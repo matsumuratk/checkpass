@@ -34,11 +34,12 @@ class CheckinItem < ActiveRecord::Base
   attr_accessible :fbName           # FB登録名
   attr_accessible :fbCategory       # FBカテゴリ
   attr_accessible :fbCountry        # FBカントリー
+  attr_accessible :fbTitle          # FB Title
   attr_accessible :fbState          # FB State
   attr_accessible :fbCity           # FB City
   attr_accessible :fbStreet         # FB Street
 
-  attr_accessible :title            # タイトル（デフォルト：FB登録名）
+  attr_accessible :title            # タイトル
   attr_accessible :top_image        # 画像１
   attr_accessible :top_image_text   # 画像１の文言
   attr_accessible :top_image_select # 画像1の使う方 1:画像 2:文言
@@ -59,6 +60,12 @@ class CheckinItem < ActiveRecord::Base
   attr_accessible :wall_description  #ウォール書き込み Description
   attr_accessible :wall_picture      #ウォール書き込み Picture
 
+  validates :fbName, :presence=>{:message=>"チェックインプレイスを選択してください。"}
+  validates :item_name, :presence=>{:message=>"チェックインアイテムの名称は必須です。"}
+  validates :title, :presence=>{:message=>"お店の名前は必須です。"}
+  validates :comment_title, :presence=>{:message=>"チェックインを促すメッセージ は必須です。"}
+  validates :comment_message, :presence=>{:message=>" チェックイン完了メッセージは必須です。"}
+   
 
   #status定数
   REGIST = 1

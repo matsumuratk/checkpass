@@ -1,7 +1,20 @@
+<!-- エラー情報 -->
+<% if @checkin_item.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= @checkin_item.errors.count %>つのエラーがあります。</h2>
+    <ul>
+    <% @checkin_item.errors.messages.each_pair do |key,msg| %>
+      <li><%= msg[0] %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
 <!-- Facebook検索 -->
+<div id="explanation"></div>
 <div id="searchFbPlace">
  <div id="searchByName">
   <h3>１．チェックインスポットのFacebookページを検索</h3>
+  <div id="error_noSelect"></div>
   <p style="line-height:10%;">登録するチェックインスポットをFacebookから検索してください。</p>
   <p class="attention">
   ●チェックインしてもらうFacebookページを検索し、選択します。<br/>
@@ -34,8 +47,8 @@ Facebookアカウントで検索する： Facebookアカウントの文字列を
  </div>
 
 <!-- 入力情報 -->
-<div class="field">
- <a name="input_top">
+<div class="input_field">
+ <a name="input_top"></a>
  <%= form_for(@checkin_item, :url => { :action => method, :access_key =>@checkin_item.access_key }, :html=>{:name=>"new_checkin_item"}) do |f| %>
   <%= f.hidden_field :fbUserId, :id=>'fbUserId' %>
 
@@ -47,7 +60,7 @@ Facebookアカウントで検索する： Facebookアカウントの文字列を
    <p><%= f.label :fbState, "State：　"%><%= f.text_field :fbState, :id=>'fbState', :size=>60, :readonly=>'true' %></p>
    <p><%= f.label :fbCity, "City：　"%><%= f.text_field :fbCity, :id=>'fbCity', :size=>60, :readonly=>'true' %></p>
    <p><%= f.label :fbStreet, "Street：　"%><%= f.text_field :fbStreet, :id=>'fbStreet', :size=>60, :readonly=>'true' %></p>
-   <p><%= f.label :fbTitle, "Title：　"%><%= f.text_field :title, :id=>'fbTitle', :size=>60, :readonly=>'true' %></p>
+   <p><%= f.label :fbTitle, "Title：　"%><%= f.text_field :fbTitle, :id=>'fbTitle', :size=>60, :readonly=>'true' %></p>
    <p><%= f.label :fbCheckinId, "Id：　"%><%= f.text_field :fbCheckinId, :id=>'fbCheckinId', :size=>60, :readonly=>'true' %></p>
   </div>
   <br/>
@@ -98,7 +111,7 @@ Facebookアカウントで検索する： Facebookアカウントの文字列を
 
   <div id="fbwall_item" class="item_contents input_adjusted">
    <h3>７．Facebookへの投稿画面を作成します。</h3>
-  <p><%= f.check_box :post_wall_check,{:checked => true}, true, false %>Facebookのウォールに投稿しない場合は、チェックをはずしてください、</p>
+  <p><%= f.check_box :post_wall_check,{:checked => true}, true, false %>Facebookのウォールに投稿する。（投稿しない場合は、チェックをはずしてください。）</p>
    <div id="fbwall_item_message">
     <p><%= f.label :wall_message,"メッセージ：　"%><%= f.text_field :wall_message, :id=>"wall_message",:size=>60 %></p>
     <p><%= f.label :wall_name,"お店の名前：　"%><%= f.text_field :wall_name,:id=>"wall_name",:size=>60 %></p>
@@ -114,7 +127,7 @@ Facebookアカウントで検索する： Facebookアカウントの文字列を
    </div>
   </div>
   <br/>
-  <a class="large awesome green" href="#" onclick="document.new_checkin_item.submit();return false;"><%= submit_view(method) %></a>
+  <a class="large awesome green" href="#" onclick="new_checkin_item_submit();return false;","disabled=true"><%= submit_view(method) %></a>
  <% end %>
 </div>
 

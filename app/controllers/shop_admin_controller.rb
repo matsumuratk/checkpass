@@ -108,6 +108,8 @@ class ShopAdminController < ShopAdminApplicationController
   #チェックインアイテム新規作成
   def create_item
     @checkin_item = @myShop.checkin_items.build(params[:checkin_item])
+    @checkin_item_example = CheckinItem.new
+    @checkin_item_example.setDummy
 
   respond_to do |format|
     if @checkin_item.save

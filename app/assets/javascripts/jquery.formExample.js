@@ -14,10 +14,12 @@ $(function() {
     if(chk_val == input_val[chk_num]) {
 	    var def_val = $(this).val();
       $(this).val('');
+			$(this).removeClass("example");
       $(this).css('color', '#333');
       $(this).blur(function() {
 	      if($(this).val() == '') {
 		      $(this).val(def_val);
+					$(this).addClass("example");
     	    $(this).css('color', '#999');
       	}
     	});
