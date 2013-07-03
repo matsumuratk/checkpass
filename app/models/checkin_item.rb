@@ -77,7 +77,16 @@ class CheckinItem < ActiveRecord::Base
 
   #コールバック
   before_create do |record|
+    #create_datetimeに今の時間を入れる
     record.create_datetime = Time.now.to_s(:db)
+  end
+
+  #初期化処理
+  def init
+    #初期値設定
+    self.top_image_select ||= "1"
+    self.middle_image_select ||= "2"
+    self.post_wall_check ||= true
   end
 
   #wall_picture 取得処理

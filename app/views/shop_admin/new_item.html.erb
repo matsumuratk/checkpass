@@ -2,6 +2,7 @@
 <% content_for :javascript_includes do %>
 <script type="text/javascript">
 $(function(){
+  /* 入力例設定 */
   $("input#sfbName").val("例）東京スカイツリー").addClass("example");
   $("input#sfbId").val("例）149655571740038").addClass("example");
   $("input#sfbAcName").val("例）TOKYOSKYTREE").addClass("example");
@@ -17,8 +18,13 @@ $(function(){
   $("input#wall_link").val("<%= "例)#{@checkin_item_example.wall_link}" %>").addClass("example"); 
   $("input#wall_caption").val("<%= "例)#{@checkin_item_example.wall_caption}" %>").addClass("example");
   $("input#wall_description").val("<%= "例)#{@checkin_item_example.wall_description}" %>").addClass("example"); 
+
+  /* select 初期値設定 */
+  $("select#checkin_item_top_image_select").val(1);
+  $("select#checkin_item_middle_image_select").val(2);
 });
 </script>
+
 <%= javascript_include_tag "jquery.formExample.js" %>
 <%end%>
 <div class="container">

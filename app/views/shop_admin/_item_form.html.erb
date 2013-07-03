@@ -74,14 +74,14 @@ Facebookアカウントで検索する： Facebookアカウントの文字列を
    <p>①お店の名前<span class="require">（※必須）</span>：<%= f.text_field :title,:id=>'title', :size=>'60' %></p>
    <p>②お店の写真。写真がない場合は、テキストで代替できます。<span class="require">（※どちらか必須）</span></p>
    <p><%= f.select :top_image_select,{"写真を使う"=>"1","テキストを使う"=>"2"}, :id=>"top_image_select" %></p>
-   <p>お店の写真を選択：<%= f.file_field :top_image, :id=>"top_image", :size=>60 %></p>
-   <p>お店説明テキスト：<%= f.text_field :top_image_text, :id=>"top_image_text", :size=>"60" %></p>
+   <p id="top_image_select_1">お店の写真を選択：<%= f.file_field :top_image, :id=>"top_image", :size=>60 %></p>
+   <p id="top_image_select_2">お店説明テキスト：<%= f.text_field :top_image_text, :id=>"top_image_text", :size=>"60" %></p>
    <br/>
    <p>③お店の紹介。画像を使うこともできます。</p>
-   <p><%= f.select :middle_image_select,{"画像を使う"=>"1","テキストを使う"=>"2"}, :selected=>"2", :id=>"middle_image_select" %></p>
-   <p>お店の紹介テキスト：<br/>
+   <p><%= f.select :middle_image_select,{"画像を使う"=>"1","テキストを使う"=>"2"}, :id=>"middle_image_select" %></p>
+   <p id="middle_image_select_2">お店の紹介テキスト：<br/>
    <%= f.text_field :middle_image_text,:id=>"middle_image_text", :size=>"90" %></p>
-   <p>お店の紹介画像：<%= f.file_field :middle_image, :id=>"middle_image" %></p>
+   <p id="middle_image_select_1">お店の紹介画像：<%= f.file_field :middle_image, :id=>"middle_image" %></p>
    <br/>
    <p>④チェックインを促すメッセージ<span class="require">（※必須）</span>：<br/>
    <%= f.text_field :comment_title, :id=>"comment_title", :size=>"90" %></p>
@@ -97,8 +97,8 @@ Facebookアカウントで検索する： Facebookアカウントの文字列を
    <h3>６．チェックイン完了画面を作成します。</h3>
 　 <p>①クーポン画像。画像がない場合はテキストで代替できます。<span class="require">（※どちらか必須）</span></p>
    <p><%= f.select :coupon_image_select,{"画像を使う"=>"1","テキストを使う"=>"2"},:id=>"coupon_image_select" %></p>
-   <p>クーポン画像を使う：<%= f.file_field :coupon_image,:id=>"coupon_image" %></p>
-   <p>テキストで記述する：<%= f.text_field :coupon_image_text, :id=>"coupon_image_text",:size=>90 %></p>
+   <p id="coupon_image_select_1">クーポン画像を使う：<%= f.file_field :coupon_image,:id=>"coupon_image" %></p>
+   <p id="coupon_image_select_2">テキストで記述する：<%= f.text_field :coupon_image_text, :id=>"coupon_image_text",:size=>90 %></p>
 
    <br/>
    <p>②チェックイン完了メッセージ：<br/><%= f.text_field :comment_message, :id=>"comment_message", :size=>90 %></p>
@@ -111,7 +111,7 @@ Facebookアカウントで検索する： Facebookアカウントの文字列を
 
   <div id="fbwall_item" class="item_contents input_adjusted">
    <h3>７．Facebookへの投稿画面を作成します。</h3>
-  <p><%= f.check_box :post_wall_check,{:checked => true}, true, false %>Facebookのウォールに投稿する。（投稿しない場合は、チェックをはずしてください。）</p>
+  <p><%= f.check_box :post_wall_check %>Facebookのウォールに投稿する。（投稿しない場合は、チェックをはずしてください。）</p>
    <div id="fbwall_item_message">
     <p><%= f.label :wall_message,"メッセージ：　"%><%= f.text_field :wall_message, :id=>"wall_message",:size=>60 %></p>
     <p><%= f.label :wall_name,"お店の名前：　"%><%= f.text_field :wall_name,:id=>"wall_name",:size=>60 %></p>

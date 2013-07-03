@@ -42,6 +42,42 @@ $(function(){
 });
 
 /*
+  入力項目の選択
+*/
+$(function(){
+  $("select#checkin_item_top_image_select")
+    .ready(function(){
+      $("#top_image_select_"+(3-$("select#checkin_item_top_image_select").val())).hide();
+    })
+    .change(function(){
+      $("#top_image_select_"+($("select#checkin_item_top_image_select").val())).show();
+      $("#top_image_select_"+(3-$("#checkin_item_top_image_select").val())).hide();
+    });
+});
+
+$(function(){
+  $("select#checkin_item_middle_image_select")
+    .ready(function(){
+      $("#middle_image_select_"+(3-$("select#checkin_item_middle_image_select").val())).hide();
+    })
+    .change(function(){
+      $("#middle_image_select_"+($("select#checkin_item_middle_image_select").val())).show();
+      $("#middle_image_select_"+(3-$("select#checkin_item_middle_image_select").val())).hide();
+    });
+});
+
+$(function(){
+  $("select#checkin_item_coupon_image_select")
+    .ready(function(){
+      $("#coupon_image_select_"+(3-$("select#checkin_item_coupon_image_select").val())).hide();
+    })
+    .change(function(){
+      $("#coupon_image_select_"+($("select#checkin_item_coupon_image_select").val())).show();
+      $("#coupon_image_select_"+(3-$("select#checkin_item_coupon_image_select").val())).hide();
+    });
+});
+
+/*
  プレビュー表示処理
  プレビューの表示と、カラム更新時にプレビュー画面へ反映
 */

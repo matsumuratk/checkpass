@@ -150,6 +150,8 @@ class ShopAdminController < ShopAdminApplicationController
   def update_item
     @checkin_item = @myShop.checkin_items.find_by_access_key(params[:access_key])
 
+Rails.logger.debug "params = #{params}"
+
     respond_to do |format|
       if @checkin_item.update_attributes(params[:checkin_item])
         format.html { redirect_to  :action => 'index', notice: 'CheckinItem was successfully deleted.' }

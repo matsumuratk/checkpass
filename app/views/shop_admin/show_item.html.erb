@@ -1,4 +1,7 @@
 <% content_for :title do %>チェックインアイテム表示<%end%>
+<div class="container">
+ <div class="contents">
+<h1>チェックインアイテム 登録情報</h1>
 <h3>チェックインアイテム</h3>
 <div>アイテム名称（管理用） <%= @checkin_item.item_name %></div>
 <h3>利用情報</h3>
@@ -10,7 +13,7 @@
     </tr>
   </tbody>
 </table>
-
+<br/>
 <div>チェックイン用QRコード</div>
 <br/>
 <div id="qr"></div>
@@ -19,25 +22,33 @@
  $('#qr').qrcode({width: 96,height: 96,text: "<%= @checkin_url + @checkin_item.access_key %>"});
 </script>
 
-<div>画像情報</div>
-<div><%= image_tag @checkin_item.top_image_url if @checkin_item.top_image? %>
-<div><%= image_tag @checkin_item.middle_image_url if @checkin_item.middle_image? %>
-<div><%= image_tag @checkin_item.coupon_image_url if @checkin_item.coupon_image? %>
+<h3>チェックイン画面</h2>
+<div class="show_item_contents_preview">
+ <iframe id="preview_place" scrolling="auto" height="500" width="320" bordercolor="black" src="<%= url_for :controller => "checkin",:action => 'preview_place',:access_key=>@checkin_item.access_key %>" ></iframe>
+</div>
 <br/>
-<div><%= image_tag @checkin_item.wall_picture_url if @checkin_item.wall_picture? %>
-<br/>
-<div>チェックイン用URL：<%= @checkin_url + @checkin_item.access_key %>
-<div>Facebookプレイス情報</div>
-<br/>
-<div><span>fbName：</span><span><%= @checkin_item.fbName %></span></div>
-<div><span>fbCategory：</span><span><%= @checkin_item.fbCategory %></span></div>
-<div><span>fbCountry：</span><span><%= @checkin_item.fbCountry %></span></div>
-<div><span>fbState：</span><span><%= @checkin_item.fbState %></span></div>
-<div><span>fbCity：</span><span><%= @checkin_item.fbCity %></span></div>
-<div><span>fbStreet：</span><span><%= @checkin_item.fbStreet %></span></div>
-<div><span>Title：</span><span><%= @checkin_item.title %></span></div>
 
-<div>表示情報編集 <%=link_to "編集", edit_item_shop_admin_path(@checkin_item.access_key) %></div>
+<h3>チェックイン完了画面</h2>
+<div class="show_item_contents_preview">
+ <iframe id="preview_docheckin" scrolling="auto" height="500" width="320" scrolling="no" bordercolor="black" src="<%= url_for :controller => "checkin",:action => 'preview_docheckin',:access_key=>@checkin_item.access_key %>" ></iframe>
+</div>
+<br/>
+
+<%if @checkin_item.post_wall_check %>
+<h3>Facebookへの投稿画面</h2>
+<div class="show_item_contents_preview">
+  <iframe id="preview_facebook" height="200" width="320" scrolling="no" bordercolor="black" src="<%= url_for :controller => "checkin",:action => 'preview_facebook',:access_key=>@checkin_item.access_key %>" ></iframe>
+</div>
+<% end %>
+<br/>
+<br/>
+
+
+<div>アイテム編集 <%=link_to "編集", edit_item_shop_admin_path(@checkin_item.access_key) %></div>
+<br/>
 <div>アイテム削除 <%= link_to '削除', destroy_item_shop_admin_path(@checkin_item.access_key), data: { confirm: 'Are you sure?' } %>
 <br/>
 <%= link_to 'トップに戻る', index_shop_admin_path %>
+</div>
+</div>
+
