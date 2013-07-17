@@ -89,10 +89,24 @@ class CheckinItem < ActiveRecord::Base
     self.post_wall_check ||= true
   end
 
+  #top_image取得
+  def get_top_image
+    return self.top_image.presence || @ex_top_image.presence || ""
+  end
+
+  #middle_image取得
+  def get_middle_image
+    return self.middle_image.presence || @ex_middle_image.presence || ""
+  end
+
+  #coupon_image取得
+  def get_coupon_image
+    return self.coupon_image.presence || @ex_coupon_image.presence || ""
+  end
+
   #wall_picture 取得処理
-  #wall_pictureが無ければ、coupon_iamageを返す
   def get_wall_picture
-    return self.wall_picture.presence || self.coupon_image
+    return self.wall_picture.presence || @ex_wall_picture.presence || ""
   end
 
 
@@ -164,24 +178,24 @@ class CheckinItem < ActiveRecord::Base
 
   #ダミーデータ作成（プレビュー用）
   def setDummy
-      self.title = "カフェ チェックパス"
-      self.top_image = "/assets/sample_shopimage1.gif"
-      self.top_image_text = "スポーツ観戦もできる!!ダイニングバー"
+      self.title = "例）チェックカフェ"
+      @ex_top_image = PREVIEW_IMG::EX_TOP_IMAGE
+      self.top_image_text = "例）スポーツ観戦もできる!!ダイニングバー"
       self.top_image_select = "1"
-      self.middle_image = "/assets/sample_image2.gif"
-      self.middle_image_text = "☆お洒落で美味しいカフェレストランでゆったり時間をお過ごしください♪"
+      @ex_middle_image = PREVIEW_IMG::EX_MIDDLE_IMAGE
+      self.middle_image_text = "例）☆お洒落で美味しいカフェレストランでゆったり時間をお過ごしください♪"
       self.middle_image_select = "2"
-      self.comment_title = "コメントを付けてチェックインしてください。すてきなクーポンをさしあげます！"
-      self.coupon_image = "/assets/sample_couponimage.gif"
-      self.coupon_image_text = "特別クーポン：ソフトドリンク一杯無料！<br/>この画面をお店のスタッフにみせてください。"
+      self.comment_title = "例）コメントを付けてチェックインしてください。すてきなクーポンをさしあげます！"
+      @ex_coupon_image = PREVIEW_IMG::EX_COUPON_IMAGE
+      self.coupon_image_text = "例）特別クーポン：ソフトドリンク一杯無料！<br/>この画面をお店のスタッフにみせてください。"
       self.coupon_image_select = "1"
-      self.comment_message = "チェックインありがとうございます！どうぞごゆっくりお楽しみください。"
-      self.wall_message = "本日はご来店いただきありがとうございました。カフェ チェックパスでは皆様のご来店をお待ちしております。"
-      self.wall_name = "カフェチェックパス"
+      self.comment_message = "例）チェックインありがとうございます！どうぞごゆっくりお楽しみください。"
+      self.wall_message = "例）本日はご来店いただきありがとうございました。カフェ チェックパスでは皆様のご来店をお待ちしております。"
+      self.wall_name = "例）カフェチェックパス"
       self.wall_link = "http://www.facebook.com/checkpass"
-      self.wall_caption = "スポーツ観戦もできる!!ダイニングバー"
-      self.wall_description = "お洒落で美味しいカフェレストランでゆったり時間をお過ごしください♪"
-      self.wall_picture = "/assets/sample_coupon.gif"
+      self.wall_caption = "例）スポーツ観戦もできる!!ダイニングバー"
+      self.wall_description = "例）お洒落で美味しいカフェレストランでゆったり時間をお過ごしください♪"
+      @ex_wall_picture = PREVIEW_IMG::EX_WALL_PICTURE
   end
   
 end

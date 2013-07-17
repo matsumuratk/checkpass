@@ -8,3 +8,10 @@ module PAYPAL
   ID = CONFIG['paypal_id']
 end
 
+module PREVIEW_IMG
+	CONFIG = YAML.load_file( "#{Rails.root}/config/checkpass.yml" )[Rails.env]
+  EX_TOP_IMAGE = CONFIG['ex_top_image']
+  EX_MIDDLE_IMAGE = CONFIG['ex_middle_image']
+  EX_COUPON_IMAGE = CONFIG['ex_coupon_image']
+  EX_WALL_PICTURE = CONFIG['ex_wall_picture']
+end

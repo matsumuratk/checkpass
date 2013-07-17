@@ -113,6 +113,7 @@ class CheckinController < CheckinApplicationController
     else
       @checkin_item = CheckinItem.new
       @checkin_item.setDummy
+Rails.logger.debug("top_image:#{@checkin_item.top_image}")
     end
  
     respond_to do |format|

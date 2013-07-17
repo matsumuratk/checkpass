@@ -4,7 +4,7 @@
  <p class="tCenter">にチェックインしました。</p>
 
  <div id="coupon">
-  <%= image_tag((@checkin_item.coupon_image.presence || '/assets/dummy.gif'), :style =>"width:100%; max-width:680px;#{display_img(@checkin_item.coupon_image_select)}", :id=>"coupon_image") %>
+  <%= image_tag(@checkin_item.get_coupon_image, :style =>"width:100%; max-width:680px;#{display_img(@checkin_item.coupon_image_select)}", :id=>"coupon_image") %>
   <h2><span id="coupon_image_text" style="<%=display_txt(@checkin_item.coupon_image_select)%>"><%= @checkin_item.coupon_image_text.html_safe %></span></h2>
  </div>
  <br/>

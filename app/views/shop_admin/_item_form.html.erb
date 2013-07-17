@@ -72,13 +72,19 @@ Facebookアカウントで検索する： Facebookアカウントの文字列を
   <div id="place_item" class="item_contents">
    <h3>５．QRコードを読み込んだ時表示する画面作成します。</h3>
    <p>①お店の名前<span class="require">（※必須）</span>：<%= f.text_field :title,:id=>'title', :size=>'60' %></p>
-   <p>②お店の写真。写真がない場合は、テキストで代替できます。<span class="require">（※どちらか必須）</span></p>
-   <p><%= f.select :top_image_select,{"写真を使う"=>"1","テキストを使う"=>"2"}, :id=>"top_image_select" %></p>
-   <p id="top_image_select_1">お店の写真を選択：<%= f.file_field :top_image, :id=>"top_image", :size=>60 %></p>
+   <p>②お店の画像。画像がない場合は、テキストで代替できます。<span class="require">（※どちらか必須）</span></p>
+   <p>
+    <label><%= f.radio_button :top_image_select, '1',{} %>画像を使う</label><br/>
+    <label><%= f.radio_button :top_image_select, '2',{} %>テキストを使う</label>
+   </p>
+   <p id="top_image_select_1">お店の画像を選択：<%= f.file_field :top_image, :id=>"top_image", :size=>60 %></p>
    <p id="top_image_select_2">お店説明テキスト：<%= f.text_field :top_image_text, :id=>"top_image_text", :size=>"60" %></p>
    <br/>
    <p>③お店の紹介。画像を使うこともできます。</p>
-   <p><%= f.select :middle_image_select,{"画像を使う"=>"1","テキストを使う"=>"2"}, :id=>"middle_image_select" %></p>
+   <p>
+    <label><%= f.radio_button :middle_image_select, '1',{} %>画像を使う</label><br/>
+    <label><%= f.radio_button :middle_image_select, '2',{} %>テキストを使う</label>
+   </p>
    <p id="middle_image_select_2">お店の紹介テキスト：<br/>
    <%= f.text_field :middle_image_text,:id=>"middle_image_text", :size=>"90" %></p>
    <p id="middle_image_select_1">お店の紹介画像：<%= f.file_field :middle_image, :id=>"middle_image" %></p>
@@ -95,8 +101,11 @@ Facebookアカウントで検索する： Facebookアカウントの文字列を
  
   <div id="docheckin_item" class="item_contents">
    <h3>６．チェックイン完了画面を作成します。</h3>
-　 <p>①クーポン画像。画像がない場合はテキストで代替できます。<span class="require">（※どちらか必須）</span></p>
-   <p><%= f.select :coupon_image_select,{"画像を使う"=>"1","テキストを使う"=>"2"},:id=>"coupon_image_select" %></p>
+　 <p>①クーポン画像。（画像がない場合はテキストで代替できます。）<span class="require">（※どちらか必須）</span></p>
+   <p>
+    <label><%= f.radio_button :coupon_image_select, '1',{} %>画像を使う</label><br/>
+    <label><%= f.radio_button :coupon_image_select, '2',{} %>テキストを使う</label>
+   </p>
    <p id="coupon_image_select_1">クーポン画像を使う：<%= f.file_field :coupon_image,:id=>"coupon_image" %></p>
    <p id="coupon_image_select_2">テキストで記述する：<%= f.text_field :coupon_image_text, :id=>"coupon_image_text",:size=>90 %></p>
 

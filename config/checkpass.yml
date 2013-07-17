@@ -4,17 +4,29 @@ development:
   paypal_cancel_url: ""
   paypal_notify_url:  "http://localhost:3000/paypal/notify"
   paypal_id: "00000000"
-  
+  ex_top_image: "/assets/sample_top_image.png"
+  ex_middle_image: "/assets/sample_middle_image.png"
+  ex_coupon_image: "/assets/sample_coupon_image.gif"
+  ex_wall_picture: "/assets/sample_wall_image.png"
+
 test:
   paypal_checkout_url: "https://www.paypal.com/cgi-bin/webscr"
   paypal_cancel_url: "https://www.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=L2L5H5NK32QM4"
   paypal_notify_url: "http://test.checkpass.evangelize.jp/paypal/notify"
   paypal_id: "268Z9C7RWMCWQ"
+  ex_top_image: "/assets/sample_top_image.png"
+  ex_middle_image: "/assets/sample_middle_image.png"
+  ex_coupon_image: "/assets/sample_coupon_image.gif"
+  ex_wall_picture: "/assets/sample_wall_image.png"
 
 production:
   paypal_checkout_url: "https://www.paypal.com/cgi-bin/webscr"
   paypal_cancel_url: "https://www.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=L2L5H5NK32QM4"
   paypal_notify_url: "http://checkpass.evangelize.jp/paypal/notify"
   paypal_id: "XP57FP72GAD7A"
+  ex_top_image: "/assets/sample_top_image.png"
+  ex_middle_image: "/assets/sample_middle_image.png"
+  ex_coupon_image: "/assets/sample_coupon_image.gif"
+  ex_wall_picture: "/assets/sample_wall_image.png"
 
 

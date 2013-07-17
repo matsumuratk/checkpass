@@ -45,35 +45,36 @@ $(function(){
   入力項目の選択
 */
 $(function(){
-  $("select#checkin_item_top_image_select")
+  $('input[name="checkin_item[top_image_select]"]:radio')
     .ready(function(){
-      $("#top_image_select_"+(3-$("select#checkin_item_top_image_select").val())).hide();
+     $("#top_image_select_"+(3-$('input[name="checkin_item[top_image_select]"]:radio').val())).hide();
     })
     .change(function(){
-      $("#top_image_select_"+($("select#checkin_item_top_image_select").val())).show();
-      $("#top_image_select_"+(3-$("#checkin_item_top_image_select").val())).hide();
+       $("#top_image_select_"+($(this).val())).show();
+       $("#top_image_select_"+(3-$(this).val())).hide();
     });
 });
 
 $(function(){
-  $("select#checkin_item_middle_image_select")
+  $('input[name="checkin_item[middle_image_select]"]:radio')
     .ready(function(){
-      $("#middle_image_select_"+(3-$("select#checkin_item_middle_image_select").val())).hide();
+      $("#middle_image_select_"+(3-$('input[name="checkin_item[middle_image_select]"]:checked').val())).hide();
     })
     .change(function(){
-      $("#middle_image_select_"+($("select#checkin_item_middle_image_select").val())).show();
-      $("#middle_image_select_"+(3-$("select#checkin_item_middle_image_select").val())).hide();
+       $("#middle_image_select_"+($(this).val())).show();
+       $("#middle_image_select_"+(3-$(this).val())).hide();
     });
 });
 
+
 $(function(){
-  $("select#checkin_item_coupon_image_select")
+  $('input[name="checkin_item[coupon_image_select]"]:radio')
     .ready(function(){
-      $("#coupon_image_select_"+(3-$("select#checkin_item_coupon_image_select").val())).hide();
+      $("#coupon_image_select_"+(3-$('input[name="checkin_item[coupon_image_select]"]:checked').val())).hide();
     })
     .change(function(){
-      $("#coupon_image_select_"+($("select#checkin_item_coupon_image_select").val())).show();
-      $("#coupon_image_select_"+(3-$("select#checkin_item_coupon_image_select").val())).hide();
+       $("#coupon_image_select_"+($(this).val())).show();
+       $("#coupon_image_select_"+(3-$(this).val())).hide();
     });
 });
 
@@ -87,8 +88,9 @@ $(function(){
     $("#preview_docheckin").contents().find("#title").html($(this).val());
   });
 });
+
 $(function(){ 
-  $("select#checkin_item_top_image_select").change(function(){
+  $('input[name="checkin_item[top_image_select]"]:radio').change(function(){
     var display_img="";
     var display_txt="";
     switch($(this).val()){
@@ -106,8 +108,9 @@ $(function(){
     $("#preview_place").contents().find("#top_image_text").html($(this).val());
   });
 });
+
 $(function(){
-  $("select#checkin_item_middle_image_select").change(function(){
+  $('input[name="checkin_item[middle_image_select]"]:radio').change(function(){
     var display_img="";
     var display_txt="";
     switch($(this).val()){
@@ -136,7 +139,7 @@ $(function(){
   });
 });
 $(function(){
-  $("select#checkin_item_coupon_image_select").change(function(){
+  $('input[name="checkin_item[coupon_image_select]"]:radio').change(function(){
     var display_img="";
     var display_txt="";
     switch($(this).val()){
