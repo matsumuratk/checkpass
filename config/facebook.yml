@@ -37,7 +37,7 @@ production:
   admin_app_id: "531609646863364"
   admin_secret_key: "28c32d3d7d996e4657c2dc7bd7103cfb"
   admin_permissions: ""
-  base_url: "http://checkpass.evangelize.jp"
-  callback_url: "http://checkpass.evangelize.jp/commons/callback"
-  checkin_url: "http://checkpass.evangelize.jp/checkin/place/"
+  base_url: "http://www.checkpass.jp"
+  callback_url: "http://www.checkpass.jp/commons/callback"
+  checkin_url: "http://www.checkpass.jp/checkin/place/"
 
