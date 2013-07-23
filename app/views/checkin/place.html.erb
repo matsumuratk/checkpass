@@ -3,7 +3,6 @@
   <span class="tCenter"><h1><span id="title"><%= @checkin_item.title %></span></h1></span>
   <div id="top">
    <%= image_tag(@checkin_item.get_top_image, :style =>"width:100%; max-width:680px;#{display_img(@checkin_item.top_image_select)}",:id=>"top_image") %>
-
    <span class="tCenter" id="top_image_text" style="<%=display_txt(@checkin_item.top_image_select)%>"><%= @checkin_item.top_image_text.html_safe %></span>
   </div> 
 

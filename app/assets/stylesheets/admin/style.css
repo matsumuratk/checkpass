@@ -300,7 +300,7 @@ br.in { clear: left; }
 }
 .awesome, .awesome:visited {
     border:0;
-    background: #222 url("img/css/alert-overlay.png") repeat-x; 
+    /* background: #222 url("img/css/alert-overlay.png") repeat-x; */ 
     display: inline-block; 
     margin:0; padding: 5px 10px 6px;
     vertical-align:middle;

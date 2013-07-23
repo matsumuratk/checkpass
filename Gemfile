@@ -22,7 +22,7 @@ end
 
   gem 'binding_of_caller'
 
-gem "koala", '1.5.0'
+gem "koala", '1.6.0'
 gem "multi_json"
 gem 'execjs'
 

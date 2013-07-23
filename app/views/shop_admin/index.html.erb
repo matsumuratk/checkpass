@@ -30,26 +30,36 @@
 </table>
 <br/>
 <% #if @shop.checkin_items.nil? || @shop.checkin_items.count == 0 %>
-<h3>チェックインアイテム <span class="sr">  <%= link_to 'チェックインアイテムを新規に作成する。', new_item_shop_admin_path %></span></h3>
+<h3>チェックインアイテム <span class="sr">  <%= link_to 'チェックインアイテムを新規に作成する。', new_item_shop_admin_path, {:class=>"medium awesome green"} %></span></h3>
 <% #else %>
 <table class="item-info" summary="アイテム情報">
   <tbody>
     <tr>
       <th></th>
+      <th>操作</th>
       <th>アイテム名</th>
-      <th>QRコード （このQRコードをコピーしてください）</th>
+      <th>QRコード （QRコードをコピーして利用してください）</th>
       <th>利用状況</th>
       <th>チェックイン履歴</th>
       <th>操作</th>
-      <th></th>
     </tr>
 
     <% @shop.checkin_items.each_with_index do |checkin_item,cnt| %>
     <tr>
       <td><%=cnt+1%></td>
+      <td>
+       <%= link_to "参照", show_item_shop_admin_path(checkin_item.access_key),{:class=>"small awesome green"} %>
+       <br/>
+       <%= link_to "編集", edit_item_shop_admin_path(checkin_item.access_key),{:class=>"small awesome blue"} %>
+       <br/>
+       <% unless checkin_item.status == CheckinItem::AVAILABLE %>
+       <%= link_to "削除", destroy_item_shop_admin_path(checkin_item.access_key), {:confirm=>"削除してもよろしいですか？\nこの動作は取り消せません" ,:class=>"small awesome red"}%>
+       <%end%>
+      </td>
       <td><%= checkin_item.item_name %></td>
       <td><p id="qr<%=cnt%>"></p><%= @checkin_url + checkin_item.access_key%></td>
-      <td><%= checkin_item.status_message %></td>
+      <td>［<%= checkin_item.status_message %>］<br/>
+          <%= paypal_checkout(checkin_item) %></td>
       <td>
        <% unless checkin_item.checkin_logs.count == 0 %>        
         <%= link_to "#{checkin_item.checkin_logs.count}件", show_checkinlog_shop_admin_path(checkin_item.access_key) %><br/>
@@ -58,14 +68,13 @@
          0件
        <% end %>
       </td>
-      <td><%= paypal_checkout(checkin_item) %></td>
       <td>
-       <%= link_to "参照", show_item_shop_admin_path(checkin_item.access_key) %>
+       <%= link_to "参照", show_item_shop_admin_path(checkin_item.access_key),{:class=>"small awesome green"} %>
        <br/>
-       <%= link_to "編集", edit_item_shop_admin_path(checkin_item.access_key) %>
+       <%= link_to "編集", edit_item_shop_admin_path(checkin_item.access_key),{:class=>"small awesome blue"} %>
        <br/>
        <% unless checkin_item.status == CheckinItem::AVAILABLE %>
-       <%= link_to "削除", destroy_item_shop_admin_path(checkin_item.access_key), :confirm=>"削除してもよろしいですか？\nこの動作は取り消せません" %>
+       <%= link_to "削除", destroy_item_shop_admin_path(checkin_item.access_key), {:confirm=>"削除してもよろしいですか？\nこの動作は取り消せません" ,:class=>"small awesome red"}%>
        <%end%>
       </td>
       <script>

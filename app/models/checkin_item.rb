@@ -91,22 +91,22 @@ class CheckinItem < ActiveRecord::Base
 
   #top_image取得
   def get_top_image
-    return self.top_image.presence || @ex_top_image.presence || ""
+    return self.top_image.presence || @ex_top_image.presence || "dummy.gif"
   end
 
   #middle_image取得
   def get_middle_image
-    return self.middle_image.presence || @ex_middle_image.presence || ""
+    return self.middle_image.presence || @ex_middle_image.presence || "dummy.gif"
   end
 
   #coupon_image取得
   def get_coupon_image
-    return self.coupon_image.presence || @ex_coupon_image.presence || ""
+    return self.coupon_image.presence || @ex_coupon_image.presence || "dummy.gif"
   end
 
   #wall_picture 取得処理
   def get_wall_picture
-    return self.wall_picture.presence || @ex_wall_picture.presence || ""
+    return self.wall_picture.presence || @ex_wall_picture.presence || "dummy.gif"
   end
 
 
