@@ -44,10 +44,19 @@ test:
   username: checkpass
   password: checkpass
 
+#production:
+#  adapter: postgresql
+#  encoding: unicode
+#  database: checkpass
+#  pool: 10
+#  username: checkpass
+#  password: checkpass
+
 production:
-  adapter: postgresql
-  encoding: unicode
-  database: checkpass
-  pool: 10
-  username: checkpass
-  password: checkpass
+  adapter: mysql2
+  encoding: utf8
+  username: sqale_ce928a2040
+  password: 2b0dec028c3af6567f20c78dcec86720c420ce306d98dee6
+  database: sqale_ce928a2040
+  host: mysql001.sqale.jp
+
