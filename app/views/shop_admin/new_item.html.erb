@@ -3,6 +3,7 @@
 <script type="text/javascript">
 $(function(){
   /* 入力例設定 */
+  if(location.href.indexOf("new_item") != -1){
   $("input#sfbName").val("例）東京スカイツリー").addClass("example");
   $("input#sfbId").val("例）149655571740038").addClass("example");
   $("input#sfbAcName").val("例）TOKYOSKYTREE").addClass("example");
@@ -23,6 +24,7 @@ $(function(){
   $("#checkin_item_top_image_select_1").attr("checked", true);
   $("#checkin_item_middle_image_select_2").attr("checked",true);
   $("#checkin_item_coupon_image_select_1").attr("checked",true);
+}
 });
 </script>
 
