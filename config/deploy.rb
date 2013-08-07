@@ -14,9 +14,9 @@ set :port, 1022
 set :use_sudo, false
 set :default_run_options, :pty=>true
 
-role :web, "fbapp.evangelize.jp"                       # Your HTTP server, Apache/etc
-role :app, "fbapp.evangelize.jp"                       # This may be the same as your `Web` server
-role :db,  "fbapp.evangelize.jp", :primary => true # This is where Rails migrations will run
+#role :web, "fbapp.evangelize.jp"                       # Your HTTP server, Apache/etc
+#role :app, "fbapp.evangelize.jp"                       # This may be the same as your `Web` server
+#role :db,  "fbapp.evangelize.jp", :primary => true # This is where Rails migrations will run
 #role :db,  "your slave db-server here"
 
 
