@@ -58,7 +58,7 @@ production:
   encoding: utf8
   username: checkpass
   password: checkpass
-  database: checkpassdb
+  database: checkpass
   host: checkpassdb.c1lq2ootcgnf.ap-northeast-1.rds.amazonaws.com
 
 
