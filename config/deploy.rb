@@ -9,10 +9,10 @@ set :repository,  "ssh://git@fbapp.evangelize.jp:1022/home/git/repositories/chec
 set :scm, :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
-set :user, "checkpass"
-set :port, 1022
-set :use_sudo, false
-set :default_run_options, :pty=>true
+#set :user, "checkpass"
+#set :port, 1022
+#set :use_sudo, false
+#set :default_run_options, :pty=>true
 
 #role :web, "fbapp.evangelize.jp"                       # Your HTTP server, Apache/etc
 #role :app, "fbapp.evangelize.jp"                       # This may be the same as your `Web` server

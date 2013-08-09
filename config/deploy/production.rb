@@ -1,3 +1,7 @@
+set :user, "checkpass"
+set :port, 1022
+set :use_sudo, false
+set :default_run_options, :pty=>true
 set :rails_env, 'production'
 role :web, "fbapp.evangelize.jp"                       # Your HTTP server, Apache/etc
 role :app, "fbapp.evangelize.jp"                       # This may be the same as your `Web` server
