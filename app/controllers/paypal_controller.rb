@@ -28,6 +28,7 @@ params.merge!({"txn_type"=>"subscr_signup", "subscr_id"=>"I-U3W9J558L1H0", "last
     payedLog.subscr_date = Time.parse(params['subscr_date']).in_time_zone("US/Pacific") unless params['subscr_date'].nil?
     payedLog.save!
 
+
     #notify処理
     checkin_item = CheckinItem.find_by_access_key(params['access_key'])
     raise "Checkin Item not found \'#{params['access_key']}\'" if checkin_item.nil?
