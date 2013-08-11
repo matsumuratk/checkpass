@@ -96,7 +96,6 @@ GEM
     mime-types (1.23)
     multi_json (1.7.8)
     multipart-post (1.2.0)
-    mysql2 (0.3.13)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-sftp (2.1.2)
@@ -189,7 +188,6 @@ DEPENDENCIES
   koala (= 1.6.0)
   libv8 (~> 3.3.10)
   multi_json
-  mysql2
   pg (= 0.14.1)
   rails (= 3.2.14)
   sass-rails (~> 3.2.3)

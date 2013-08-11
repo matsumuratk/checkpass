@@ -19,8 +19,10 @@ params.merge!({"txn_type"=>"subscr_signup", "subscr_id"=>"I-U3W9J558L1H0", "last
     payedLog.subscr_id = params['subscr_id']
     payedLog.txn_type = params['txn_type']
     payedLog.payer_email = params['payer_email']
-    payedLog.first_name = params['first_name'].encode("utf-8","sjis")
-    payedLog.last_name = params['last_name'].encode("utf-8","sjis")
+    #payedLog.first_name = params['first_name'].encode("utf-8","sjis")
+    #payedLog.last_name = params['last_name'].encode("utf-8","sjis")
+    payedLog.first_name = params['first_name']
+    payedLog.last_name = params['last_name']
     payedLog.verify_sign = params['verify_sign']
     payedLog.ipn_track_id = params['ipn_track_id'] unless params['ipn_track_id']
     payedLog.subscr_date = Time.parse(params['subscr_date']).in_time_zone("US/Pacific") unless params['subscr_date'].nil?
