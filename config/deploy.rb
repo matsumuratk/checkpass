@@ -20,8 +20,11 @@ set :scm, :git
 #role :db,  "your slave db-server here"
 
 
+require 'capistrano-unicorn'
+
 # if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts
+
 
 after "deploy:symlink", "deploy:link_images"
 before "deploy:restart", "assets:precompile"
@@ -51,7 +54,7 @@ namespace :deploy do
   task :precompile, :roles => :web, :except => { :no_release => true } do
     #from = source.next_revision(current_revision)
     #if capture("cd #{latest_release} && #{source.local.log(from)} app/assets/ | wc -l").to_i > 0
-       run %Q{cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} #{asset_env} assets:precompile}
+    run %Q{cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} #{asset_env} assets:precompile}
   end
 end
 

@@ -22,3 +22,7 @@ role :db,  "aws.evangelize.jp", :primary => true # This is where Rails migration
 #role :db,  "your slave db-server here"
 
 set :deploy_to, "/home/checkpass/checkpass_production"
+
+# hot deployを利用するため unicorn:restartを指定
+after 'deploy:restart', 'unicorn:restart' 
+

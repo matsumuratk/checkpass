@@ -70,11 +70,11 @@ Checkpass::Application.configure do
   config.action_mailer.default_url_options = { :host => "checkpass.jp", :port => 80 }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address => "smtp.live.com",
+    :address => "email-smtp.us-east-1.amazonaws.com",
     :port => 587,
     :domain => 'checkpass.jp',
-    :user_name => "info@checkpass.jp",
-    :password => "t.matsumura",
+    :user_name => "AKIAJKS2X2RUQC6QH5PA",
+    :password => "AvGmo09dH1osYuxfvecDdu0Z6OMgTBdpXh6M2oQGQG//",
     :authentication => 'plain',
     :enable_starttls_auto => true,
   }
