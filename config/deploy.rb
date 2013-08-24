@@ -26,9 +26,9 @@ require 'capistrano-unicorn'
 # these http://github.com/rails/irs_process_scripts
 
 
-after "deploy:symlink", "deploy:link_images"
+after "deploy:symlink", "deploy:link_shared"
 before "deploy:restart", "assets:precompile"
-before "deploy:setup", "deploy:create_uploads_dir"
+before "deploy:setup", "deploy:create_dir"
 
 # If you are using Passenger mod_rails uncomment this:
 namespace :deploy do
@@ -36,14 +36,19 @@ namespace :deploy do
   task :stop do ; end
 
   desc 'Create a directory to uploads'
-  task :create_uploads_dir, :roles => :app do
+  task :create_dir, :roles => :app do
     run "mkdir -p #{shared_path}/uploads"
+    run "mkdir -p #{shared_path}/tmp"
+    run "mkdir -p #{shared_path}/tmp/sessions"
+    run "mkdir -p #{shared_path}/tmp/cache"
+    run "mkdir -p #{shared_path}/tmp/sockets"
+    run "touch #{shared_path}/tmp/sockets/unicorn.sock"
   end
 
-  desc "make sym_link to uploads directory"
-  task :link_images do
+  desc "make sym_link to shared directory"
+  task :link_shared do
     run <<-CMD
-    cd #{release_path} && ln -nfs #{shared_path}/uploads #{release_path}/public/uploads
+    cd #{release_path} && ln -nfs #{shared_path}/uploads #{release_path}/public/uploads && ln -nfs #{shared_path}/tmp #{release_path}/tmp
     CMD
   end
   task :restart, :roles => :app, :except => { :no_release => true } do

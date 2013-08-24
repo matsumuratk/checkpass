@@ -2,10 +2,10 @@
 worker_processes 6
 
 # RAILS_ROOT を指定
-working_directory "/home/checkpass/checkpass_production/"
+working_directory "/home/checkpass/checkpass_production/current/"
 
 # ソケット
-listen "/home/checkpass/checkpass_production/tmp/sockets/unicorn.sock"
+listen "/tmp/unicorn.sock"
 
 # PID
 pid    "tmp/pids/unicorn.pid"
