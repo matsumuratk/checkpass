@@ -1,0 +1,27 @@
+<% content_for :title do %>お問い合わせ<%end%>
+<div id="out">
+<div class="container">
+<div class="contents">
+<h1>お問い合わせ</h1>
+<h3>お問い合せ内容を入力して送信してください。</h3>
+<%= form_tag(url_for(:action => 'create'), :id => "contact_form", :name=>"contact_form") do %>
+  <input type="hidden" name="referer" value=<%= @referer %> > 
+  <label class="in" for='contact[name]'>お名前<span class="require">（※必須）</span> ：</label>
+  <%= text_field :contact, :name, :class=>"in" %><br class="in"/>
+<br/>  
+  <label class="in" for='contact[email]'>連絡用メールアドレス<span class="require">（※必須）</span>　：</label>
+  <%= text_field :contact, :email, :class=>"in" %><br class="in"/>
+<br/>  
+  
+  <label class="in" for='contact[content]'>お問い合わせ内容<span class="require">（※必須）</span>　：</label>
+  <%= text_area :contact, :content, :class=>"in", :size=>"55x5" %><br class="in"/>
+<br/>  
+<br/>  
+  
+  <a class="large awesome green" href="#" onclick="document.contact_form.submit();return false;" >送信</a>
+
+
+ <% end %>
+</div>
+</div>
+</div>

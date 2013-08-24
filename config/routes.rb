@@ -85,6 +85,11 @@ Checkpass::Application.routes.draw do
   match 'index_checkin_log_access_key/:p' ,:to=> 'admin#index_checkin_log', :defaults => {:key=>:access_key}, :as => 'index_checkin_log_access_key_admin'
   match 'index_checkin_log_fbuserid/:p' ,:to=> 'admin#index_checkin_log', :defaults => {:key=>:fbUserId}, :as => 'index_checkin_log_fbuserid_admin'
 
+  #問い合わせ機能
+  match 'contact/contact_form', :to=>'contact#contact_form'
+  match 'contact/create', :to=>'contact#create', :as=>'contact_create'
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

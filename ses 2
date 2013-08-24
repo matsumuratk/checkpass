@@ -1,0 +1,565 @@
+commit 19e4e8f6baba2c806aa79b0589ff8916d09c3e10
+Merge: fd7c2f0 549d289
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Sun Aug 11 22:54:48 2013 +0900
+
+    Merge branch 'master' of ssh://fbapp.evangelize.jp:1022/home/git/repositories/checkpass
+
+commit fd7c2f0bd92512c7fbfa48dc74db26afe5208f55
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Sun Aug 11 22:52:00 2013 +0900
+
+    sakura update
+
+commit 6d9fe2361a91df20ff1a371def967f3ee7785e74
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Sun Aug 11 19:08:08 2013 +0900
+
+    sakura update
+
+commit 549d289f80f4c7542d2e6703c33ddfb75ad099d5
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Sun Aug 11 19:08:08 2013 +0900
+
+    update
+
+commit 859dce1b51e53ff61d20df4f6ec136d6b0d0d65c
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Sun Aug 11 19:02:20 2013 +0900
+
+    sakura_update2013081102
+
+commit 06d8b5fc9b7b31b11570d67bf3688285f7bfaa11
+Merge: 4f46ac1 9d79c9d
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Sun Aug 11 16:28:06 2013 +0900
+
+    Merge branch 'sakura'
+
+commit 9d79c9d78556480e3344a01f0d1ae3e3e637db0b
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Sun Aug 11 16:26:33 2013 +0900
+
+    sakura20130811update
+
+commit 4e99279c69f727a56f8328315f8349caa52aaad1
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Sun Aug 11 16:23:39 2013 +0900
+
+    sakura_2013081101
+
+commit 4f46ac13ab5f02cf1ef9d8af28d027ea733e052d
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Sat Aug 10 00:55:21 2013 +0900
+
+    aws_update
+
+commit 3ee7d52b1489fb5f6b3fb6e3faea7c616bcc1eaf
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Sat Aug 10 00:54:42 2013 +0900
+
+    aws_update
+
+commit 5c8fd0bf7b43c0bf15ce7477d8c63537a7b3ec1c
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Sat Aug 10 00:16:40 2013 +0900
+
+    aws_update
+
+commit 5034519915e44c920d22c74db88f0e6a368bddbc
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Fri Aug 9 23:08:23 2013 +0900
+
+    aws_update
+
+commit 31ee340228d7945d6ce9dd43dcfd42bb4c12f8cd
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Fri Aug 9 22:14:10 2013 +0900
+
+    rails3.2.14 update
+
+commit adff943e41525eee0bf0dbe56a5187ae3f770e21
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Fri Aug 9 21:30:52 2013 +0900
+
+    update
+
+commit bdc93dbbfe85e938430e510f731982f65d95cf31
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Wed Aug 7 23:43:10 2013 +0900
+
+    update
+
+commit 16412b811fd04e7ed38fa7839a2c497732d76838
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Tue Aug 6 15:31:56 2013 +0900
+
+    update
+
+commit 78be4deeec5cf83c9e1d9d7be2191bc2978a9e16
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Tue Aug 6 14:50:16 2013 +0900
+
+    update
+
+commit 03a5c9d0c93ada86f704bffb36452a40f2eb402c
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Tue Aug 6 14:47:28 2013 +0900
+
+    update
+
+commit 7a09ddb78b5ddc61b4c1a00dfc3f443a89111b82
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Tue Aug 6 14:45:59 2013 +0900
+
+    update
+
+commit 2a53bc93c105eeed453ca2d638bb06bdce4c4cd6
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Tue Aug 6 12:04:00 2013 +0900
+
+    update
+
+commit 32f096dc2624f98a3b80b252ffc4abbf2e6c5e17
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Tue Aug 6 12:01:38 2013 +0900
+
+    update
+
+commit 88f929322d47049037658f4a1e849807baf516bd
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Tue Aug 6 11:26:12 2013 +0900
+
+    update
+
+commit 706edb34a2fc2c56662e4641e0ea72110f94029d
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Mon Aug 5 23:15:23 2013 +0900
+
+    update
+
+commit 0ed9361698257512b3a2387927e9ff1408122a1f
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Sun Jul 28 23:45:35 2013 +0900
+
+    update sakura
+
+commit d7a5b73952475a3859de15d15ccbad1d83ac907d
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Sun Jul 28 22:58:25 2013 +0900
+
+    update
+
+commit 6c6cbeb292b704cfb0b535027eeba53a9fb035fb
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Sun Jul 28 21:55:03 2013 +0900
+
+    update
+
+commit 6ea75b351194977d8a9bb4c93660307d5cd0bc02
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Sun Jul 28 20:51:40 2013 +0900
+
+    update
+
+commit 9506efa323d93fa9e8570f47c08b6e66c655e36d
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Wed Jul 24 00:23:59 2013 +0900
+
+    update
+
+commit 395cfce33a8b1d10664c4e2206f19cf52404a0e0
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Sun Jul 21 18:34:50 2013 +0900
+
+    20130721update
+
+commit 27e7ee2bc461e3b2b601eb25fa3670d2d1adb1c3
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Sat Jul 20 11:48:04 2013 +0900
+
+    update
+
+commit 84f5f3f50f0a50c535efe5e0efbac93d81105cf5
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Fri Jul 19 09:59:11 2013 +0900
+
+    update20130719
+
+commit 2ae9c025763c9b6b97bcc5466a7c721f1b4c017d
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Thu Jul 18 09:32:08 2013 +0900
+
+    update
+
+commit 07b248a2e003fb8c359bd52acb24f9eadd7b6617
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Wed Jul 17 21:43:10 2013 +0900
+
+    update20130716
+
+commit 143c8ae42a5c751829610719dd75ebd52314046d
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Mon Jul 8 09:44:26 2013 +0900
+
+    update
+
+commit 689e0f3d5f6327293e78f4306d99f8abb8f855bf
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Wed Jul 3 23:22:20 2013 +0900
+
+    update
+
+commit 913bf0bc733409f00be3df1285d2d4f2632d1c7e
+Author: Taku Matsumura <info@evangelize.jp>
+Date:   Tue Jul 2 09:16:07 2013 +0900
+
+    update
+
+commit 95442fc497f2bfe1af6a6efe4bc61197e9726cb4
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Tue Jun 25 12:15:30 2013 +0900
+
+    update
+
+commit b300486e1dd7df3b22bad8795a5cdf05cf4dea4c
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Tue Jun 4 23:47:02 2013 +0900
+
+    update
+
+commit 843f73f8105a54a1fb4239ab694a737d74767683
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Sat May 18 00:19:03 2013 +0900
+
+    update
+
+commit 8a0cca333078d46035dfdd07dcd085ea565bcd3c
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Sun May 5 22:46:40 2013 +0900
+
+    update
+
+commit 34031467155d305e5df0fe1a35b395b1fc4a4074
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Sun May 5 21:15:01 2013 +0900
+
+    update
+
+commit 711d01b8a819ac97cf94ad0a686e78cb00b26e0b
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Mon Apr 29 22:23:04 2013 +0900
+
+    update
+
+commit 3596b3e406c0ac7e30e59fc6361d4617b8223d9e
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Sun Apr 21 01:24:21 2013 +0900
+
+    update
+
+commit 7b4c565a8429789547420b8d20a0974d0af7317d
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Tue Mar 26 01:10:04 2013 +0900
+
+    update
+
+commit b805c9f272c130687b2abe86a4905fc3978aa71a
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Tue Mar 26 00:49:09 2013 +0900
+
+    update
+
+commit d25556253384ab3922e15e480e1f0d7b66276721
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Sun Mar 24 23:10:57 2013 +0900
+
+    test
+
+commit 51681386c70d344136b0625ff0b1d91cca5c49e6
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Sun Mar 24 22:52:20 2013 +0900
+
+    test
+
+commit 8680520ffebeb7c027a082ec27dbdc817bfe866b
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Sun Mar 24 21:58:31 2013 +0900
+
+    test
+
+commit 585adb1cdb572d9f2d28e027e45e8e841c9b066c
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Sun Mar 24 21:43:25 2013 +0900
+
+    update
+
+commit 9b5419b1f3b8b927a8e965cc84aaeae8ff30ad6a
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Sun Mar 24 16:58:23 2013 +0900
+
+    update
+
+commit 74656380f7484ea3cde218c1ae522fc2e8db31a7
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Sun Mar 24 12:24:48 2013 +0900
+
+    test
+
+commit fd15a69bb8710804b2d5b500a5fa1bbe20557e61
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Sun Mar 24 12:11:24 2013 +0900
+
+    update
+
+commit aa3bf0bd3b98430bfca1775903a275c85eb05b0c
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Sun Mar 24 01:33:54 2013 +0900
+
+    update
+
+commit 263b2bf6d5b4caf424c05c0e93b5f624e8407de2
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Sun Mar 24 01:10:31 2013 +0900
+
+    update
+
+commit 337eac8ca6a50d68539ba38e1964623f9ae5c46d
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Sun Mar 24 01:05:24 2013 +0900
+
+    update
+
+commit 65623850f45d4a13a451358cecec6a9e4c82e606
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Sat Mar 23 23:50:59 2013 +0900
+
+    update
+
+commit d7fa29c656ec931d2e7b77381f3387e53c8da6a9
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Sat Mar 23 23:42:52 2013 +0900
+
+    update
+
+commit 480e87b5d69f8424770c7df0f668f48ecb002f6a
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Sat Mar 23 22:07:16 2013 +0900
+
+    update
+
+commit 2cf1be512a07652d1d2b31123d2af0bc6def7894
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Sat Mar 23 21:27:19 2013 +0900
+
+    update
+
+commit 6596726b82b1da0ba05b5383ef8ca151d5f5da30
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Sat Mar 23 21:01:39 2013 +0900
+
+    update
+
+commit 8f6abaf467fd8a7eb6167d1727fdcee19c2d7e37
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Sat Mar 23 20:55:05 2013 +0900
+
+    update
+
+commit 746bd76350fbc3310a88b4a76d13490e4b5e930f
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Sat Mar 23 20:35:41 2013 +0900
+
+    update
+
+commit d4900e9febdc43f37b624ce53c85f042e7fcf109
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Sat Mar 23 19:16:43 2013 +0900
+
+    update
+
+commit e329378d00894a067fe482932e6768a5766c2bda
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Fri Mar 22 14:22:09 2013 +0900
+
+    update
+
+commit 5d544edbc07f2be9f9cc016eead33a84a82b446f
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Fri Mar 22 08:59:25 2013 +0900
+
+    update
+
+commit 4f930ee215752680359740da9f76de8f699df8dc
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Fri Mar 22 08:55:37 2013 +0900
+
+    update
+
+commit 70ca3e31b288d2bff35691ab06f1861d35f26d12
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Thu Mar 21 00:02:56 2013 +0900
+
+    update
+
+commit a8c11fe1a21eaf4937c4929a1c0814e3b0e6ccd1
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Wed Mar 20 23:58:06 2013 +0900
+
+    update
+
+commit 66cdf18992a5120f96565cccf849b204ad217f1d
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Wed Mar 20 23:36:47 2013 +0900
+
+    update
+
+commit 9a438591017135b9d7ff5e3666297370613eb703
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Wed Mar 20 23:08:10 2013 +0900
+
+    update
+
+commit b0154245527fdbe69358158514efaca1f00b6c60
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Wed Mar 20 22:37:55 2013 +0900
+
+    update
+
+commit f623283c434281cb54d76a1b725836354cdf6200
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Tue Mar 19 09:30:23 2013 +0900
+
+    update
+
+commit 1886547514647c645471b758a87a0deaa43171dc
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Sun Mar 17 19:01:28 2013 +0900
+
+    update
+
+commit d32235841c38b09169d144acf2d326122ea59922
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Sat Mar 16 00:41:10 2013 +0900
+
+    update
+
+commit 97c57929fb3e3e2bb2be4aad032451509466fa0c
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Fri Mar 15 02:04:30 2013 +0900
+
+    update
+
+commit 110aa9cb476d41487fba9928a9fd7aef681164f5
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Fri Mar 15 01:50:24 2013 +0900
+
+    update
+
+commit e611426b497766ce31c0a306dbaf4fa1fe223553
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Thu Mar 14 09:24:12 2013 +0900
+
+    update
+
+commit 3363e1f4431c13626e445a5479774db58642689a
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Thu Mar 14 09:24:01 2013 +0900
+
+    update
+
+commit 3c34cad47f8c85dab559522dddbc79fc2a094b1c
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Sun Mar 3 23:28:23 2013 +0900
+
+    update
+
+commit 78208137c42ba3e44fb28102b8555105caae0d2d
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Sun Mar 3 23:26:30 2013 +0900
+
+    update
+
+commit 63af97e3be6bee1cb859382e5fc2c3e56f8fb255
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Sun Mar 3 22:53:34 2013 +0900
+
+    update
+
+commit f080874d24c1c2a4fa67191b6505c434bbe6f48d
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Sun Mar 3 22:51:35 2013 +0900
+
+    update
+
+commit d205beaef4d14fc78d1452d790b3187ce7b3b0af
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Sun Mar 3 22:06:00 2013 +0900
+
+    update
+
+commit 68f5c627a41b4983a59fea9b8aeeb1f2f764f495
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Sat Mar 2 00:30:20 2013 +0900
+
+    update
+
+commit 3239d91c208d9283e607289f659047f348546f7f
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Wed Feb 20 19:39:59 2013 +0900
+
+    update
+
+commit 442cee21ec795a52707d49d001bb37d1e03f4405
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Sun Feb 17 20:58:28 2013 +0900
+
+    update
+
+commit 27716b55b0577d873e3e262180f7c088b3cdfe8b
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Sun Feb 17 18:48:03 2013 +0900
+
+    update
+
+commit 99aeba6a5a770a3baa5c870470b9ac8fe0663ac4
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Sun Feb 17 11:38:34 2013 +0900
+
+    update
+
+commit ba1a49333d916265df9088f38b55f998e1bf9eed
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Sat Feb 16 12:56:33 2013 +0900
+
+    update
+
+commit 83ed3966f0e69d2d9c9396289f43281143c061dd
+Author: Taku Matsumura <taku@MARINOS.(none)>
+Date:   Thu Feb 14 23:26:57 2013 +0900
+
+    update
+
+commit 7ae3a9c4de439ca2d84c8e0dcbebf2ee7b5ddafd
+Author: taku <matsumuratk@yahoo.co.jp>
+Date:   Sun Feb 3 18:37:14 2013 +0900
+
+    'update'
+
+commit d2bc6fbe1509ff72855d493db382cf251737715f
+Author: taku <matsumuratk@yahoo.co.jp>
+Date:   Sat Feb 2 23:25:23 2013 +0900
+
+    'update'
+
+commit 04db43d5eedc730efa7772b2120aebb045bd1148
+Author: taku <matsumuratk@yahoo.co.jp>
+Date:   Sun Jan 27 23:50:59 2013 +0900
+
+    'update'
+
+commit 291d242b5fdef0508fd5ede95a088dc7dee047c0
+Author: taku <matsumuratk@yahoo.co.jp>
+Date:   Tue Jan 22 01:44:29 2013 +0900
+
+    'init'

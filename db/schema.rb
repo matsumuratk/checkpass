@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130625084848) do
+ActiveRecord::Schema.define(:version => 20130813233508) do
 
   create_table "admin_masters", :force => true do |t|
     t.string   "master_id"
@@ -82,6 +82,14 @@ ActiveRecord::Schema.define(:version => 20130625084848) do
     t.binary   "wall_picture"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+  end
+
+  create_table "contacts", :force => true do |t|
+    t.string   "name",       :null => false
+    t.string   "email",      :null => false
+    t.text     "content",    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "payed_logs", :force => true do |t|

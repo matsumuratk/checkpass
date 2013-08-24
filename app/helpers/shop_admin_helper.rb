@@ -72,7 +72,7 @@ module ShopAdminHelper
   def link_chekinPlace(place)
     unless place.latitude.nil?
       text = <<EOT
-<%= link_to "選択", "#input_top", :onclick=> "set_checkin_item('#{place.name}','#{place.category}','#{place.country}','#{place.state}','#{place.city}','#{place.street}','#{place.name}','#{place.id}','#{place.link}');return true;" %>
+<%= link_to "選択", "#input_top", {:onclick=> "set_checkin_item('#{place.name}','#{place.category}','#{place.country}','#{place.state}','#{place.city}','#{place.street}','#{place.name}','#{place.id}','#{place.link}');return true;", :class=>"small awesome green"} %>
 EOT
 
     else

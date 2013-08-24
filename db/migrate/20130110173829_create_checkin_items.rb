@@ -33,6 +33,8 @@ class CreateCheckinItems < ActiveRecord::Migration
       t.integer :coupon_image_select
       t.string :comment_title
       t.string :comment_message
+      t.boolean :post_wall_check,{:default => true}
+
       t.string :wall_name
       t.string :wall_link
       t.string :wall_caption
