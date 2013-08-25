@@ -65,7 +65,7 @@ th, td {
 
 
 p, ul, ol, dl, table, pre {
-	font-size: 100%;
+	font-size: 100%;x
 	letter-spacing: 0.02em;
 }
 
@@ -320,7 +320,7 @@ br.in { clear: left; }
 .awesome:hover                            { background-color: #111; color: #fff; }
 .awesome:active                            { top: 1px; }
 
-.small.awesome, .small.awesome:visited             { font-size: 11px; padding: ; }
+.small.awesome, .small.awesome:visited             { font-size: 11px; padding: 0; }
 .awesome, .awesome:visited,
 .medium.awesome, .medium.awesome:visited         { font-size: 13px; font-weight: bold; line-height: 1; text-shadow: 0 -1px 1px rgba(0,0,0,0.25); }
 .large.awesome, .large.awesome:visited             { font-size: 14px; padding: 8px 14px 9px; }
