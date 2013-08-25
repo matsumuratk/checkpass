@@ -6,7 +6,7 @@ body {
 	font-size: 13px;
 	*font-size: small; /* IE7 */
 	*font: x-small; /* IE6 */
-  margin: 10px
+  margin: 10px;
   padding: 0;
 }
 
