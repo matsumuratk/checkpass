@@ -45,7 +45,7 @@ gem 'carrierwave'
 
 # Gems used only for assets and not required
 # in production environments by default.
-group :assets do
+#group :assets do
   gem 'turbo-sprockets-rails3'
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -58,11 +58,12 @@ group :assets do
   # use twitter-bootstrap-rails
   
   # use jquery-ui
-end
+#end
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'jquery_mobile_rails'
+gem 'less-rails'
 gem 'twitter-bootstrap-rails','= 2.2.6'
 gem 'spinjs-rails'
 
