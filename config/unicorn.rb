@@ -1,14 +1,17 @@
 # ワーカーの数
-worker_processes 6
+worker_processes 10
 
 # RAILS_ROOT を指定
 working_directory "/home/checkpass/checkpass_production/current/"
 
 # ソケット
-listen "/tmp/unicorn.sock"
+listen "/home/checkpass/checkpass_production/shared/tmp/sockets/unicorn.sock"
 
 # PID
 pid    "tmp/pids/unicorn.pid"
+
+# Timeout
+timeout 30
 
 # ログ
 stderr_path "log/unicorn.log"
@@ -32,3 +35,4 @@ end
 after_fork do |server, worker|
   defined?(ActiveRecord::Base) and ActiveRecord::Base.establish_connection
 end
+

@@ -35,6 +35,14 @@ Checkpass::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
+  # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
+  # config.assets.precompile += %w( search.js )
+  config.assets.precompile += %w( *.js )
+  config.assets.precompile += %w( *.js.coffe )
+  config.assets.precompile += %w( *.css )
+  config.assets.precompile += %w( *.css.scss )
+  config.assets.precompile += %w( *.css.less )
+
   #ActionMailer
   config.action_mailer.default_url_options = { :host => "localhost", :port => 3000 }
   config.action_mailer.delivery_method = :smtp

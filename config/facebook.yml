@@ -39,7 +39,7 @@ production:
   admin_permissions: ""
   base_url: "http://aws.checkpass.evangelize.jp"
   callback_url: "http://aws.checkpass.evangelize.jp/commons/callback"
-  checkin_url: "http://aws.checlpass.evangelize.jp/checkin/place/"
+  checkin_url: "http://aws.checkpass.evangelize.jp/checkin/place/"
 #  base_url: "http://checkpass.jp"
 #  callback_url: "http://checkpass.jp/commons/callback"
 #  checkin_url: "http://checkpass.jp/checkin/place/"

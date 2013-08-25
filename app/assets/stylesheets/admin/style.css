@@ -7,7 +7,7 @@ body {
 	*font-size: small; /* IE7 */
 	*font: x-small; /* IE6 */
   margin: 10px
-  padding: 0
+  padding: 0;
 }
 
 * {line-height: 1.6;font-size: 100%;}
@@ -122,7 +122,7 @@ p.attention {
   line-height:0.5em;
   font-size:80%;
   margin-left:1em;
-  color:red"
+  color:red;
 }
 
 /***** Link styles

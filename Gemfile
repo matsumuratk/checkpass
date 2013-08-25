@@ -46,6 +46,7 @@ gem 'carrierwave'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
+  gem 'turbo-sprockets-rails3'
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
 
@@ -62,7 +63,7 @@ end
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'jquery_mobile_rails'
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails','= 2.2.6'
 gem 'spinjs-rails'
 
 #use error_message_fot
@@ -76,6 +77,7 @@ gem 'dynamic_form'
 
 # Use unicorn as the app server
 gem 'unicorn'
+gem 'unicorn-worker-killer'
 
 # Deploy with Capistrano
 # gem 'capistrano'
