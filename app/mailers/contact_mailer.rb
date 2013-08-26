@@ -12,7 +12,9 @@ class ContactMailer < ActionMailer::Base
   def sent(contact)
     @contact = contact
 
-    mail(:to => @contact.email, :subject => 'お問い合わせありがとうございました。')
+    mail(:to => @contact.email, 
+        :bcc => 'info@checkpass.jp',        
+        :subject => 'お問い合わせありがとうございました。')
   end
 
 end

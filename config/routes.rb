@@ -86,7 +86,7 @@ Checkpass::Application.routes.draw do
   match 'index_checkin_log_fbuserid/:p' ,:to=> 'admin#index_checkin_log', :defaults => {:key=>:fbUserId}, :as => 'index_checkin_log_fbuserid_admin'
 
   #問い合わせ機能
-  match 'contact/contact_form', :to=>'contact#contact_form'
+  match 'contact', :to=>'contact#contact_form'
   match 'contact/create', :to=>'contact#create', :as=>'contact_create'
 
 
