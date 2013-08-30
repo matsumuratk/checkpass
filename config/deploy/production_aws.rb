@@ -1,6 +1,7 @@
 # rbenv setting
 require 'capistrano-rbenv'
 set :rbenv_ruby_version, '1.9.3-p448'
+ssh_options[:keys] = ["/home/taku/.ssh/id_dsa.ppk.evangelize.jp"]
 namespace :rbenv do
   task :setup_shellenv do
     set :default_environment, {

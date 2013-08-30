@@ -22,7 +22,7 @@ test:
 production:
   paypal_checkout_url: "https://www.paypal.com/cgi-bin/webscr"
   paypal_cancel_url: "https://www.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=C9EP7T9D7YEZJ"
-  paypal_notify_url: "http://checkpass.jp/paypal/notify"
+  paypal_notify_url: "https://checkpass.jp/paypal/notify"
   paypal_id: "LMRPAEPYU8F6L"
   ex_top_image: "/assets/sample_top_image.png"
   ex_middle_image: "/assets/sample_middle_image.png"
