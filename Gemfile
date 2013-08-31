@@ -39,6 +39,7 @@ gem 'execjs'
 group :test, :production do
 	gem 'libv8','~> 3.3.10'
 	gem 'therubyracer','~> 0.10.2'
+  gem 'less-rails'
 end
 
 gem 'carrierwave'
@@ -63,7 +64,6 @@ gem 'carrierwave'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'jquery_mobile_rails'
-gem 'less-rails'
 gem 'twitter-bootstrap-rails','= 2.2.6'
 gem 'spinjs-rails'
 
@@ -76,9 +76,11 @@ gem 'dynamic_form'
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
-# Use unicorn as the app server
-gem 'unicorn'
-gem 'unicorn-worker-killer'
+group :development,:test,:production do
+  # Use unicorn as the app server
+  gem 'unicorn'
+  gem 'unicorn-worker-killer'
+end
 
 # Deploy with Capistrano
 # gem 'capistrano'

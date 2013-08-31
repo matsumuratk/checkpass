@@ -19,6 +19,8 @@ set :scm, :git
 #role :db,  "fbapp.evangelize.jp", :primary => true # This is where Rails migrations will run
 #role :db,  "your slave db-server here"
 
+set :keep_releases, 3
+
 
 require 'capistrano-unicorn'
 
@@ -29,6 +31,7 @@ require 'capistrano-unicorn'
 after "deploy:symlink", "deploy:link_shared"
 before "deploy:restart", "assets:precompile"
 before "deploy:setup", "deploy:create_dir"
+after "deploy:update", "deploy:cleanup"  # デプロイ後に世代チェック
 
 # If you are using Passenger mod_rails uncomment this:
 namespace :deploy do
@@ -44,6 +47,8 @@ namespace :deploy do
     run "mkdir -p #{shared_path}/tmp/sockets"
     run "touch #{shared_path}/tmp/sockets/unicorn.sock"
   end
+
+### deploy設定 ###
 
   desc "make sym_link to shared directory"
   task :link_shared do
