@@ -57,7 +57,12 @@
        <%end%>
       </td>
       <td><%= checkin_item.item_name %></td>
-      <td><p id="qr<%=cnt%>"></p><%= @checkin_url + checkin_item.access_key%></td>
+      <td>
+       <p id="qr<%=cnt%>">
+        <%= image_tag qrcode_shop_admin_path(checkin_item.access_key, checkin_item.item_name) , :size => "96x96", :alt => @checkin_url + checkin_item.access_key%>
+       </p>
+        <%= @checkin_url + checkin_item.access_key%>
+      </td>
       <td>［<%= checkin_item.status_message %>］<br/>
           <%= paypal_checkout(checkin_item) %></td>
       <td>
@@ -77,9 +82,11 @@
        <%= link_to "削除", destroy_item_shop_admin_path(checkin_item.access_key), {:confirm=>"削除してもよろしいですか？\nこの動作は取り消せません" ,:class=>"small awesome red"}%>
        <%end%>
       </td>
+<!--
       <script>
         $('#qr<%=cnt%>').qrcode({width: 96,height: 96,text: "<%= @checkin_url + checkin_item.access_key %>"});
       </script>
+-->
     </tr>
     <% end %>
   </tbody>

@@ -54,11 +54,14 @@ Checkpass::Application.routes.draw do
   match 'shop_admin/search', :to => 'shop_admin#search'
   match 'shop_admin/search_by_fbid', :to => 'shop_admin#search_by_fbid'
 
-  
+  #プレビュー処理  
   match "shop_admin/preview_upload_top_image", :to => 'shop_admin#preview_upload_top_image'
   match "shop_admin/preview_upload_middle_image", :to => 'shop_admin#preview_upload_middle_image'
   match "shop_admin/preview_upload_coupon_image", :to => 'shop_admin#preview_upload_coupon_image'
   match "shop_admin/preview_upload_wall_picture", :to => 'shop_admin#preview_upload_wall_picture'
+
+  #QRcode表示
+  match "shop_admin/qrcode/:access_key/:name", :to => 'shop_admin#qrcode', :as => 'qrcode_shop_admin'
 
   #Paypal支払い処理
   match "paypal/checkout", :to => 'paypal#checkout', :as=>'checkout_paypal'

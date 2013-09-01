@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130813233508) do
+ActiveRecord::Schema.define(:version => 20130901084848) do
 
   create_table "admin_masters", :force => true do |t|
     t.string   "master_id"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20130813233508) do
     t.datetime "cancel_date"
     t.boolean  "post_wall_check",     :default => true
     t.string   "fbTitle"
+    t.binary   "qrcode"
   end
 
   create_table "checkin_logs", :force => true do |t|

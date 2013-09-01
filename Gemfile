@@ -96,3 +96,10 @@ end
 group :development do
   gem 'debugger'
 end
+
+#barby
+gem 'rqrcode'
+gem 'barby'
+gem "chunky_png", "~> 1.2.8"
+
+

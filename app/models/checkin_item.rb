@@ -1,4 +1,11 @@
 # coding: utf-8
+
+#barby
+require 'rqrcode'
+require 'barby'
+require "barby/barcode/qr_code"
+require "barby/outputter/png_outputter"
+
 class CheckinItem < ActiveRecord::Base
   belongs_to :shop
   belongs_to :checkin_log
@@ -60,6 +67,8 @@ class CheckinItem < ActiveRecord::Base
   attr_accessible :wall_description  #ウォール書き込み Description
   attr_accessible :wall_picture      #ウォール書き込み Picture
 
+  attr_accessible :qrcode            #QRcode画像
+
   validates :fbName, :presence=>{:message=>"チェックインプレイスを選択してください。"}
   validates :item_name, :presence=>{:message=>"チェックインアイテムの名称は必須です。"}
   validates :title, :presence=>{:message=>"お店の名前は必須です。"}
@@ -79,6 +88,19 @@ class CheckinItem < ActiveRecord::Base
   before_create do |record|
     #create_datetimeに今の時間を入れる
     record.create_datetime = Time.now.to_s(:db)
+  end
+
+  #コールバック
+  before_create do |record|
+    #qr_codeに画像を入れる
+    url = Facebook::CHECKIN_URL + self.access_key
+    self.qrcode = barcode(url,:ydim=>4, :xdim=>4).read
+  end
+
+  def barcode( data ,png_opts={})
+    code = Barby::QrCode.new(data)
+    io = StringIO.new(code.to_png(png_opts))
+    io.respond_to?(:set_encoding) ? io.set_encoding('UTF-8') : io
   end
 
   #初期化処理

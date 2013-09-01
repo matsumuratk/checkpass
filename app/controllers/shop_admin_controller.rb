@@ -175,6 +175,13 @@ Rails.logger.debug "params = #{params}"
 
   end
   
+  #QRcode表示
+  def qrcode
+    @checkin_item = @myShop.checkin_items.find_by_access_key(params[:access_key])
+    send_data @checkin_item.qrcode, :type => 'image/png', :disposition => 'inline'
+
+  end
+
   #AJAX search
   #placeの検索
   def search
