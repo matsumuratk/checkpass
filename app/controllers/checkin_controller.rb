@@ -85,19 +85,19 @@ class CheckinController < CheckinApplicationController
       return
     end
 
-    if @checkin_item.post_wall_check == true
-      #チェックイン処理、ウォール書き込み処理
-      begin
-        #チェックイン
-        graph_place.checkin(:message => params[:checkin][:message])
-        graph_place.writeWall(@checkin_item)
-        @checkin_item.setCheckinLog(@fbProfile)
+    begin
+      #チェックイン
+      graph_place.checkin(:message => params[:checkin][:message])
+      @checkin_item.setCheckinLog(@fbProfile)
 
-      rescue => e
-        #エラー処理
-        Rails.logger.debug("docheckinエラー:#{e.message}")
-        raise
+      #ウォール書き込み
+      if @checkin_item.post_wall_check == true
+        graph_place.writeWall(@checkin_item)
       end
+
+    rescue => e
+      #エラー処理
+      Rails.logger.error("docheckinエラー:#{e.message}")
     end
     
     respond_to do |format|

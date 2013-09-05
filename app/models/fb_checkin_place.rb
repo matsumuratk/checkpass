@@ -98,12 +98,14 @@ class FbCheckinPlace
   def writeWall(checkin_item)
     begin
       #ウォール書き込み
+f=Facebook::BASE_URL + checkin_item.wall_picture.url.to_s
+Rails.logger.debug("url=#{f}")
       @graph.put_wall_post(checkin_item.wall_message,{
         "name" => checkin_item.wall_name,
         "link" => checkin_item.wall_link,
         "caption" => checkin_item.wall_caption,
         "description" => checkin_item.wall_description,
-        "picture" => Facebook::BASE_URL + checkin_item.coupon_image.url.to_s
+        "picture" => Facebook::BASE_URL + checkin_item.wall_picture.url.to_s
       })
     rescue => e
       #エラー処理

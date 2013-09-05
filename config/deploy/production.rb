@@ -25,5 +25,5 @@ role :db,  "aws.evangelize.jp", :primary => true # This is where Rails migration
 set :deploy_to, "/home/checkpass/checkpass_production"
 
 # hot deployを利用するため unicorn:restartを指定
-after 'deploy:restart', 'unicorn:restart' 
+#after 'deploy:restart', 'unicorn:restart' 
 
