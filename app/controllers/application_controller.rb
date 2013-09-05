@@ -53,4 +53,27 @@ Rails.logger.debug "_create_facebook_session:mode=#{mode}"
  	  redirect_to session[mode.to_s+":"+:oauth.to_s].url_for_oauth_code(:permissions => Facebook::PERMISSIONS[mode] )
   end
 
+ # 例外ハンドル
+  # ルーティングエラーと、データが見つからない場合は404エラー扱い
+  rescue_from ActionController::RoutingError, ActiveRecord::RecordNotFound, :with => :render_404 if Rails.env.production?
+  # 上記以外のエラーは500エラー扱い
+  rescue_from Exception, :with => :render_500 if Rails.env.production?
+
+  # 500エラーはログを取り#{Rails.root}/public/500.htmlを表示
+  def render_500(exception = nil)
+    if exception
+      logger.info "Rendering 500 with exception: #{exception.message}"
+    end
+
+    render :file => "#{Rails.root}/public/500.html", :status => 500, :layout => false, :content_type => 'text/html'
+  end
+
+  # 404エラーはログを取り#{Rails.root}/public/404.htmlを表示
+  def render_404(exception = nil)
+    if exception
+      logger.info "Rendering 404 with exception: #{exception.message}"
+    end
+
+    render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => false, :content_type => 'text/html'
+  end
 end

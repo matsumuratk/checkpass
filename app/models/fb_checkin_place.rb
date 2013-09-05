@@ -110,7 +110,6 @@ Rails.logger.debug("url=#{f}")
     rescue => e
       #エラー処理
       Rails.logger.error("writeWall エラー:#{e.message}")
-      raise
     end
   end
 end    
