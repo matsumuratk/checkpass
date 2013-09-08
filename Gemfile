@@ -39,7 +39,7 @@ gem 'execjs'
 group :test, :production do
 	gem 'libv8','~> 3.3.10'
 	gem 'therubyracer','~> 0.10.2'
-  gem 'less-rails'
+  gem 'less-rails','=2.2.3'
 end
 
 # Rails file uploader
