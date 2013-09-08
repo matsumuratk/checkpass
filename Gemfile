@@ -42,7 +42,13 @@ group :test, :production do
   gem 'less-rails'
 end
 
+# Rails file uploader
 gem 'carrierwave'
+
+# Rails file uploader use  S3
+group :production do
+  gem "fog",  "~> 1.3.1"
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
