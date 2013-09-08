@@ -14,9 +14,11 @@ if Rails.env.production?
     config.fog_public                       = false
     config.fog_authenticated_url_expiration = 60
     config.fog_attributes = {'Cache-Control'=>'max-age=82800'}   
+
+    Rails.logger.info "config = #{config}"
+
   end
 
-  Rails.logger.info "config = #{config}"
 
 else
   CarrierWave.configure do |config|
