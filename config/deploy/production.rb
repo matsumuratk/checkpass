@@ -1,7 +1,7 @@
 # rbenv setting
 require 'capistrano-rbenv'
 set :rbenv_ruby_version, '1.9.3-p448'
-ssh_options[:keys] = ["/home/taku/.ssh/id_dsa.ppk.evangelize.jp"]
+ssh_options[:keys] = ["/home/taku/.ssh/id_dsa"]
 namespace :rbenv do
   task :setup_shellenv do
     set :default_environment, {
@@ -20,6 +20,7 @@ set :rails_env, 'production'
 role :web, "ec2-54-250-162-99.ap-northeast-1.compute.amazonaws.com"                       # Your HTTP server, Apache/etc
 role :app, "ec2-54-250-162-99.ap-northeast-1.compute.amazonaws.com"                       # This may be the same as your `Web` server
 role :db,  "ec2-54-250-162-99.ap-northeast-1.compute.amazonaws.com", :primary => true # This is where Rails migrations will run
+
 #role :db,  "your slave db-server here"
 
 set :deploy_to, "/home/checkpass/checkpass_production"

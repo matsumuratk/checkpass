@@ -14,7 +14,8 @@ if Rails.env.production?
     config.fog_public                       = true
     #config.fog_authenticated_url_expiration = 60
     config.fog_attributes = {'Cache-Control'=>'max-age=82800'}   
-    config.fog_host       = 'https://s3.amazonaws.com'
+    #config.fog_host       = 'https://s3.amazonaws.com'
+    config.asset_host       = 'https://s3.amazonaws.com'
 
   end
 
