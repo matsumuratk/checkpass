@@ -17,9 +17,9 @@ set :port, 22
 set :use_sudo, false
 set :default_run_options, :pty=>true
 set :rails_env, 'production'
-role :web, "aws.evangelize.jp"                       # Your HTTP server, Apache/etc
-role :app, "aws.evangelize.jp"                       # This may be the same as your `Web` server
-role :db,  "aws.evangelize.jp", :primary => true # This is where Rails migrations will run
+role :web, "ec2-54-250-162-99.ap-northeast-1.compute.amazonaws.com"                       # Your HTTP server, Apache/etc
+role :app, "ec2-54-250-162-99.ap-northeast-1.compute.amazonaws.com"                       # This may be the same as your `Web` server
+role :db,  "ec2-54-250-162-99.ap-northeast-1.compute.amazonaws.com", :primary => true # This is where Rails migrations will run
 #role :db,  "your slave db-server here"
 
 set :deploy_to, "/home/checkpass/checkpass_production"
