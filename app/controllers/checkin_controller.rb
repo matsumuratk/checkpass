@@ -147,6 +147,18 @@ Rails.logger.debug("top_image:#{@checkin_item.top_image}")
     end
   end
 
+  #認証エラー
+  def autherror
+    Rails.logger.info "Checkin 認証エラー"
+		@redirect_url =  session["User:"+:after_login_redirect_url.to_s]
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
+  end
+
 end
 
 class NoGraphPlaceException < Exception; end  #GraphPlaceなし

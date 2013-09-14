@@ -11,14 +11,12 @@ if Rails.env.production?
         :region                 => 'ap-northeast-1'               
     }
     config.fog_directory                    = ENV["AWS_S3_BUCKET"]
-    config.fog_public                       = false
-    config.fog_authenticated_url_expiration = 60
+    config.fog_public                       = true
+    #config.fog_authenticated_url_expiration = 60
     config.fog_attributes = {'Cache-Control'=>'max-age=82800'}   
-
-    Rails.logger.info "config = #{config}"
+    config.fog_host       = 'https://s3.amazonaws.com'
 
   end
-
 
 else
   CarrierWave.configure do |config|

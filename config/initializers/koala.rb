@@ -8,6 +8,10 @@ module Facebook
 	CALLBACK_URL = CONFIG['callback_url']
   CHECKIN_URL = CONFIG['checkin_url']
   BASE_URL = CONFIG['base_url']
+  AUTH_ERROR_REDIRECT = {
+    :User => CONFIG['auth_error_redirect_checkin'],
+    :ShopAdmin => CONFIG['auth_error_redirect_shopadmin']
+  }
 end
 
 Koala::Facebook::OAuth.class_eval do

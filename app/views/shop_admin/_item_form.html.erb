@@ -77,7 +77,7 @@ Facebookアカウントで検索する： Facebookアカウントの文字列を
     <label><%= f.radio_button :top_image_select, '1',{} %>画像を使う</label><br/>
     <label><%= f.radio_button :top_image_select, '2',{} %>テキストを使う</label>
    </p>
-   <p id="top_image_select_1">お店の画像を選択：<%= f.file_field :top_image, :id=>"top_image", :size=>60 %></p>
+   <p id="top_image_select_1">お店の画像を選択(※画像サイズは横640px以下にしてください。)：<%= f.file_field :top_image, :id=>"top_image", :size=>60 %></p>
    <p id="top_image_select_2">お店説明テキスト：<%= f.text_field :top_image_text, :id=>"top_image_text", :size=>"60" %></p>
    <br/>
    <p>③お店の紹介。画像を使うこともできます。</p>
@@ -87,7 +87,7 @@ Facebookアカウントで検索する： Facebookアカウントの文字列を
    </p>
    <p id="middle_image_select_2">お店の紹介テキスト：<br/>
    <%= f.text_field :middle_image_text,:id=>"middle_image_text", :size=>"90" %></p>
-   <p id="middle_image_select_1">お店の紹介画像：<%= f.file_field :middle_image, :id=>"middle_image" %></p>
+   <p id="middle_image_select_1">お店の紹介画像(※画像サイズは横640px以下にしてください。)：<%= f.file_field :middle_image, :id=>"middle_image" %></p>
    <br/>
    <p>④チェックインを促すメッセージ<span class="require">（※必須）</span>：<br/>
    <%= f.text_field :comment_title, :id=>"comment_title", :size=>"90" %></p>
@@ -106,7 +106,7 @@ Facebookアカウントで検索する： Facebookアカウントの文字列を
     <label><%= f.radio_button :coupon_image_select, '1',{} %>画像を使う</label><br/>
     <label><%= f.radio_button :coupon_image_select, '2',{} %>テキストを使う</label>
    </p>
-   <p id="coupon_image_select_1">クーポン画像を使う：<%= f.file_field :coupon_image,:id=>"coupon_image" %></p>
+   <p id="coupon_image_select_1">クーポン画像を使う(※画像サイズは横640px以下にしてください。)：<%= f.file_field :coupon_image,:id=>"coupon_image" %></p>
    <p id="coupon_image_select_2">テキストで記述する：<%= f.text_field :coupon_image_text, :id=>"coupon_image_text",:size=>90 %></p>
 
    <br/>
@@ -127,7 +127,7 @@ Facebookアカウントで検索する： Facebookアカウントの文字列を
     <p><%= f.label :wall_link,"お店サイトのURL：　"%><%= f.text_field :wall_link, :id=>"wall_link",:size=>60 %></p>
     <p><%= f.label :wall_caption,"見出し：　"%><%= f.text_field :wall_caption, :id=>"wall_caption",:size=>60 %></p>
     <p><%= f.label :wall_description,"お店の紹介：　"%><%= f.text_field :wall_description, :id=>"wall_description",:size=>60 %></p>
-    <p><%= f.label :wall_picture,"お店の画像：　"%><%= f.file_field :wall_picture, :id=>"wall_picture",:size=>60 %></p>
+    <p><%= f.label :wall_picture,"お店の画像(※画像サイズは横320px以下にしてください。)：　"%><%= f.file_field :wall_picture, :id=>"wall_picture",:size=>60 %></p>
    </div>
 
    <div class="item_contents_preview">

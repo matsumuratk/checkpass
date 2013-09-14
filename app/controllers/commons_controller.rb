@@ -11,10 +11,20 @@ class CommonsController < ApplicationController
     logger.debug "callback:mode=#{[mode]}"
     logger.debug "callback:oauth=#{session[mode.to_s+":"+:oauth.to_s]}"
 
-		#get the access token from facebook with your code
-		session[mode.to_s+":"+:access_token.to_s] = session[mode.to_s+":"+:oauth.to_s].get_access_token(params[:code])
-    @graph = Koala::Facebook::GraphAPI.new(session[mode.to_s+":"+:access_token.to_s])
-    #session[mode][:fbprofile] = @graph.get_object("/me")
+    begin
+  		#get the access token from facebook with your code
+  		session[mode.to_s+":"+:access_token.to_s] = session[mode.to_s+":"+:oauth.to_s].get_access_token(params[:code])
+
+      @graph = Koala::Facebook::GraphAPI.new(session[mode.to_s+":"+:access_token.to_s])
+    rescue => e
+      Rails.logger.error("commons#callback error:#{e}")
+
+      redirect_to Facebook::AUTH_ERROR_REDIRECT[mode.to_sym]
+
+
+
+      return
+    end
 
     logger.debug "callback:access_token=#{session[mode.to_s+":"+:access_token.to_s]}"
     logger.debug "callback:redirect_to=#{session[mode.to_s+":"+:after_login_redirect_url.to_s]}"

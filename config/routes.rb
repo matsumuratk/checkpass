@@ -92,6 +92,9 @@ Checkpass::Application.routes.draw do
   match 'contact', :to=>'contact#contact_form'
   match 'contact/create', :to=>'contact#create', :as=>'contact_create'
 
+  #認証エラー
+  match 'checkin/autherror',:to=>'checkin#autherror'
+  match 'shop_admin/autherror',:to=>'shop_admin#autherror'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -150,6 +153,6 @@ Checkpass::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   match ':controller(/:action(/:id))(.:format)'
 
-  # match error uri
+  # すべてのマッチしないURLの処理
   match '*a', :to => 'errors#routing', :via => [:get]
 end

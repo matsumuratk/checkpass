@@ -12,7 +12,9 @@ development:
   base_url: "http://localhost:3000"
   callback_url: "http://localhost:3000/commons/callback"
   checkin_url: "http://localhost:3000/checkin/place/"
-  
+  auth_error_redirect_checkin: "http://localhost:3000/checkin/autherror/"
+  auth_error_redirect_shopadmin: "http://localhost:3000/shop_admin/autherror/"
+
 test:
   user_app_id: "496472717041047"
   user_secret_key: "b909fd5dc308049116fba50daaaba9d0"
@@ -26,6 +28,8 @@ test:
   base_url: "http://test.checkpass.jp"
   callback_url: "http://test.checkpass.jp/commons/callback"
   checkin_url: "http://test.checkpass.jp/checkin/place/"
+  auth_error_redirect_checkin: "http://test.checkpass.jp/checkin/autherror/"
+  auth_error_redirect_shopadmin: "http://test.checkpass.jp/shop_admin/autherror/"
 
 production:
   user_app_id: "496472717041047"
@@ -40,4 +44,6 @@ production:
   base_url: "http://checkpass.jp"
   callback_url: "http://checkpass.jp/commons/callback"
   checkin_url: "http://checkpass.jp/checkin/place/"
+  auth_error_redirect_checkin: "http://checkpass.jp/checkin/autherror/"
+  auth_error_redirect_shopadmin: "http://checkpass.jp/shop_admin/autherror/"
 

@@ -7,14 +7,16 @@ class ShopAdminApplicationController < ApplicationController
         :preview_upload_top_image,
         :preview_upload_middle_image,
         :preview_upload_coupon_image,
-        :preview_upload_wall_picture   ]
+        :preview_upload_wall_picture,
+        :autherror   ]
 
   #registチェックフィルタ
   before_filter :check_regist, :except => [:noregist, :regist, :doregist, :paypal_notify,
         :preview_upload_top_image,
         :preview_upload_middle_image,
         :preview_upload_coupon_image,
-        :preview_upload_wall_picture   ]
+        :preview_upload_wall_picture,
+        :autherror   ]
 
   #レイアウト指定
   #layout "shop_admin"

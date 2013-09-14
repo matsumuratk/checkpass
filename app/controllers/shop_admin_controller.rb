@@ -241,4 +241,16 @@ Rails.logger.debug "params = #{params}"
       render :text => "NG"
     end
   end
+
+  #認証エラー
+  def autherror
+    Rails.logger.info "ShopAdmin 認証エラー"
+
+    respond_to do |format|
+      format.html
+    end
+
+  end
+
+
 end
