@@ -1,0 +1,9 @@
+/*
+ * jQuery.upload v1.0.2
+ *
+ * Copyright (c) 2010 lagos
+ * Dual licensed under the MIT and GPL licenses.
+ *
+ * http://lagoscript.org
+ */
+!function(e){function t(t){return e.map(i(t),function(e){return'<input type="hidden" name="'+e.name+'" value="'+e.value+'"/>'}).join("")}function i(t){function i(e,t){n.push({name:e,value:t})}if(e.isArray(t))return t;var n=[];return"object"==typeof t?e.each(t,function(t){e.isArray(this)?e.each(this,function(){i(t,this)}):i(t,e.isFunction(this)?this():this)}):"string"==typeof t&&e.each(t.split("&"),function(){var t=e.map(this.split("="),function(e){return decodeURIComponent(e.replace(/\+/g," "))});i(t[0],t[1])}),n}function n(t,i){var n;if(n=e(t).contents().get(0),e.isXMLDoc(n)||n.XMLDocument)return n.XMLDocument||n;switch(n=e(n).find("body").html(),i){case"xml":if(n=n,window.DOMParser)n=(new DOMParser).parseFromString(n,"application/xml");else{var s=new ActiveXObject("Microsoft.XMLDOM");s.async=!1,s.loadXML(n),n=s}break;case"json":n=window.eval("("+n+")")}return n}var s=0;e.fn.upload=function(i,o,r,a){var l,u,c,h=this;c="jquery_upload"+ ++s;var d=e('<iframe name="'+c+'" style="position:absolute;top:-9999px" />').appendTo("body"),p='<form target="'+c+'" method="post" enctype="multipart/form-data" />';return e.isFunction(o)&&(a=r,r=o,o={}),u=e("input:checkbox",this),c=e("input:checked",this),p=h.wrapAll(p).parent("form").attr("action",i),u.removeAttr("checked"),c.attr("checked",!0),l=(l=t(o))?e(l).appendTo(p):null,p.submit(function(){d.load(function(){var t=n(this,a),i=e("input:checked",h);p.after(h).remove(),u.removeAttr("checked"),i.attr("checked",!0),l&&l.remove(),setTimeout(function(){d.remove(),"script"===a&&e.globalEval(t),r&&r.call(h,t)},0)})}).submit(),this}}(jQuery);

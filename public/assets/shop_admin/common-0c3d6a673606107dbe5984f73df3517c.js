@@ -1,0 +1,1 @@
+function adjust_label(e){sel=e+" label";var t=0;$(sel).each(function(){$(this).width()>t&&(t=$(this).width())}),$(sel).css("display","inline-block"),$(sel).width(t)}$(function(){$(".link_button").button().click(function(e){e.preventDefault()})});

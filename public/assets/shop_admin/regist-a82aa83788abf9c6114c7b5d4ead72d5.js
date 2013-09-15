@@ -1,0 +1,1 @@
+$(function(){$("#policy_agreement").change(function(){$(this).is(":checked")?($("#submit").attr("src","/assets/shop_admin/riyoukaisi_enable.png"),$("#submit").attr("disabled",!1)):($("#submit").attr("disabled",!0),$("#submit").attr("src","/assets/shop_admin/riyoukaisi_disable.png"))})});
