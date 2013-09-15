@@ -1,5 +1,6 @@
 require "bundler/capistrano"
 require 'capistrano/ext/multistage'
+
 ssh_options[:keys] = %w('/c/Users/taku/.ssh/id_dsa')
 
 set :application, "Checkpass"

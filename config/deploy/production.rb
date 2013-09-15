@@ -12,6 +12,11 @@ namespace :rbenv do
   after 'multistage:ensure', 'rbenv:setup_shellenv'
 end
 
+#dev環境で作ったassetsを使用。assets:precompileを実行しない。
+callbacks[:before].delete_if{|c| c.source == "deploy:assets:symlink"}
+callbacks[:after].delete_if{|c| c.source == "deploy:assets:precompile"}
+
+
 set :user, "checkpass"
 set :port, 22
 set :use_sudo, false
