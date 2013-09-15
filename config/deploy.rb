@@ -1,6 +1,5 @@
 require "bundler/capistrano"
 require 'capistrano/ext/multistage'
-
 ssh_options[:keys] = %w('/c/Users/taku/.ssh/id_dsa')
 
 set :application, "Checkpass"
@@ -29,7 +28,7 @@ require 'capistrano-unicorn'
 
 
 after "deploy:symlink", "deploy:link_shared"
-before "deploy:restart", "assets:precompile"
+#before "deploy:restart", "assets:precompile"
 before "deploy:setup", "deploy:create_dir"
 after "deploy:update", "deploy:cleanup"  # デプロイ後に世代チェック
 

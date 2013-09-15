@@ -8,6 +8,7 @@ gem 'rails', '3.2.14'
 
 group :development do
 	gem 'sqlite3'
+  gem 'mysql2'
 end
 
 group :test do
@@ -36,19 +37,19 @@ gem 'execjs'
 #group :development do
 #	gem 'therubyracer','~> 0.10.2', :platform=>:ruby
 #end
-group :test, :production do
+#group :test, :production do
 	gem 'libv8','~> 3.3.10'
 	gem 'therubyracer','~> 0.10.2'
   gem 'less-rails','=2.2.3'
-end
+#end
 
 # Rails file uploader
 gem 'carrierwave'
 
 # Rails file uploader use  S3
-group :production do
+#group :production do
   gem "fog",  "~> 1.3.1"
-end
+#end
 
 # Gems used only for assets and not required
 # in production environments by default.
