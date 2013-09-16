@@ -6,6 +6,7 @@ checkin/fontawesome-webfont.ttf: eeaa62a793d9c8a953ebc3d96b62ef26
 checkin/fontawesome-webfont.woff: 6f1d7f6e6d550233a3343a634e38e022
 ajax-loader.gif: cad1a448fe000d9643c57860e5493861
 ajax-loader.png: c070ffdc2375bcdda3ddeb849878be72
+checkpass_auth.png: d5647b130cdb62d3425325a2e3d88fc8
 dummy.gif: 3dbe121a376a181f0fe840fb1daeeb51
 icons-18-black-pack.png: 6c5a1fe6fa2d601fe884c4b3c8cf46a6
 icons-18-black.png: b6e62647e8518462e73fd052bfe25d6c
@@ -23,6 +24,7 @@ sample_top_image.png: 54cdde0d0a39a62df5178ad89e6d5dda
 sample_wall_image.png: b7fd1008d41ab7c484bea5d22391bfd1
 shop_admin/btn_subscribeCC_LG.gif: 9a10aaed217752f53ffd3cc724c13d87
 shop_admin/btn_unsubscribe_SM.gif: 4b0314d18d1c1039e5c8705fb7ab1453
+shop_admin/shopadmin_auth.png: 25a764637cf8ade7e9394ae8287d973d
 admin.js: b53c13a64f31867890d6c92a1e1326b8
 application.js: a03878f582894ff0a8e69d9e07da5409
 bootstrap.js: 4b9b75f8f91d4b3d80813948429327d5

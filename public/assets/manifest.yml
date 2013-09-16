@@ -13,6 +13,8 @@ ajax-loader.gif: ajax-loader-cad1a448fe000d9643c57860e5493861.gif
 ajax-loader/index.gif: ajax-loader-cad1a448fe000d9643c57860e5493861.gif
 ajax-loader.png: ajax-loader-c070ffdc2375bcdda3ddeb849878be72.png
 ajax-loader/index.png: ajax-loader-c070ffdc2375bcdda3ddeb849878be72.png
+checkpass_auth.png: checkpass_auth-d5647b130cdb62d3425325a2e3d88fc8.png
+checkpass_auth/index.png: checkpass_auth-d5647b130cdb62d3425325a2e3d88fc8.png
 dummy.gif: dummy-3dbe121a376a181f0fe840fb1daeeb51.gif
 dummy/index.gif: dummy-3dbe121a376a181f0fe840fb1daeeb51.gif
 icons-18-black-pack.png: icons-18-black-pack-6c5a1fe6fa2d601fe884c4b3c8cf46a6.png
@@ -47,6 +49,8 @@ shop_admin/btn_subscribeCC_LG.gif: shop_admin/btn_subscribeCC_LG-9a10aaed217752f
 shop_admin/btn_subscribeCC_LG/index.gif: shop_admin/btn_subscribeCC_LG-9a10aaed217752f53ffd3cc724c13d87.gif
 shop_admin/btn_unsubscribe_SM.gif: shop_admin/btn_unsubscribe_SM-4b0314d18d1c1039e5c8705fb7ab1453.gif
 shop_admin/btn_unsubscribe_SM/index.gif: shop_admin/btn_unsubscribe_SM-4b0314d18d1c1039e5c8705fb7ab1453.gif
+shop_admin/shopadmin_auth.png: shop_admin/shopadmin_auth-25a764637cf8ade7e9394ae8287d973d.png
+shop_admin/shopadmin_auth/index.png: shop_admin/shopadmin_auth-25a764637cf8ade7e9394ae8287d973d.png
 admin.js: admin-8fc3425b3357c65b3f9b5edff0ee1ff0.js
 admin/index.js: admin-8fc3425b3357c65b3f9b5edff0ee1ff0.js
 application.js: application-1b13569e9620782f423d4cd3ce931750.js
